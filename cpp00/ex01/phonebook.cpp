@@ -1,98 +1,147 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 18:45:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/06/22 00:15:07 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/06/23 21:53:35 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-int		Contact::GetLen(std::string str)
+int		PhoneBook::CheckInput(std::string str)
 {
-	int	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+		int	i = 0;
+
+		while (str[i])
+			i++;
+		if (i == 0)
+			return (1);
+		if (i > 9)
+			return (2);
+		return (0);
 }
 
-void	Contact::ShowAgenda(Contact person)
-{
-	std::cout<<person.FirstName[0]<<std::endl;
-	std::cout<<person.LastName[0]<<std::endl;
-	std::cout<<person.PhoneNumber[0];
-}
-
-int		Contact::CheckPhoneNumber(std::string Phone)
+int		PhoneBook::CheckPhoneNumber(std::string Number)
 {
 	int	i = 0;
-	
-	while (Phone[i])
+
+	while (Number[i])
 	{
-		if (std::isdigit(Phone[i]) == 0)
+		if (std::isdigit(Number[i]) == 0)
 			return (1);
 		i++;
 	}
+	if (i == 0)
+		return (1);
+	if (i > 10)
+		return (2);
 	return (0);
 }
 
-void	PhoneBook::TakeCareOfAgenda(Contact person, std::string CmdType)
+std::string	PhoneBook::MakeItTen(std::string str)
 {
-	printf("%d\n", person.Index);
-	if (CmdType == "ADD")
+	std::string	Ten(11, ' ');
+	int			i = 0;
+	
+	while (i < 9)
 	{
-		std::cout<<"Enter FirstName: "; getline(std::cin, person.SaveFirst);
-		if (person.GetLen(person.SaveFirst) == 0)
-		{
-			std::cout<<"Should Have At Least One Charachter\n";
-			std::cout<<"Try Again"<<std::endl; return ;
-		}
-		std::cout<<"Enter LastName: "; getline(std::cin, person.SaveLast);
-		if (person.GetLen(person.SaveLast) == 0)
-		{
-			std::cout<<"Should Have At Least One Charachter\n";
-			std::cout<<"Try Again"<<std::endl; return ;
-		}
-		std::cout<<"Enter The PhoneNUmber: "; getline(std::cin, person.SavePhone);
-		if (person.CheckPhoneNumber(person.SavePhone)
-			|| person.GetLen(person.SavePhone) == 0)
-		{
-			std::cout<<"PhoneNumber Should Only Contain Digits\n"
-			<<"Contact Not saved!"<< std::endl; return ;
-		}
-		person.FirstName[person.Index] = person.SaveFirst;;
-		person.LastName[person.Index] = person.SaveLast;
-		person.PhoneNumber[person.Index] = person.SavePhone;
-		std::cout<<"Contact Added"<<std::endl;
-		person.Index++;
-		int j = 0;
-		while (j < person.Index)
-		{
-			std::cout<<person.FirstName[j]<<" "
-			<<person.LastName[j] << " "
-			<<person.PhoneNumber[j]<<std::endl;
-			j++;
-		}
+		Ten[i] = str[i];
+		i++;
 	}
-	else if (CmdType == "SEARCH")
-		person.ShowAgenda(person);
-	else if (CmdType == "EXIT")
-		exit(0);
+	Ten[i] = '.';
+	Ten[i + 1] = '\0';
+	return (Ten);
 }
 
+int		PhoneBook::AddToAgenda(PhoneBook *Agenda, int i)
+{
+	std::string	First;
+	std::string	Last;
+	std::string	Number;
+
+	std::cout << "Enter The First Name: ";
+	std::getline(std::cin, First);
+	if (CheckInput(First) == 1)
+	{
+		std::cout << "Try Again\nSomthing Wrong ⚠️" << std::endl; return (1);
+	}
+	if (CheckInput(First) == 2) First = MakeItTen(First);
+	/*-------------------------------------------------------------------*/
+	std::cout << "Enter The Last Name: ";
+	std::getline(std::cin, Last);
+	if (CheckInput(Last) == 1)
+	{
+		std::cout << "Try Again\nSomthing Wrong ⚠️" << std::endl; return (1);
+	}
+	if (CheckInput(Last) == 2) Last = MakeItTen(Last);
+	/*-------------------------------------------------------------------*/
+	std::cout << "Enter The Phone Number: ";
+	std::getline(std::cin, Number);
+	if (CheckPhoneNumber(Number) == 1)
+	{
+		std::cout << "Try Again\nSomthing Wrong ⚠️" << std::endl; return (1);
+	}
+	if (CheckPhoneNumber(Number) == 2) Number = MakeItTen(Number);
+	/*-------------------------------------------------------------------*/
+	std::cout << "Contact Is Added Succesfully ✅" << std::endl;
+	Agenda->contact[i].SetVal(First, Last, Number);
+	return (0);
+}
+
+void	PhoneBook::LookAtAgenda(PhoneBook *Agenda, int n)
+{
+	int	i = 0;
+
+	if (n > 4)
+		n = 4;
+	while (i < n)
+	{
+		std::cout << i + 1;
+		Agenda->contact[i].GetVal();
+		i++;
+	}
+}
+
+void	PhoneBook::UpToDateAgenda(PhoneBook *Agenda)
+{
+	int	i = 0, j = 1;
+	
+	while (i < 7)
+	{
+		Agenda->contact[i] = Agenda->contact[j];
+		i++;
+		j++;
+	}
+}
 int main()
 {
-    PhoneBook	book;
-	Contact		person;
-    std::string	CmdType;
+	PhoneBook	Agenda;
+	std::string	CmdType;
+	int			i = 0;
 
-    person.Index = 0;
-    while (getline(std::cin, CmdType))
+	while (std::getline(std::cin, CmdType))
 	{
-        book.TakeCareOfAgenda(person, CmdType);
+		if (CmdType == "ADD")
+		{
+			if (i < 8 && Agenda.AddToAgenda(&Agenda, i) == 0)
+			{
+				std::printf("%d\n", i);
+				i++;
+			}
+			else if (i == 8)
+			{
+				Agenda.UpToDateAgenda(&Agenda);
+				printf("here\n");
+				Agenda.AddToAgenda(&Agenda, 7);
+			}
+		}
+		if (CmdType == "SEARCH")
+			Agenda.LookAtAgenda(&Agenda, i);
+		if (CmdType == "EXIT")
+			break;
 	}
 }
