@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 20:37:54 by zasabri           #+#    #+#             */
-/*   Updated: 2023/06/23 21:51:17 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/04 19:21:39 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,24 @@ class Contact
 		std::string	FirstName;
 		std::string	LastName;
 		std::string	PhoneNum;
-		//int			Index;
+		std::string	NickName;
+		std::string	DarkSecret;
 	public:
-		void		SetVal(std::string First, std::string Last, std::string Number)
+		void		SetVal(std::string First, std::string Last,
+					std::string Number, std::string Nickname,
+					std::string DarkSec)
 		{
 			FirstName	= First;
 			LastName	= Last;
 			PhoneNum	= Number;
-			//Index		= i;
+			NickName	= Nickname;
+			DarkSecret	= DarkSec;
 		}
 		void		GetVal()
 		{
-			std::cout << " | " << FirstName << " | "
-			<< LastName << " | " << PhoneNum << std::endl;
+			std::cout << "|" << FirstName << "|"
+			<< LastName << "|" << PhoneNum << "|"
+			<< NickName << "|" << std::endl;
 		}
 };
 

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 18:47:34 by zasabri           #+#    #+#             */
-/*   Updated: 2023/06/23 06:58:17 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/04 19:00:45 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ class PhoneBook
 		int			CheckPhoneNumber(std::string Phone);
 		std::string	MakeItTen(std::string str);
 };
-
+int		len(std::string str);
 #endif
