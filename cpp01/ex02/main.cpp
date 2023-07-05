@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/25 16:14:43 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/05 13:39:45 by zasabri          ###   ########.fr       */
+/*   Created: 2023/07/05 15:26:00 by zasabri           #+#    #+#             */
+/*   Updated: 2023/07/05 16:23:44 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-Zombie	*newZombie(std::string name)
+int main()
 {
-    Zombie	*TWD;
-	
-	TWD = new Zombie;
-	TWD->SetVal(name);
-	return (TWD);	
+	std::string	str;
+	std::string	*ptr;
+
+	str = "HI THIS IS BRAIN";
+	ptr = &str;
+	std::string &ref = str;
+	std::cout	<< &str << "\n"
+		<< ptr << "\n" << &ref
+		<< std::endl;
+	// std::string	h = "Cool";
+	// ref = h;
+	// std::cout << str << *ptr << &ref;
+	std::cout	<< str << "\n"
+		<< *ptr << "\n" << ref
+		<< std::endl;
 }
