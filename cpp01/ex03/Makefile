@@ -4,7 +4,7 @@ SRC			= main.cpp\
 			HumanB.cpp\
 			
 
-OBJ			= $(SRC:.cpp=.o)
+OBJS			= $(SRC:.cpp=.o)
 
 CXX			= c++
 
@@ -14,12 +14,12 @@ NAME		= UnnecessaryViolence
 
 all : $(NAME)
 
-$(NAME):$(OBJ)
+$(NAME):$(OBJS)
 
-	$(CXX) $(OBJ) -o $(NAME)
+	$(CXX) $(OBJS) -o $(NAME)
 
 clean :
-	rm -rf $(OBJ)
+	rm -rf $(OBJS)
 
 fclean : clean
 	rm -rf $(NAME)

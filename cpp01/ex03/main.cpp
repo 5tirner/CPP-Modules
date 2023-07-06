@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:09:23 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/05 18:38:54 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/06 15:53:47 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main()
 		bob.attack();
 		club.setType("some other type of club");
 		bob.attack();
+		std::cout << "-------------------" << std::endl;
 	}
 	{
 		Weapon club = Weapon("crude spiked club");
