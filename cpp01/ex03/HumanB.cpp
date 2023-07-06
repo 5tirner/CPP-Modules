@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:09:11 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/06 17:02:08 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/06 17:15:01 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,4 @@ void	HumanB::attack(void)
 
 HumanB::~HumanB(void)
 {
-
 }

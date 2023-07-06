@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:09:15 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/06 17:01:01 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/06 17:07:14 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,4 @@ void	HumanA::attack(void)
 
 HumanA::~HumanA(void)
 {
-	
 }
