@@ -1,12 +1,13 @@
-SRC		= phonebook.cpp
+SRC			= phonebook.cpp\
+			main.cpp\
 
-OBJ		= $(SRC:.cpp=.o)
+OBJ			= $(SRC:.cpp=.o)
 
-CXX		= c++
+CXX			= c++
 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-NAME	= ./agenda
+NAME		= MyAwesomePhoneBook
 
 all : $(NAME)
 

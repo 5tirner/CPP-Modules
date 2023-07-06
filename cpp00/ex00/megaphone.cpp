@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 17:29:37 by zasabri           #+#    #+#             */
-/*   Updated: 2023/06/21 18:09:31 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/06 17:06:30 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class MegaPhone
 			int	i = 0;
 			while (str[i])
 			{
-				if (str[i] >= 'a' && str[i] <= 'z')
-					str[i] -= 32;
-				std::cout<<str[i];
+				// if (str[i] >= 'a' && str[i] <= 'z')
+				// 	str[i] -= 32;
+				std::cout <<(char)std::toupper(str[i]);
 				i++;
 			}
 		}
@@ -30,14 +30,15 @@ class MegaPhone
 
 int main(int ac, char** av)
 {
-	int	i = 1;
 	MegaPhone MyObg;
+	int	i = 1;
+	
 	while (i < ac)
 	{
 		MyObg.ToUpper(av[i]);
 		i++;	
 	}
 	if (i == 1)
-		std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::cout<<"\n";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	std::cout << std::endl;
 }

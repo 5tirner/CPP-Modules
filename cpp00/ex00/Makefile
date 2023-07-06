@@ -1,12 +1,12 @@
-SRC		= megaphone.cpp
+SRC			= megaphone.cpp
 
-OBJ		= $(SRC:.cpp=.o)
+OBJ			= $(SRC:.cpp=.o)
 
-CXX		= c++
+CXX			= c++
 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-NAME	= ./megaphone
+NAME		= megaphone
 
 all : $(NAME)
 
