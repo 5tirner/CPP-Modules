@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:09:23 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/06 17:13:00 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/07 19:48:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ int main()
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
+		// club.setType("some test");
+		// jim.attack();
 	}
 }
