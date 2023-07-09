@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 17:20:09 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/09 02:44:00 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/09 04:37:31 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,18 @@ int			sLen(std::string str)
 
 std::string	addChar(std::string str, char c)
 {
-	std::string	s;
+	std::string	s(sLen(str) + 2, ' ');
 	int			i;
 
 	i = 0;
-	if (str[0] == '\0')
+	while (str[i])
 	{
-		s = new char[2];
-		s[0] = c;
-		s[1] = '\0';
+		s[i] = str[i];
+		i++;	
 	}
-	else
-	{
-		s = new char[sLen(str) + 2];
-		while (str[i])
-		{
-			s[i] = str[i];
-			i++;	
-		}
-		s[i] = c;
-		s[i + 1] = '\0';
-	}
-	std::cout << str << c << "[" << s << "]" << std::endl;
+	s[i] = c;
+	s[i + 1] = '\0';
+	//std::cout << "[" << s << "]" << std::endl;
 	return (s);
 }
 
@@ -54,10 +44,10 @@ int	streamEditor(std::string FileName, std::string s1, std::string s2)
 	char			x;
 	int				i;
 	std::string		save;
-	std::string		nothing;
+	int				r;
 
-	nothing = "\0";
 	i = 0;
+	save = "\0";
 	toOpen.open(FileName, std::ios::in);
 	if (!toOpen)
 	{
@@ -68,7 +58,6 @@ int	streamEditor(std::string FileName, std::string s1, std::string s2)
 	}
 	else
 	{
-		save = nothing;
 		while (1)
 		{
 			toOpen >> std::noskipws >> x;
@@ -76,13 +65,16 @@ int	streamEditor(std::string FileName, std::string s1, std::string s2)
 				break;
 			if (s1[i] != '\0' && s1[i] == x)
 			{
+				r = 0;
 				save = addChar(save, x);
 				i++;
 			}
-			else if (save == s1)
+			else if (!s1[i] && r == 0)
 			{
-				//std::cout << "[here]";
-				std::cout << s2;
+				r = 1;
+				std::cout << s2 << x;
+				save = "\0";
+				i = 0;
 			}
 			else
 			{
@@ -91,11 +83,13 @@ int	streamEditor(std::string FileName, std::string s1, std::string s2)
 				{
 					//std::cout << "here1";
 					std::cout << save;
-					save = nothing;
+					std::cout << x;
+					save = "\0";
 				}
 				else
 					std::cout << x;
 			}
+			//std::cout << "[" << save << "]" << std::endl;
 		}
 	}
 	std::cout << std::endl;
