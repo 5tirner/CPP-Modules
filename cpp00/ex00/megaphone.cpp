@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 17:29:37 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/06 17:06:30 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/10 10:27:31 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class MegaPhone
 			{
 				// if (str[i] >= 'a' && str[i] <= 'z')
 				// 	str[i] -= 32;
-				std::cout <<(char)std::toupper(str[i]);
+				std::cout << (char)std::toupper(str[i]);
 				i++;
 			}
 		}

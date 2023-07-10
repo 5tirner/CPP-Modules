@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:09:11 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/07 19:55:44 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/08 18:50:37 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ HumanB::HumanB(std::string name)
 
 void	HumanB::setWeapon(Weapon &club)
 {
-	//weaponB->setType(club.getType());
 	weaponB = &club;
 }
 
