@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 17:20:09 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/11 03:04:57 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/11 08:00:44 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	rp::streamEditor(std::string FileName, std::string s1, std::string s2)
 {
-	// std::fstream	toOpen;
-	// std::fstream	toWrite;
-
 	if (openAndCheck(FileName) == 1)
 		return (1);
 	fillReplaceFile(s1, s2);
