@@ -6,11 +6,29 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:33:18 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/05 18:48:58 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/11 04:04:07 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
+void	Contact::SetVal(std::string First, std::string Last,
+		std::string Number, std::string Nickname,
+		std::string DarkSec)
+{
+	FirstName	= First;
+	LastName	= Last;
+	PhoneNum	= Number;
+	NickName	= Nickname;
+	DarkSecret	= DarkSec;
+}
+
+void	Contact::GetVal()
+{
+	std::cout << "|" << FirstName << "|"
+	<< LastName << "|" << PhoneNum << "|"
+	<< NickName << "|" << std::endl;
+}
 
 int main()
 {
