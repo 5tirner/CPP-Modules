@@ -1,4 +1,7 @@
 SRC				= main.cpp\
+				addChar.cpp\
+				openAndCheck.cpp\
+				fillNewFile.cpp\
 
 OBJS			= $(SRC:.cpp=.o)
 

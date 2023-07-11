@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   addchar.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 17:20:09 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/11 03:04:57 by zasabri          ###   ########.fr       */
+/*   Created: 2023/07/11 02:33:28 by zasabri           #+#    #+#             */
+/*   Updated: 2023/07/11 02:34:36 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sifl.hpp"
 
-int	rp::streamEditor(std::string FileName, std::string s1, std::string s2)
+int			sLen(std::string str)
 {
-	// std::fstream	toOpen;
-	// std::fstream	toWrite;
-
-	if (openAndCheck(FileName) == 1)
-		return (1);
-	fillReplaceFile(s1, s2);
-	toWrite.close();
-	toOpen.close();
-	return (0);
+	int	i = 0;
+	
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int main(int ac, char **av)
+std::string	addChar(std::string str, char c)
 {
-	rp	replace;
-	if (ac != 4)
-		std::cout << "Invalid Number Of Argements ❌" << std::endl;
-	else
-		return (replace.streamEditor(av[1], av[2], av[3]));
+	std::string	s(sLen(str) + 2, ' ');
+	int			i;
+
+	i = 0;
+	while (str[i])
+	{
+		s[i] = str[i];
+		i++;	
+	}
+	s[i] = c;
+	s[i + 1] = '\0';
+	return (s);
 }

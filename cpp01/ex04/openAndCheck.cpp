@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   openAndCheck.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 17:20:09 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/11 03:04:57 by zasabri          ###   ########.fr       */
+/*   Created: 2023/07/11 02:35:43 by zasabri           #+#    #+#             */
+/*   Updated: 2023/07/11 03:12:32 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sifl.hpp"
 
-int	rp::streamEditor(std::string FileName, std::string s1, std::string s2)
+int rp::openAndCheck(std::string FileName)
 {
-	// std::fstream	toOpen;
-	// std::fstream	toWrite;
-
-	if (openAndCheck(FileName) == 1)
+	toOpen.open(FileName, std::ios::in);
+	if (!toOpen)
+	{
+		std::cout << "Somthing Wrong ⚠️" << std::endl;
 		return (1);
-	fillReplaceFile(s1, s2);
-	toWrite.close();
-	toOpen.close();
+	}
+	toWrite.open(FileName + ".replace", std::ios::out);
+	if (!toWrite)
+	{
+		std::cout << "Error When \'file.replcae\' Created"
+			<< std::endl;
+		return (1);
+	}
 	return (0);
-}
-
-int main(int ac, char **av)
-{
-	rp	replace;
-	if (ac != 4)
-		std::cout << "Invalid Number Of Argements ❌" << std::endl;
-	else
-		return (replace.streamEditor(av[1], av[2], av[3]));
 }

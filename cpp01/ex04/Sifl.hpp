@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 17:20:43 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/09 01:49:15 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/11 03:05:14 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 # include <iostream>
 # include <fstream>
 
-int	streamEditor(std::string FileName, std::string s1, std::string s2);
+class	rp
+{
+	private:
+		std::fstream	toOpen;
+		std::fstream	toWrite;
+	public:
+		int		streamEditor(std::string FileName, std::string s1, std::string s2);
+		int		openAndCheck(std::string FileName);
+		void	fillReplaceFile(std::string s1, std::string s2);
+};
+
+std::string	addChar(std::string str, char c);
+int			sLen(std::string str);
 
 #endif
