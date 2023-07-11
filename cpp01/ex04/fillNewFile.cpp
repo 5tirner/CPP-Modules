@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 02:57:35 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/11 08:02:48 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/11 08:05:05 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	rp::fillReplaceFile(std::string s1, std::string s2)
 				i = 0;
 				toWrite << s2;
 				save = "\0";
-				//toOpen >> std::noskipws >> x;
 			}
 		}
 		else
