@@ -7,7 +7,7 @@ CXX			= c++
 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-NAME		= Harl2.0
+NAME		= Harl
 
 all : $(NAME)
 

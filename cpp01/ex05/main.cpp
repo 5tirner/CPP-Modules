@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 04:42:21 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/09 04:49:02 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/12 10:56:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	main()
 {
 	Harl	comments;
 	
-	comments.complain("DEBUG");
+	//comments.complain("DEBUG");
 	comments.complain("INFO");
-	comments.complain("WARNING");
-	comments.complain("ERROR");
+	//comments.complain("WARNING");
+	//comments.complain("ERROR");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 04:42:51 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/09 04:47:21 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/12 10:08:59 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	Harl
 		void	error(void);
 	public:
 		void	complain(std::string level);
+		//void	(Harl::*complainPtr[]) (void);
 };
 
 #endif
