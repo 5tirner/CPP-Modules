@@ -1,5 +1,7 @@
 SRC			= phonebook.cpp\
 			main.cpp\
+			add.cpp\
+			search.cpp\
 
 OBJ			= $(SRC:.cpp=.o)
 

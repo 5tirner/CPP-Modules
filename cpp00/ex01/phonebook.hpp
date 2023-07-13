@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 18:47:34 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/04 19:00:45 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/13 14:10:21 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ class PhoneBook
 	private:
 		Contact	contact[8];
 	public:
-		// void	Fill_contact(std::string First, std::string Last, std::string Number, int i)
-		// {
-		// 	contact[i].SetVal(First, Last, Number, i);
-		// }
-		// void	Get_contact(int	i)
-		// {
-		// 	contact[i].GetVal();
-		// }
 		int			AddToAgenda(PhoneBook *Agenda, int i);
 		void		LookAtAgenda(PhoneBook *Agenda, int n);
 		int			CheckInput(std::string str);
@@ -37,4 +29,5 @@ class PhoneBook
 		std::string	MakeItTen(std::string str);
 };
 int		len(std::string str);
+void	InfosToUse(void);
 #endif
