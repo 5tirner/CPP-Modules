@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 10:55:52 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/13 14:06:45 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/15 08:35:49 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ void	PhoneBook::LookAtAgenda(PhoneBook *Agenda, int n)
 	<< std::endl;
 	if (n == 0)
 		std::cout << "The Agenda is empty\n" << std::endl;
-	while (1)
+	while (std::getline(std::cin, view))
 	{
-        std::getline(std::cin, view);
 		if (view == "Q")
 			break;
 		if (len(view) == 1)
