@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 04:42:25 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/12 10:41:08 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/15 09:59:40 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	Harl::debug(void)
 {
 	std::cout
-		<< "debug 🔧 : You have no address onthe memory, GOOO get one."
+		<< "Debug 🔧 : You have no address on the memory, GOOO get one."
 		<< std::endl;
 }
 
@@ -42,21 +42,6 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	// switch (level[0])
-	// {
-	// 	case 'D':
-	// 		debug();
-	// 		break;
-	// 	case 'I':
-	// 		info();
-	// 		break;
-	// 	case 'W':
-	// 		warning();
-	// 		break;
-	// 	case 'E':
-	// 		error();
-	// 		break;
-	// }
 	Harl		ykonKhir;
 	std::string	levels[4];
 	int			i = 0;
@@ -66,10 +51,7 @@ void	Harl::complain(std::string level)
 	levels[1] = "INFO";
 	levels[2] = "WARNING";
 	levels[3] = "ERROR";
-	while (i < 4)
-	{
-		if (level == levels[i])
-			(ykonKhir.*ptrToMemberFunc[i])();
+	while (i < 4 && level != levels[i])
 		i++;
-	}
+	(ykonKhir.*ptrToMemberFunc[i])();
 }

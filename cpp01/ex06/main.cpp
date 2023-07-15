@@ -6,20 +6,27 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 04:42:21 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/12 10:57:52 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/15 09:53:51 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int	main()
+int	main(int ac, char **av)
 {
 	Harl	comments;
 	
-	//comments.complain("DEBUG");
-	//comments.complain("INFO");
-	//comments.complain("WARNING");
-	//comments.complain("ERROR");
-	comments.complain("nothing");
+	switch (ac)
+	{
+		case 1:
+			std::cout << "Dir Chi Level" << std::endl;
+			break;
+		case 2:
+			comments.complain(av[1]);
+			break;
+		default:
+			std::cout << "Accept only two args" << std::endl;
+			break;
+	}
 	return (0);
 }
