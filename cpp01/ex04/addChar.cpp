@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   addchar.cpp                                        :+:      :+:    :+:   */
+/*   addChar.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 02:33:28 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/11 10:43:29 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/16 19:07:52 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			sLen(std::string str)
 
 std::string	addChar(std::string str, char c)
 {
-	std::string	s(sLen(str) + 2, ' ');
+	std::string	s(str.length() + 1, ' ');
 	int			i;
 
 	i = 0;
@@ -33,6 +33,5 @@ std::string	addChar(std::string str, char c)
 		i++;	
 	}
 	s[i] = c;
-	s[i + 1] = '\0';
 	return (s);
 }

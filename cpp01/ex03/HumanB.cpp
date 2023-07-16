@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:09:11 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/08 18:50:37 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/16 20:44:13 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,13 @@ void	HumanB::setWeapon(Weapon &club)
 
 void	HumanB::attack(void)
 {
-	const std::string ref = weaponB->getType();
 	if (weaponB)
 	{
 		std::cout << nameB << " attack with "
-			<< ref << "\" 💥"
+			<< weaponB->getType()<< "\" 💥"
 			<< std::endl;
 	}
 	else
 		std::cout << nameB
 		<< "attack with empty hands" << std::endl;
-}
-
-HumanB::~HumanB(void)
-{
 }

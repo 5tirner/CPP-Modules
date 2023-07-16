@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 04:42:25 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/15 09:59:40 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/16 21:25:21 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,16 @@ void	Harl::complain(std::string level)
 	levels[1] = "INFO";
 	levels[2] = "WARNING";
 	levels[3] = "ERROR";
-	while (i < 4 && level != levels[i])
+	while (i < 4)
+	{
+		if (level == levels[i])
+		{
+			(ykonKhir.*ptrToMemberFunc[i])();
+			return ;
+		}
 		i++;
-	(ykonKhir.*ptrToMemberFunc[i])();
+	}
+	std::cout
+		<< "[ Probably complaining about insignificant problems ]"
+		<< std::endl;
 }

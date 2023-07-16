@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:20:33 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/05 13:55:21 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/16 20:52:04 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ Zombie	*zombieHorde(int N, std::string name)
 	Zombie	*TWD;
 	int		i;
 
+	if (N < 1)
+		return (NULL);
 	TWD = new Zombie[N];
 	i = 0;
 	while (i < N)

@@ -15,7 +15,7 @@ class name
 
 int p(name *obj, int (name::*r)(void))
 {
-    return ((obj->*r)());
+    return (obj->*r)();
 }
 
 int t(name *obj, int (name::*y)(void))
