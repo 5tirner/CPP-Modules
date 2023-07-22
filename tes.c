@@ -1,57 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int     *array_range(int min, int max)
+int is_98(int elem)
 {
-        int     *arr;
-        int     i;
-
-        if (min > max)
-                return (NULL);
-        arr = malloc(4 * (max - min));
-        if (!arr)
-                return (NULL);
-        i = 0;
-        while (min <= max)
-        {
-                arr[i] = min;
-                min++;
-                i++;
-        }
-        return (arr);
+    return (98 == elem);
 }
-void simple_print_buffer(int *buffer, unsigned int size)
-{
-    unsigned int i;
 
-    i = 0;
-    while (i < size)
+void    print(char *s)
+{
+    int i = 0;
+    while (s[i])
     {
-        if (i % 10)
-        {
-            printf(" ");
-        }
-        if (!(i % 10) && i)
-        {
-            printf("\n");
-        }
-        printf("0x%02x", buffer[i]);
+        write(1, &s[i], 1);
         i++;
     }
-    printf("\n");
 }
-
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
+int main()
 {
-    int *a;
-
-    a = array_range(0, 10);
-    simple_print_buffer(a, 11);
-    free(a);
-    return (0);
+    //printf("%kk\n");
+    printf("%d\n", -2147483648);
 }
