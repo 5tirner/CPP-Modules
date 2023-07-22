@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:25:58 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/22 09:48:55 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/22 12:18:41 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Fixed
 	public:
 		Fixed(void);
 		Fixed(Fixed& other);
-		Fixed& operator=(Fixed other);
+		Fixed& operator=(Fixed &other);
 		~Fixed(void);
 		int		getRawBits(void);
 		void	setRawBits(int const raw);
