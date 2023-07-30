@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:26:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/26 18:15:55 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/28 21:14:34 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class Fixed
 {
 	private:
-		int			FixedPoint;
-		static	const int	FractBits;
+		int					FixedPoint;
+		static const int	FractBits = 8;
 	public:
 		Fixed(void);
 		Fixed(int const d);
