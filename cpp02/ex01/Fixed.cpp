@@ -6,21 +6,27 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:26:49 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/29 23:35:06 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/30 15:12:02 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+std::ostream &operator<<(std::ostream &o, Fixed const &other)
+{
+	o << other.toFloat();
+	return (o);	
+}
 
 int	Fixed::getRawBits(void) const
 {
 	return (this->FixedPoint);
 }
 
-void	Fixed::setRawBits(int const raw)
-{
-	this->FixedPoint = raw;
-}
+// void	Fixed::setRawBits(int const raw)
+// {
+// 	this->FixedPoint = raw;
+// }
 
 Fixed::Fixed(void)
 {

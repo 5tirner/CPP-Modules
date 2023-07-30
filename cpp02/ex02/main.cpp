@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   openAndCheck.cpp                                   :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 02:35:43 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/30 20:56:50 by zasabri          ###   ########.fr       */
+/*   Created: 2023/07/30 14:38:13 by zasabri           #+#    #+#             */
+/*   Updated: 2023/07/30 14:41:33 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sifl.hpp"
+#include "Fixed.hpp"
 
-int rp::openAndCheck(std::string FileName)
+int main( void )
 {
-	toOpen.open(FileName, std::ios::in);
-	if (!toOpen)
-	{
-		std::cout << "Somthing Wrong ⚠️" << std::endl;
-		return (1);
-	}
-	toWrite.open(FileName + ".replace", std::ios::out);
-	if (!toWrite)
-	{
-		std::cout << "Error When \'file.replcae\' Created"
-			<< std::endl;
-		return (1);
-	}
-	return (0);
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
+	return 0;
 }

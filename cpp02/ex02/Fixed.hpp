@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   openAndCheck.cpp                                   :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 02:35:43 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/30 20:56:50 by zasabri          ###   ########.fr       */
+/*   Created: 2023/07/30 14:38:10 by zasabri           #+#    #+#             */
+/*   Updated: 2023/07/30 15:13:35 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sifl.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-int rp::openAndCheck(std::string FileName)
+# include <iostream>
+# include <cmath>
+
+class Fixed
 {
-	toOpen.open(FileName, std::ios::in);
-	if (!toOpen)
-	{
-		std::cout << "Somthing Wrong ⚠️" << std::endl;
-		return (1);
-	}
-	toWrite.open(FileName + ".replace", std::ios::out);
-	if (!toWrite)
-	{
-		std::cout << "Error When \'file.replcae\' Created"
-			<< std::endl;
-		return (1);
-	}
-	return (0);
-}
+	private:
+		int 				Fpoint;
+		static const int	Fbits;
+	public:
+		Fixed(void);
+		Fixed(const Fixed &other);
+		Fixed(float f);
+		Fixed(int d);
+		Fixed &operator=(const Fixed &other);
+		~Fixed(void);
+		int		getFpoint(void) const;
+};
+#endif

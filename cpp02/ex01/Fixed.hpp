@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:26:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/28 21:14:34 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/30 14:47:16 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ class Fixed
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 };
+
+std::ostream &operator<<(std::ostream &o, Fixed const &other);
 
 #endif

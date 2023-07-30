@@ -14,6 +14,17 @@ int func(int a, int b)
     return a + b;
 }
 
+class check
+{
+    private:
+        int h;
+    public:
+        void    getadd(int h)
+        {
+            std::cout << &h << "\n" << &this->h << std::endl;
+        }
+};
+
 int main()
 {
     int (*ptr)(int, int);

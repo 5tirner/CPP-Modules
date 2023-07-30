@@ -6,22 +6,19 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:26:46 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/29 23:34:23 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/30 14:52:24 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-std::ostream &operator<<(std::ostream &o, Fixed const &other)
-{
-	o << other.toFloat();
-	return (o);	
-}
-
 int main( void ) 
 {
+	// Fixed r;
+	// Fixed const e = r;
+	// std::cout << "-----------\n";
 	Fixed a;
-	Fixed const b( 10);
+	Fixed const b(10);
 	Fixed const c(42.42f);
 	Fixed const d(b);
 	a = Fixed(1234.4321f);
