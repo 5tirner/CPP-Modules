@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 14:38:07 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/30 15:14:35 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/30 21:45:33 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ Fixed &Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Assignement Called" << std::endl;
 	this->Fpoint = other.getFpoint();
+	return (*this);
 }
 
-Fixed::Fixed(float f)
+Fixed::~Fixed(void)
 {
-	this->Fbits
+	std::cout << "Destructor Called" << std::endl;
 }

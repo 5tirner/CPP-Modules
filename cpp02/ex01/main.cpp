@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:26:46 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/30 14:52:24 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/03 00:37:21 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int main( void ) 
 {
-	// Fixed r;
-	// Fixed const e = r;
-	// std::cout << "-----------\n";
+	Fixed r;
+	Fixed const e;
+	r = e;
+	std::cout << "-----------\n";
 	Fixed a;
 	Fixed const b(10);
 	Fixed const c(42.42f);

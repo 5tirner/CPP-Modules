@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:26:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/30 14:47:16 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/07/30 21:46:20 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
 };
 
 std::ostream &operator<<(std::ostream &o, Fixed const &other);

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:26:49 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/30 15:12:02 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/03 02:43:57 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ int	Fixed::getRawBits(void) const
 {
 	return (this->FixedPoint);
 }
-
-// void	Fixed::setRawBits(int const raw)
-// {
-// 	this->FixedPoint = raw;
-// }
 
 Fixed::Fixed(void)
 {
@@ -58,7 +53,7 @@ Fixed	&Fixed::operator=(Fixed const &other)
 	this->FixedPoint = other.getRawBits();
 	return (*this);
 }
-
+ 
 float Fixed::toFloat(void) const
 {
 	return (float(this->getRawBits()) / (1 << this->FractBits));	
