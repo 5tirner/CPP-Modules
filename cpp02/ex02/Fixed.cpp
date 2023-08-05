@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 14:38:07 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/03 06:32:21 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/04 23:06:12 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,76 @@ std::ostream	&operator<<(std::ostream &o, Fixed other)
 {
 	o << other.tofloat();
 	return (o);
+}
+
+/*-----------------------------------------------------------*/
+
+int	Fixed::operator!=(const Fixed &other)
+{
+	if (this->Fbits != other.Fbits)
+		return (1);
+	return (0);
+}
+
+int	Fixed::operator>(const Fixed &other)
+{
+	if (this->Fbits > other.Fbits)
+		return (1);
+	return (0);
+}
+
+int	Fixed::operator<(const Fixed &other)
+{
+	if (this->Fbits < other.Fbits)
+		return (1);
+	return (0);
+}
+
+int	Fixed::operator<=(const Fixed &other)
+{
+	if (this->Fbits <= other.Fbits)
+		return (1);
+	return (0);
+}
+
+int	Fixed::operator>=(const Fixed &other)
+{
+	if (this->Fbits >= other.Fbits)
+		return (1);
+	return (0);
+}
+
+int	Fixed::operator==(const Fixed &other)
+{
+	if (this->Fbits == other.Fbits)
+		return (1);
+	return (0);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	other;
+
+	other.Fpoint = this->Fpoint++;
+	return (other);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	other;
+
+	other.Fpoint = this->Fpoint--;
+	return (other);
+}
+
+Fixed	Fixed::operator++(void)
+{
+	this->Fpoint++;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(void)
+{
+	this->Fpoint--;
+	return (*this);
 }
