@@ -14,15 +14,26 @@
 
 int main( void )
 {
-	Fixed a(30);
-	Fixed b(10);
-	if (a < b)
-		std::cout << a << std::endl;
-	else
-		std::cout << b << std::endl;
-	++a;
-	b++;
-	std::cout << a << " | " << b << std::endl;
+	// Fixed a(30);
+	// Fixed b(10);
+	// Fixed c;
+
+	// c = a;
+	// if (b > a)
+	// 	std::cout << "test " << a << std::endl;
+	// else
+	// 	std::cout << b << std::endl;
+	// if (c == a)
+	// 	std::cout << "really c == a " << std::endl;
+	// else
+	// 	std::cout << c << " not equale " << a << std::endl;
+	// if (c == b)
+	// 	std::cout << "really c == b" << std::endl;
+	// else
+	// 	std::cout << c << " not equale " << b << std::endl;
+	// ++a;
+	// b++;
+	// std::cout << a << " | " << b << std::endl;
 	// Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	// std::cout << a << std::endl;
 	// std::cout << ++a << std::endl;
@@ -30,6 +41,16 @@ int main( void )
 	// std::cout << a++ << std::endl;
 	// std::cout << a << std::endl;
 	// std::cout << b << std::endl;
-	// std::cout << Fixed::max( a, b ) << std::endl;
+	// // std::cout << Fixed::max( a, b ) << std::endl;
+	// return (0);
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	//std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }

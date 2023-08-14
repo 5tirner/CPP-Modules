@@ -7,7 +7,7 @@ NAME		= OrthodoxCanonicalForm
 
 RM			= rm -rf
 
-CXX			= c++
+CXX			= clang++
 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 

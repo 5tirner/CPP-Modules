@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+#include <sstream>
 
 void	PhoneBook::LookAtAgenda(PhoneBook *Agenda, int n)
 {
@@ -33,11 +34,15 @@ void	PhoneBook::LookAtAgenda(PhoneBook *Agenda, int n)
 		std::cout << "The Agenda is empty\n" << std::endl;
 	while (std::getline(std::cin, view))
 	{
+		std::stringstream mok;
+		int a = 123;
+		mok << a;
+		std::cout << "the string :" << view << std::endl;
 		if (view == "Q")
 			break;
 		if (len(view) == 1)
 		{
-			std::cout << "[" << view[0] << "]\n";
+			//std::cout << "[" << view[0] << "]\n";
 			if ((view[0] < '1' || view[0] > '8') || (view[0] - 48 > n))
 				std::cout << "Not avilaible section" << std::endl;
 			else

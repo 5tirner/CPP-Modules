@@ -5,7 +5,7 @@ OBJS		= $(SRCS:.cpp=.o)
 
 NAME		= NowWeAreTalking
 
-CXX			= c++
+CXX			= clang++
 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 

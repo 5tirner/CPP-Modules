@@ -20,6 +20,7 @@ int	Fixed::getFpoint(void) const
 Fixed::Fixed(void)
 {
 	std::cout << "Constructor Called" << std::endl;
+	this->Fpoint = 0;
 }
 
 Fixed::Fixed(const Fixed &other)
@@ -62,7 +63,7 @@ int		Fixed::toInt(void) const
 	return (this->Fpoint >> this->Fbits);	
 }
 
-std::ostream	&operator<<(std::ostream &o, Fixed other)
+std::ostream	&operator<<(std::ostream &o, const Fixed &other)
 {
 	o << other.tofloat();
 	return (o);
@@ -72,46 +73,46 @@ std::ostream	&operator<<(std::ostream &o, Fixed other)
 
 int	Fixed::operator!=(const Fixed &other)
 {
-	if (this->Fbits != other.Fbits)
+	if (this->getFpoint() != other.getFpoint())
 		return (1);
 	return (0);
 }
 
 int	Fixed::operator>(const Fixed &other)
 {
-	if (this->Fbits > other.Fbits)
+	if (this->getFpoint() > other.getFpoint())
 		return (1);
 	return (0);
 }
 
 int	Fixed::operator<(const Fixed &other)
 {
-	if (this->Fbits < other.Fbits)
+	if (this->getFpoint() < other.getFpoint())
 		return (1);
 	return (0);
 }
 
 int	Fixed::operator<=(const Fixed &other)
 {
-	if (this->Fbits <= other.Fbits)
+	if (this->getFpoint() <= other.getFpoint())
 		return (1);
 	return (0);
 }
 
 int	Fixed::operator>=(const Fixed &other)
 {
-	if (this->Fbits >= other.Fbits)
+	if (this->getFpoint() >= other.getFpoint())
 		return (1);
 	return (0);
 }
 
 int	Fixed::operator==(const Fixed &other)
 {
-	if (this->Fbits == other.Fbits)
+	if (this->getFpoint() == other.getFpoint())
 		return (1);
 	return (0);
 }
-
+/*--------------------------------------------*/
 Fixed	Fixed::operator++(int)
 {
 	Fixed	other;
@@ -138,4 +139,35 @@ Fixed	Fixed::operator--(void)
 {
 	this->Fpoint--;
 	return (*this);
+}
+/*-----------------------------------------------*/
+Fixed	Fixed::operator+(const	Fixed &other)
+{
+	Fixed	NewOne;
+
+	NewOne = this->getFpoint() + other.getFpoint();
+	return (NewOne);
+}
+
+Fixed	Fixed::operator-(const Fixed &other)
+{
+	Fixed	NewOne;
+
+	NewOne = this->getFpoint() - other.getFpoint();
+	return (NewOne);
+}
+
+Fixed	Fixed::operator*(const Fixed &other)
+{
+	Fixed	NewOne;
+
+	NewOne = this->getFpoint() * other.getFpoint();
+	return (NewOne);
+}
+Fixed	Fixed::operator/(const Fixed &other)
+{
+	Fixed	NewOne;
+
+	NewOne = this->getFpoint() / other.getFpoint();
+	return (NewOne);
 }
