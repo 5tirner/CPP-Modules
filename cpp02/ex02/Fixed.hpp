@@ -30,12 +30,12 @@ class Fixed
 		~Fixed(void);
 		
 		/*Binary operators*/
-		int 	operator>(const Fixed &other);
-		int 	operator<(const Fixed &other);
-		int 	operator>=(const Fixed &other);
-		int 	operator<=(const Fixed &other);
-		int 	operator==(const Fixed &other);
-		int 	operator!=(const Fixed &other);
+		int 	operator>(const Fixed &other) const;
+		int 	operator<(const Fixed &other) const;
+		int 	operator>=(const Fixed &other) const;
+		int 	operator<=(const Fixed &other) const;
+		int 	operator==(const Fixed &other) const;
+		int 	operator!=(const Fixed &other) const;
 		/*Binary operators end*/
 		
 		/*Unary operators*/
@@ -54,6 +54,12 @@ class Fixed
 		int		getFpoint(void) const;
 		float	tofloat(void) const;
 		int		toInt(void) const;
+		/*min a max*/
+		static	Fixed	min(const Fixed &a, const Fixed &b);
+		static	Fixed	max(const Fixed &a, const Fixed &b);
+		static	Fixed	min(Fixed &a, Fixed &b);
+		static	Fixed	max(Fixed &a, Fixed &b);
+		/*min a max end*/
 };
 
 std::ostream	&operator<<(std::ostream &o, const Fixed &other);
