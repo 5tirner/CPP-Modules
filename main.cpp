@@ -32,7 +32,7 @@ class	rma
 int main()
 {
 	rma madrid;
-	madrid.SetVal(77);
+	madrid.SetVal(102);
 	rma footballClub = madrid;
 	std::cout << madrid.GetVal() << ' ' << footballClub.GetVal() << '\n';
 }
