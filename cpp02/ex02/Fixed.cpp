@@ -60,7 +60,7 @@ float	Fixed::tofloat(void) const
 
 int		Fixed::toInt(void) const
 {
-	return (this->Fpoint >> this->Fbits);	
+	return (this->Fpoint >> this->Fbits);
 }
 
 std::ostream	&operator<<(std::ostream &o, const Fixed &other)
@@ -173,7 +173,7 @@ Fixed	Fixed::operator/(const Fixed &other)
 {
 	Fixed	NewOne;
 
-	NewOne.Fpoint = (this->getFpoint() * 1 << Fbits) / other.getFpoint();
+	NewOne.Fpoint = (this->getFpoint() << Fbits) / other.getFpoint();
 	return (NewOne);
 }
 
@@ -206,4 +206,3 @@ Fixed	Fixed::max(Fixed &a, Fixed &b)
 		return (a);
 	return (b);
 }
-

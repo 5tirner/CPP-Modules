@@ -3,7 +3,7 @@ SRCS		= main.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
-CXX			= clang++
+CXX			= c++
 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
