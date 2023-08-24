@@ -73,5 +73,16 @@
     },
     "editor.tokenColorCustomizations": {
 
+    },
+    "less.lint.ieHack": "error",
+    "less.lint.important": "error",
+    "less.lint.importStatement": "error",
+    "less.lint.unknownAtRules": "error",
+    "less.lint.unknownProperties": "error",
+    "less.lint.unknownVendorSpecificProperties": "error",
+    "less.lint.vendorPrefix": "error",
+    "less.lint.zeroUnits": "error",
+    "emmet.syntaxProfiles": {
+
     }
 }

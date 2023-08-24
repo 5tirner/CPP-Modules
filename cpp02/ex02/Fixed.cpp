@@ -171,10 +171,15 @@ Fixed	Fixed::operator*(const Fixed &other)
 
 Fixed	Fixed::operator/(const Fixed &other)
 {
-	Fixed	NewOne;
+	if (other.getFpoint == 0)
+		std::cout << "Not Possible" < std::endl;
+	else
+	{
+		Fixed	NewOne;
 
-	NewOne.Fpoint = (this->getFpoint() << Fbits) / other.getFpoint();
-	return (NewOne);
+		NewOne.Fpoint = (this->getFpoint() << Fbits) / other.getFpoint();
+		return (NewOne);
+	}
 }
 
 /*---------------------------------------------------*/
