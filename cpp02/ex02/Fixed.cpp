@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 14:38:07 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/04 23:06:12 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/25 10:01:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,15 +171,10 @@ Fixed	Fixed::operator*(const Fixed &other)
 
 Fixed	Fixed::operator/(const Fixed &other)
 {
-	if (other.getFpoint == 0)
-		std::cout << "Not Possible" < std::endl;
-	else
-	{
 		Fixed	NewOne;
 
 		NewOne.Fpoint = (this->getFpoint() << Fbits) / other.getFpoint();
 		return (NewOne);
-	}
 }
 
 /*---------------------------------------------------*/
