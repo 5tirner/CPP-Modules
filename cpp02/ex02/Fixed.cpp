@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 14:38:07 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/25 10:01:27 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/25 10:59:40 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,10 +171,18 @@ Fixed	Fixed::operator*(const Fixed &other)
 
 Fixed	Fixed::operator/(const Fixed &other)
 {
+	if (!other.Fpoint)
+	{
+		std::cout << "Runtime error (func=(main), adr=8): Divide by zero" << '\n';
+		return (0);
+	}
+	else
+	{
 		Fixed	NewOne;
-
+	
 		NewOne.Fpoint = (this->getFpoint() << Fbits) / other.getFpoint();
 		return (NewOne);
+	}
 }
 
 /*---------------------------------------------------*/

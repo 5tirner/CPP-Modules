@@ -7,13 +7,15 @@ CXX			= c++
 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
+CPPFLAGS	= -fsanitize=address -g3
+
 NAME		= FixedClassUsed
 
 RM			= rm -rf
 
 all : $(NAME)
 $(NAME) : $(OBJS)
-	$(CXX) $(OBJS) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 	$(RM) $(OBJS)
