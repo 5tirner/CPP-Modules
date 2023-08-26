@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:26:49 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/03 02:43:57 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/25 15:02:21 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ float Fixed::toFloat(void) const
 int	Fixed::toInt(void) const
 {
 	return (this->getRawBits() >> this->FractBits);
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	this->FixedPoint = raw;
 }
 
 Fixed::~Fixed(void)

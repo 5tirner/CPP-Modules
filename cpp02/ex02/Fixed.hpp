@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 14:38:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/25 10:50:34 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/25 15:08:05 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 class Fixed
 {
 	private:
-		int 				Fpoint;
-		static const int	Fbits = 8;
+		int 				FixedPoint;
+		static const int	FractBits = 8;
 	public:
 		Fixed(void);
 		Fixed(const Fixed &other);
 		Fixed(float f);
 		Fixed(int d);
-		Fixed	&operator=(const Fixed &other);
+		Fixed &operator=(const Fixed &other);
 		~Fixed(void);
 		
 		/*Binary operators*/
@@ -51,7 +51,8 @@ class Fixed
 		Fixed	operator*(const Fixed &other);
 		Fixed	operator/(const Fixed &other);
 		/*Binary operators: Mathematic operations end*/
-		int		getFpoint(void) const;
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
 		float	tofloat(void) const;
 		int		toInt(void) const;
 		/*min a max*/

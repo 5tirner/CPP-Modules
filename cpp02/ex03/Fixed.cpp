@@ -5,45 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/30 14:38:07 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/25 15:08:18 by zasabri          ###   ########.fr       */
+/*   Created: 2023/08/25 14:48:45 by zasabri           #+#    #+#             */
+/*   Updated: 2023/08/25 15:24:02 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-int	Fixed::getRawBits(void) const
-{
-	return (this->FixedPoint);
-}
-
-void	Fixed::setRawBits(int const raw)
-{
-	this->FixedPoint = raw;
-}
+#include <iostream>
 
 Fixed::Fixed(void)
 {
-	std::cout << "Constructor Called" << std::endl;
+	std::cout << "Contructor Called" << '\n';
 	this->FixedPoint = 0;
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-	std::cout << "Copy Constructor Called" << std::endl;
+	std::cout << "Copy One Called" << '\n';
 	*this = other;
 }
 
-Fixed &Fixed::operator=(const Fixed &other)
+Fixed	&Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Assignement Called" << std::endl;
-	this->FixedPoint = other.getRawBits();
+	std::cout << "Assignement Called" << '\n';
+	this->FixedPoint = other.FixedPoint;
 	return (*this);
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor Called" << std::endl;
+	std::cout << "Distructor Called" << '\n';
 }
 
 Fixed::Fixed(float f)

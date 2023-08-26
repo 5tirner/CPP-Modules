@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:26:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/07/30 21:46:20 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/25 15:01:36 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Fixed
 		~Fixed(void);
 		float	toFloat(void) const;
 		int		toInt(void) const;
+		void	setRawBits(int const raw);
 		int		getRawBits(void) const;
 };
 
