@@ -5,7 +5,7 @@ OBJS		= $(SRCS:.cpp=.o)
 
 NAME		= AndOpen
 
-CXX			= clang++
+CXX			= c++
 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
