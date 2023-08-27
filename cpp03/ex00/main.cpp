@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:35:17 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/26 16:31:54 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/26 20:51:33 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 int main()
 {
     ClapTrap a;
+    ClapTrap b;
+    b.setName("Ederson");
     a.setName("MOHAMMAD SLAH");
-    std::cout << a.get_name() << '\n';
+    //std::cout << a.get_name() << '\n';
+    a.attack("Ederson");
+    b.takeDamage(2);
 }

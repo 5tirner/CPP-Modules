@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/26 17:12:56 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/26 20:54:32 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ClapTrap::setName(std::string name)
 	this->Name = name;	
 }
 
-std::string	ClapTrap::get_name(void)
+std::string	ClapTrap::getName(void)
 {
 	std::cout << "Get This Name: " << this->Name <<  " ✔️" <<'\n';
 	return (this->Name);
