@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/26 20:54:32 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/27 11:25:14 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ ClapTrap::~ClapTrap(void)
 
 void    ClapTrap::attack(const std::string &target)
 {
-	if (this->HitPoints && this->EnergyPoints)
+	if (this->HitPoints > 0 && this->EnergyPoints > 0)
+	{
 		std::cout << this->Name << " Attacking 🤜🏽 " << target << '\n';
+		std::cout << target << " Lose: " << this->AttackDamage << '\n';
+	}
 	else
 		std::cout << this->Name << " Can't Do Anything ⚠️" << '\n';
 }
