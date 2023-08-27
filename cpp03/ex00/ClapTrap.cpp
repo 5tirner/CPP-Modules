@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/27 12:42:36 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/27 14:24:28 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 ClapTrap::ClapTrap(void)
 {
 	std::cout << "Contructor Called 📞" << '\n';
-	HitPoints = 10;
-	EnergyPoints = 10;
-	AttackDamage = 0;
+	this->Name = "Not Set Yet";
+	this->HitPoints = 10;
+	this->EnergyPoints = 10;
+	this->AttackDamage = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -48,6 +49,7 @@ void    ClapTrap::attack(const std::string &target)
 	{
 		std::cout << this->Name << " Attacking ⚔ " << target << '\n';
 		std::cout << target << " Lose: " << this->AttackDamage << '\n';
+		this->EnergyPoints -= 1;
 	}
 	else
 		std::cout << this->Name << " Can't Do Anything ⚠️" << '\n';
@@ -55,15 +57,25 @@ void    ClapTrap::attack(const std::string &target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << this->Name << " Take Damage == " << amount <<  " 🤕"<<'\n';
-	this->HitPoints -= amount;
+	if (this->HitPoints > 0 && this->EnergyPoints > 0)
+	{
+		std::cout << this->Name << " Take Damage == " << amount <<  " 🤕"<<'\n';
+		this->HitPoints -= amount;
+	}
+	else 
+		std::cout << this->Name << " Can't Take Damage" << '\n';
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << this->Name << " Be Repaired" << '\n';
-	this->HitPoints += amount;
-	this->EnergyPoints -= 1;	
+	if (this->HitPoints > 0 && this->EnergyPoints > 0)
+	{
+		std::cout << this->Name << " Be Repaired" << '\n';
+		this->HitPoints += amount;
+		this->EnergyPoints -= 1;
+	}
+	else
+		std::cout << this->Name << " Can't Repaired" << '\n';
 }
 
 void	ClapTrap::setName(std::string name)

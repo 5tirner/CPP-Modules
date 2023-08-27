@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:35:17 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/27 12:39:44 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/27 14:25:31 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
     b.getName();
     a.getName();
     a.attack("Ederson");
-    b.takeDamage(3);
+    b.takeDamage(10);
     b.beRepaired(1);
     std::cout << "Results" << '\n';
     a.printAttack();
