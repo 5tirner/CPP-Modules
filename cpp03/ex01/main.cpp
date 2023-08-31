@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:35:17 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/27 12:39:44 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/31 15:53:01 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,20 @@
 
 int main()
 {
-    ClapTrap a;
-    ClapTrap b;
+    ClapTrap a("PEPE");
+    ClapTrap b("KAKA");
+    std::cout << "-----------------------\n";
     std::cout << "Moves:" << '\n';
-    b.setName("Ederson");
-    a.setName("MOHAMMAD SLAH");
+    // b.setName("Ederson");
+    // a.setName("MOHAMMAD SLAH");
     b.getName();
     a.getName();
+    std::cout << "-----------------------\n";
     a.attack("Ederson");
-    b.takeDamage(3);
+    b.takeDamage(10);
     b.beRepaired(1);
-    std::cout << "Results" << '\n';
-    a.printAttack();
-    a.printEnergy();
-    a.printHit();
-    b.printAttack();
-    b.printEnergy();
-    b.printHit();
+    std::cout << "-----------------------\n";
+    std::cout << "Results:" << '\n';
+    a.status();
+    b.status();
 }

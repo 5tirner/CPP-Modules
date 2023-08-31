@@ -6,20 +6,31 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/27 14:37:58 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/31 15:54:36 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
+void	ClapTrap::initVals(int Attack, int Energy, int Hit)
+{
+	this->AttackDamage = Attack;
+	this->EnergyPoints = Energy;
+	this->HitPoints = Hit;
+}
 ClapTrap::ClapTrap(void)
 {
 	std::cout << "Contructor Called 📞" << '\n';
 	this->Name = "Not Set Yet";
-	this->HitPoints = 10;
-	this->EnergyPoints = 10;
-	this->AttackDamage = 0;
+	this->initVals(0, 10, 10);
+}
+
+ClapTrap::ClapTrap(std::string name)
+{
+	std::cout << "Constructor Parametrize Called 📞" << '\n';
+	this->Name = name;
+	this->initVals(0, 10, 10);
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -89,19 +100,10 @@ std::string	ClapTrap::getName(void)
 	std::cout << "Get This Name: " << this->Name <<  " ✔️" <<'\n';
 	return (this->Name);
 }
-
-void	ClapTrap::printAttack(void) const
+void	ClapTrap::status(void)
 {
-	std::cout << this->Name << " Attack Points is: " << this->AttackDamage << '\n';
-}
-
-void ClapTrap::printEnergy(void) const
-{
-	std::cout << this->Name << " Energy Points is: " << this->EnergyPoints << '\n';
-
-}
-
-void	ClapTrap::printHit(void) const
-{
-	std::cout << this->Name << " Hit Points is: " << this->HitPoints << '\n';
+	std::cout << this->Name << ": Status" << '\n';
+	std::cout << "Attack Points is: " << this->AttackDamage << '\n';
+	std::cout << "Energy Points is: " << this->EnergyPoints << '\n';
+	std::cout << "Hit Points is: " << this->HitPoints << '\n';
 }
