@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/01 16:21:36 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/01 16:46:01 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ ClapTrap    &ClapTrap::operator=(const ClapTrap &other)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Distructor Called 📞" << '\n';
+	std::cout << "Distructor Called 📞" << "For The Obj That Have Name: " << this->Name << '\n';
 }
 
 void    ClapTrap::attack(const std::string &target)
