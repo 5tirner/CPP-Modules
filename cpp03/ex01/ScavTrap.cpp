@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:03:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/01 16:43:37 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/01 18:21:01 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void    ScavTrap::attack(const std::string &target)
 
 void	ScavTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "Scavtrap Overriding takeDamage Method\n"
-		<< "Overriding type: c++ Call Overridden Function From Derived Class" << '\n';
+	// std::cout << "Scavtrap Overriding takeDamage Method\n"
+	// 	<< "Overriding type: c++ Call Overridden Function From Derived Class" << '\n';
 	ClapTrap::takeDamage(amount);	
 }
 
 void	ScavTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "Scavtrap Overriding beReoaired Method\n"
-		<< "Overriding Type: c++ Call Overridden Function From Derived Class" << '\n';
+	// std::cout << "Scavtrap Overriding beRepaired Method\n"
+	// 	<< "Overriding Type: c++ Call Overridden Function From Derived Class" << '\n';
 	ClapTrap::beRepaired(amount);
 }
