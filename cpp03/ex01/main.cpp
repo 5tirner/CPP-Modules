@@ -6,17 +6,18 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:35:17 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/31 15:53:01 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/31 16:25:45 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
+#include "ScavTrap.hpp"
 
 int main()
 {
-    ClapTrap a("PEPE");
-    ClapTrap b("KAKA");
+    ScavTrap a("PEPE");
+    ScavTrap b("KAKA");
     std::cout << "-----------------------\n";
     std::cout << "Moves:" << '\n';
     // b.setName("Ederson");

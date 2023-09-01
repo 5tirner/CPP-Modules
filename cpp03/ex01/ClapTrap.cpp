@@ -6,15 +6,16 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/31 15:54:36 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/08/31 16:24:15 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-void	ClapTrap::initVals(int Attack, int Energy, int Hit)
+void	ClapTrap::initVals(std::string name, int Attack, int Energy, int Hit)
 {
+	this->Name = name;
 	this->AttackDamage = Attack;
 	this->EnergyPoints = Energy;
 	this->HitPoints = Hit;
@@ -22,15 +23,13 @@ void	ClapTrap::initVals(int Attack, int Energy, int Hit)
 ClapTrap::ClapTrap(void)
 {
 	std::cout << "Contructor Called 📞" << '\n';
-	this->Name = "Not Set Yet";
-	this->initVals(0, 10, 10);
+	this->initVals("Empty", 0, 10, 10);
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "Constructor Parametrize Called 📞" << '\n';
-	this->Name = name;
-	this->initVals(0, 10, 10);
+	this->initVals(name, 0, 10, 10);
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
