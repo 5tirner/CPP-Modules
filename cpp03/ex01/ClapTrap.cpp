@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/31 16:24:15 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/01 16:22:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,15 +94,30 @@ void	ClapTrap::setName(std::string name)
 	this->Name = name;	
 }
 
-std::string	ClapTrap::getName(void)
+std::string	ClapTrap::getName(void) const
 {
 	std::cout << "Get This Name: " << this->Name <<  " ✔️" <<'\n';
 	return (this->Name);
 }
-void	ClapTrap::status(void)
+void	ClapTrap::status(void) const
 {
 	std::cout << this->Name << ": Status" << '\n';
 	std::cout << "Attack Points is: " << this->AttackDamage << '\n';
 	std::cout << "Energy Points is: " << this->EnergyPoints << '\n';
 	std::cout << "Hit Points is: " << this->HitPoints << '\n';
+}
+
+int		ClapTrap::getHitPoints(void) const
+{
+	return (this->HitPoints);
+}
+
+int		ClapTrap::getEnergyPoints(void) const
+{
+	return (this->EnergyPoints);
+}
+
+int		ClapTrap::getAttackPoints(void) const
+{
+	return (this->HitPoints);
 }
