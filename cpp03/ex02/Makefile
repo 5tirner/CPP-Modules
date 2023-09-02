@@ -4,7 +4,7 @@ SRCS		= main.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
-NAME		= Inheretence
+NAME		= AndOpen
 
 CXX			= c++
 
