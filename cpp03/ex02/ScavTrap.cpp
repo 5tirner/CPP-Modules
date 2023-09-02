@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:03:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/02 13:55:09 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/02 14:55:11 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,19 @@ void    ScavTrap::attack(const std::string &target)
 	ClapTrap::attack(target);
 }
 
-void	ScavTrap::takeDamage(unsigned int amount)
-{
-	// std::cout << "Scavtrap Overriding takeDamage Method\n"
-	// 	<< "Overriding type: c++ Call Overridden Function From Derived Class" << '\n';
-	ClapTrap::takeDamage(amount);	
-}
+// void	ScavTrap::takeDamage(unsigned int amount)
+// {
+// 	// std::cout << "Scavtrap Overriding takeDamage Method\n"
+// 	// 	<< "Overriding type: c++ Call Overridden Function From Derived Class" << '\n';
+// 	ClapTrap::takeDamage(amount);	
+// }
 
-void	ScavTrap::beRepaired(unsigned int amount)
-{
-	// std::cout << "Scavtrap Overriding beRepaired Method\n"
-	// 	<< "Overriding Type: c++ Call Overridden Function From Derived Class" << '\n';
-	ClapTrap::beRepaired(amount);
-}
+// void	ScavTrap::beRepaired(unsigned int amount)
+// {
+// 	// std::cout << "Scavtrap Overriding beRepaired Method\n"
+// 	// 	<< "Overriding Type: c++ Call Overridden Function From Derived Class" << '\n';
+// 	ClapTrap::beRepaired(amount);
+// }
 
 void	ScavTrap::guardGate(void)
 {

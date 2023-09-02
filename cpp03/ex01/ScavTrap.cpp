@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:03:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/02 14:49:15 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/02 15:10:37 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "ScavTrap Destructor Called" << '\n';
+	std::cout << "SavTrap Distructor Called 📞"
+		<< " For The Obj That Have Name: " << this->getName() << '\n';
 }
 
 void    ScavTrap::attack(const std::string &target)
@@ -64,3 +65,8 @@ void    ScavTrap::attack(const std::string &target)
 // 	// 	<< "Overriding Type: c++ Call Overridden Function From Derived Class" << '\n';
 // 	ClapTrap::beRepaired(amount);
 // }
+
+void	ScavTrap::guardGate(void)
+{
+	std::cout << "This SacvTrap: " << this->getName() << " in Gate Keeper Mode ⛩️" << '\n';
+}

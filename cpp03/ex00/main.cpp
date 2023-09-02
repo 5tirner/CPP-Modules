@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:35:17 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/31 15:53:01 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/02 14:58:40 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int main()
 {
-    ClapTrap a("PEPE");
-    ClapTrap b("KAKA");
+    ClapTrap a("MESSI");
+    ClapTrap b("CRISTIANO");
     std::cout << "-----------------------\n";
     std::cout << "Moves:" << '\n';
     // b.setName("Ederson");
