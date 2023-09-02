@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:35:17 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/01 17:21:05 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/02 13:53:13 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int main()
     std::cout << "Results:" << '\n';
     a.status();
     b.status();
-    // std::cout << "-----------------------\n"; 
-    // const ScavTrap c("MOUSSA");
-    // std::cout << "-----------------------\n";
-    // c.status();
+    std::cout << "-----------------------\n"; 
+    const ScavTrap c("MOUSSA");
+    std::cout << "-----------------------\n";
+    c.status();
 }
