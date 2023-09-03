@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:03:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/02 14:55:11 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/03 14:29:04 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap()
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
 	std::cout << "ScavTrap Assignment Called 📞" << '\n';
-	this->initVals(other.getName(), other.getAttackPoints()
-		, other.getEnergyPoints(), other.getHitPoints());
+	this->initVals(other.Name, other.AttackDamage
+		, other.EnergyPoints, other.HitPoints);
 	return (*this);
 }
 
 ScavTrap::~ScavTrap(void)
 {
 	std::cout << "SavTrap Distructor Called 📞"
-		<< " For The Obj That Have Name: " << this->getName() << '\n';
+		<< " For The Obj That Have Name: " << this->Name << '\n';
 }
 
 void    ScavTrap::attack(const std::string &target)

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 18:48:30 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/02 13:55:18 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/03 14:29:14 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ FragTrap::FragTrap(const FragTrap &other) : ClapTrap()
 FragTrap	&FragTrap::operator=(const FragTrap &other)
 {
 	std::cout << "FragTrap Assignment Called 📞" << '\n';
-	this->initVals(other.getName(), other.getAttackPoints()
-		, other.getEnergyPoints(), other.getHitPoints());
+	this->initVals(other.Name, other.AttackDamage
+		, other.EnergyPoints, other.HitPoints);
 	return (*this);
 }
 
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap Distructor Called 📞"
-		<< " For The Obj That Have Name: " << this->getName() << '\n';
+		<< " For The Obj That Have Name: " << this->Name << '\n';
 }
 
 void	FragTrap::highFiveGuys(void)
