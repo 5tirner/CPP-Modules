@@ -5,7 +5,7 @@ SRCS		= main.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
-NAME		= MoreInheretance
+NAME		= DiamondInheritance
 
 CXX			= c++
 
