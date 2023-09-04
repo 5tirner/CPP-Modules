@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:49:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/04 19:14:19 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/04 21:38:35 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 DiamondTrap::DiamondTrap(void)
 {
 	std::cout << "DiamondTrap Constr Called " << '\n';
-	// this->name = ClapTrap::Name;
+	this->Name = "Empty";
 }
 
 DiamondTrap::DiamondTrap(std::string name)

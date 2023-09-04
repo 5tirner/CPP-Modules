@@ -35,4 +35,7 @@ int main()
 	madrid.SetVal(102);
 	rma footballClub = madrid;
 	std::cout << madrid.GetVal() << ' ' << footballClub.GetVal() << '\n';
+	std::string s = "zak";
+	s[0] = 'r';
+	std::cout << s << '\n';
 }
