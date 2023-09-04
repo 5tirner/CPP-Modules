@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:03:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/03 14:26:58 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/04 19:27:57 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 
 ScavTrap::ScavTrap(void)
 {
-	std::cout << "ScavTrap Constructor Called" << '\n';
+	std::cout << "ScavTrap Constructor Called 📞" << '\n';
 	this->initVals("Empty", 20, 50, 100);
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
-	std::cout << "ScavTrap Param Called" << '\n';
+	std::cout << "ScavTrap Param Called 📞" << '\n';
 	this->initVals(name, 20, 50, 100);
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap()
 {
-	std::cout << "ScavTrap Copy Called" << '\n';
+	std::cout << "ScavTrap Copy Called 📞" << '\n';
 	*this = other;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
-	std::cout << "ScavTrap Assignment Called" << '\n';
+	std::cout << "ScavTrap Assignment Called 📞" << '\n';
 	this->initVals(other.Name, other.AttackDamage
 		, other.EnergyPoints, other.HitPoints);
 	return (*this);
