@@ -6,11 +6,14 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:49:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/03 19:55:47 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/04 19:14:19 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap(void)
 {
@@ -24,7 +27,7 @@ DiamondTrap::DiamondTrap(std::string name)
 	this->Name = name;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &other) : ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(), ScavTrap(), FragTrap()
 {
 	std::cout << "Diamond Copy Called" << '\n';
 	*this = other;
@@ -43,4 +46,9 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &other)
 DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << "DiamondTrap Distructor Called for: " << this->Name << '\n';
+}
+
+void	DiamondTrap::whoAmI(void)
+{
+	std::cout << "I'm " << this->Name << '\n';
 }
