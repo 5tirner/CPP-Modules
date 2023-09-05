@@ -6,19 +6,20 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/05 14:10:36 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/05 14:46:52 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-void	ClapTrap::initVals(int Attack, int Energy, int Hit)
+void	ClapTrap::initVals(unsigned int Attack, unsigned int Energy, unsigned int Hit)
 {
 	this->AttackDamage = Attack;
 	this->EnergyPoints = Energy;
 	this->HitPoints = Hit;
 }
+
 ClapTrap::ClapTrap(void)
 {
 	std::cout << "Contructor Called 📞" << '\n';

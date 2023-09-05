@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:35:17 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/05 14:27:52 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/05 15:09:29 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main()
     c.status();
     d.status();
     std::cout << "-----------------------\n"; 
-    const ScavTrap e("MOUSSA");
+    const ScavTrap e("NUNIZ");
     std::cout << "-----------------------\n";
     e.status();
     std::cout << "--------------------------------------------------------------" << '\n'
@@ -72,7 +72,8 @@ int main()
     f.status();
     j.status();
     std::cout << "-----------------------\n"; 
-    const FragTrap h("MOUSSA");
+    const FragTrap h("MABABI");
     std::cout << "-----------------------\n";
     h.status();
+    std::cout << "-----------------------\n";
 }

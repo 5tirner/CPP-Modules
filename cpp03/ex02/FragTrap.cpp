@@ -6,23 +6,26 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 18:48:30 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/03 15:40:30 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/05 14:55:31 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ClapTrap.hpp"
+#include <bits/fs_fwd.h>
 
 FragTrap::FragTrap(void)
 {
 	std::cout << "FragTrap Constructor Called 📞" << '\n';
-	this->initVals("Empty", 30, 100, 100);
+	this->Name = "Empty";
+	this->initVals(30, 100, 100);
 }
 
 FragTrap::FragTrap(std::string name)
 {
 	std::cout << "FragTrap Constructor Paramitrize Called 📞" << '\n';
-	this->initVals(name, 30, 100, 100);
+	this->Name = name;
+	this->initVals(30, 100, 100);
 }
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap()
@@ -34,7 +37,8 @@ FragTrap::FragTrap(const FragTrap &other) : ClapTrap()
 FragTrap	&FragTrap::operator=(const FragTrap &other)
 {
 	std::cout << "FragTrap Assignment Called 📞" << '\n';
-	this->initVals(other.Name, other.AttackDamage
+	this->Name = other.Name;
+	this->initVals(other.AttackDamage
 		, other.EnergyPoints, other.HitPoints);
 	return (*this);
 }

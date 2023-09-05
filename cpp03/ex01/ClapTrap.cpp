@@ -6,30 +6,32 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:28:27 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/05 14:12:41 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/05 14:59:17 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-void	ClapTrap::initVals(std::string name, int Attack, int Energy, int Hit)
+void	ClapTrap::initVals(unsigned int Attack, unsigned int Energy, unsigned int Hit)
 {
-	this->Name = name;
 	this->AttackDamage = Attack;
 	this->EnergyPoints = Energy;
 	this->HitPoints = Hit;
 }
+
 ClapTrap::ClapTrap(void)
 {
 	std::cout << "Contructor Called 📞" << '\n';
-	this->initVals("Empty", 0, 10, 10);
+	this->Name = "Empty";
+	this->initVals(0, 10, 10);
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "Constructor Parametrize Called 📞" << '\n';
-	this->initVals(name, 0, 10, 10);
+	this->Name = name;
+	this->initVals(0, 10, 10);
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)

@@ -10,7 +10,7 @@ NAME		= DiamondInheritance
 
 CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Wshadow
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
 RM			= rm -rf
 

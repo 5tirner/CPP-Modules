@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:49:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/05 14:25:54 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/05 14:40:58 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &other)
 
 DiamondTrap::~DiamondTrap(void)
 {
-	std::cout << "DiamondTrap Distructor Called for: " << this->Name << '\n';
+	std::cout << "DiamondTrap Distructor Called for " << ClapTrap::Name << '\n';
 }
 
 void	DiamondTrap::attack(std::string &target)
@@ -56,5 +56,5 @@ void	DiamondTrap::attack(std::string &target)
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << "I'm " << this->Name << '\n';
+	std::cout << "I'm " << ClapTrap::Name << '\n';
 }

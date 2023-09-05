@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:03:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/03 14:29:04 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/05 15:04:20 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 ScavTrap::ScavTrap(void)
 {
 	std::cout << "ScavTrap Constructor Called 📞" << '\n';
-	this->initVals("Empty", 20, 50, 100);
+	this->Name = "Empty";
+	this->initVals(20, 50, 100);
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
 	std::cout << "ScavTrap Param Called 📞" << '\n';
-	this->initVals(name, 20, 50, 100);
+	this->Name = name;
+	this->initVals(20, 50, 100);
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap()
@@ -34,7 +36,8 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap()
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
 	std::cout << "ScavTrap Assignment Called 📞" << '\n';
-	this->initVals(other.Name, other.AttackDamage
+	this->Name = other.Name;
+	this->initVals(other.AttackDamage
 		, other.EnergyPoints, other.HitPoints);
 	return (*this);
 }
