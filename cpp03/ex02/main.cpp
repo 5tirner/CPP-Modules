@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:35:17 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/04 19:37:12 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/05 14:27:52 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ int main()
     FragTrap f("SUARIZ");
     FragTrap j("BENZEMA");
     std::cout << "Moves:" << '\n';
-    // b.setName("Ederson");
-    // a.setName("MOHAMMAD SLAH");
     f.getName();
     j.getName();
     std::cout << "-----------------------\n";
