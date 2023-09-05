@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:49:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/04 21:38:35 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/05 14:25:54 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include <string>
 
 DiamondTrap::DiamondTrap(void)
 {
 	std::cout << "DiamondTrap Constr Called " << '\n';
-	this->Name = "Empty";
+	this->initVals("Empty", 30, 50, 100);
 }
 
 DiamondTrap::DiamondTrap(std::string name)
 {
 	std::cout << "DiamondTrap paramitrize Called" << '\n';
-	this->Name = name;
+	this->initVals(name + "_clap_name", 30, 50, 100);
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(), ScavTrap(), FragTrap()
@@ -46,6 +47,11 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &other)
 DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << "DiamondTrap Distructor Called for: " << this->Name << '\n';
+}
+
+void	DiamondTrap::attack(std::string &target)
+{
+	ScavTrap::attack(target);
 }
 
 void	DiamondTrap::whoAmI(void)

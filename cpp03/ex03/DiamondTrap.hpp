@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:49:53 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/04 19:14:00 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/05 14:24:52 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class	DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap(std::string name);
 		DiamondTrap &operator=(const DiamondTrap &other);
 		~DiamondTrap(void);
+		void		attack(std::string &target);
 		void	whoAmI(void);
 };
 
