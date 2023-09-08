@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:02:01 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/08 17:13:35 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/08 17:27:11 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	Animal
 		Animal &operator=(const Animal &other);
 		~Animal(void);
 		void	setType(std::string tp);
-		int		getType(void);
+		int		getType(void) const;
 		void	makeSound(void);
 };
 
