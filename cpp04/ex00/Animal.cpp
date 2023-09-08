@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:01:57 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/08 17:36:14 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/08 17:37:40 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ void	Animal::setType(std::string tp)
 
 std::string	Animal::getType(void) const
 {
-	std::cout << this->type << "Was Geted" << '\n';
+	std::cout << this->type << " Was Geted" << '\n';
 	return (this->type);
 }
 
 void	Animal::makeSound(void) const
 {
-	std::cout << this->type << "Make A sound" << '\n';
+	std::cout << this->type << " Make A sound" << '\n';
 }
