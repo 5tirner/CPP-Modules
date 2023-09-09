@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:02:01 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/08 17:33:54 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/09 17:48:07 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class	Animal
 		~Animal(void);
 		void		setType(std::string tp);
 		std::string	getType(void) const;
-		void		makeSound(void) const;
+		virtual void		makeSound(void) const;
 };
 
 #endif

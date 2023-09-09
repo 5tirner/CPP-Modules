@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:05:44 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/08 17:14:32 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/09 17:32:30 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	Dog : public Animal
 		Dog(const Dog &other);
 		Dog &operator=(const Dog &other);
 		~Dog(void);
+		void	makeSound(void) const;
 };
 
 #endif

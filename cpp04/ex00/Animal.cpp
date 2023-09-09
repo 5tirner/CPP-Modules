@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:01:57 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/08 17:37:40 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/09 17:33:31 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Animal::Animal(void)
 {
 	std::cout << "Animal Constructor Called" << '\n';
-	this->type = "NOT SET YET";
+	this->type = "UNKOWING ANIMAL";
 }
 
 Animal::Animal(std::string type)
@@ -53,11 +53,11 @@ void	Animal::setType(std::string tp)
 
 std::string	Animal::getType(void) const
 {
-	std::cout << this->type << " Was Geted" << '\n';
+	//std::cout << this->type << " Was Geted" << '\n';
 	return (this->type);
 }
 
 void	Animal::makeSound(void) const
 {
-	std::cout << this->type << " Make A sound" << '\n';
+	std::cout << this->type << " Make A Sound" << '\n';
 }

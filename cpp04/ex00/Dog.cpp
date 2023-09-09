@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:05:29 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/08 17:25:27 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/09 17:32:30 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Dog::Dog(void)
 {
 	std::cout << "Dog Constructor Called" << '\n';
-	this->type = "NOT SET YET";
+	this->type = "UNKOWING DOG";
 }
 
 Dog::Dog(const Dog &other) : Animal()
@@ -35,4 +35,11 @@ Dog&Dog::operator=(const Dog &other)
 Dog::~Dog(void)
 {
 	std::cout << "Dog Distructor Called" << '\n';
+}
+
+/*----------------------------------------------------*/
+
+void	Dog::makeSound(void) const
+{
+	std::cout << this->type << " Do: N3aw3aw" << '\n';
 }
