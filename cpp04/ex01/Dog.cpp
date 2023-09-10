@@ -3,20 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:05:29 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/09 17:32:30 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/10 14:40:18 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 Dog::Dog(void)
 {
 	std::cout << "Dog Constructor Called" << '\n';
 	this->type = "UNKOWING DOG";
+	this->brain = new Brain;
+}
+
+Dog::Dog(std::string type)
+{
+	std::cout << "Dog Constructor Param Called" << '\n';
+	this->type = type;
+	this->brain = new Brain;
 }
 
 Dog::Dog(const Dog &other) : Animal()
@@ -29,12 +38,14 @@ Dog&Dog::operator=(const Dog &other)
 {
 	std::cout << "Dog Assignment One Called" << '\n';
 	this->type = other.type;
+	this->brain = other.brain;
 	return (*this);
 }
 
 Dog::~Dog(void)
 {
 	std::cout << "Dog Distructor Called" << '\n';
+	delete this->brain;
 }
 
 /*----------------------------------------------------*/

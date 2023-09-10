@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:05:29 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/09 17:32:30 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/10 14:37:42 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ Dog::Dog(void)
 {
 	std::cout << "Dog Constructor Called" << '\n';
 	this->type = "UNKOWING DOG";
+}
+
+Dog::Dog(std::string type)
+{
+	std::cout << "Dog Paramitrize Called" << '\n';
+	this->type = type;
 }
 
 Dog::Dog(const Dog &other) : Animal()

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:01:57 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/09 17:33:31 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/10 14:31:07 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ Animal::~Animal(void)
 
 /*------------------------------------------------------------*/
 
-void	Animal::setType(std::string tp)
+void	Animal::setType(std::string type)
 {
-	std::cout << tp << " Has Been Seted" << '\n';
-	this->type = tp;
+	std::cout << type << " Has Been Seted" << '\n';
+	this->type = type;
 }
 
 std::string	Animal::getType(void) const

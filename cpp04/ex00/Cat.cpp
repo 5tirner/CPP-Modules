@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:18:18 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/09 17:32:30 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/10 14:37:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ Cat::Cat(void)
 {
 	std::cout << "Cat Constructor Called" << '\n';
 	this->type = "UNKOWING CAT";
+}
+
+Cat::Cat(std::string type)
+{
+	std::cout << "Cat Paramitrize Called" << '\n';
+	this->type = type;
 }
 
 Cat::Cat(const Cat &other) : Animal()
