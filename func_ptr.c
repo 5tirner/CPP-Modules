@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "limits.h"
 // void print(int a)
 // {
@@ -13,7 +14,22 @@
 
 //     (*try)('A');    
 // }
+
+typedef struct an
+{
+    int n;
+}  t_an;
+
+void    getA(int a)
+{
+    printf("%d\n", a);
+}
 int main()
 {
-    printf("%llu\n", ULLONG_MAX + 1);
+    t_an *a;
+    a = malloc(4);
+    a->n = 90;
+    void (*ptr)(int);
+    ptr = getA;
+    (*ptr)(a->n);
 }
