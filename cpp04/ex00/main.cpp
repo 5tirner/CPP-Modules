@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:02:03 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/10 14:45:33 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/11 17:28:26 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	main()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound(); //will output the dog sound!
 	meta->makeSound(); //any animal sound!
-	delete meta;
-	delete j;
 	delete i;
+	delete j;
+	delete meta;
 	return (0);
 }

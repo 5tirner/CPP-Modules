@@ -6,11 +6,11 @@ SRCS		= main.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
-NAME		= Animals
+NAME		= AnimalsWithBrains
 
 RM			= rm -rf
 
-CXX			= c++
+CXX			= clang++
 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
