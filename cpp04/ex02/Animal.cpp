@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:01:57 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/10 14:31:07 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/21 19:32:04 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ std::string	Animal::getType(void) const
 
 void	Animal::makeSound(void) const
 {
-	std::cout << this->type << " Make A Sound" << '\n';
+	std::cout << this->type << "" << '\n';
 }
