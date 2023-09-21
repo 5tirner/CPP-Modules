@@ -6,7 +6,7 @@ SRCS		= main.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
-NAME		= AnimalsWithBrains
+NAME		= AbstructClass
 
 RM			= rm -rf
 
