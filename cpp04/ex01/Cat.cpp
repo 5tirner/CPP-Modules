@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:18:18 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/15 16:49:55 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/21 21:03:29 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ Cat&Cat::operator=(const Cat &other)
 		delete this->brain;
 	this->brain = new Brain;
 	*this->brain = *other.brain;
+	std::cout << this->brain << "   |  " << other.brain << std::endl;
+	//this->brain = other.brain;
 	return (*this);
 }
 
