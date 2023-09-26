@@ -3,6 +3,8 @@ SRCS		= main.cpp\
 			Cat.cpp\
 			Animal.cpp\
 			Brain.cpp\
+			WrongAnimal.cpp\
+			WrongCat.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
@@ -18,7 +20,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME) -fsanitize=address -g3
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 
