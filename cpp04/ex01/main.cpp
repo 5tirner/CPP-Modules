@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:02:03 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/21 21:10:55 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/25 16:40:54 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ int	main()
 	// 	delete a[i];
 	// 	i--;
 	// }
-	Animal *test = new Cat;
-	test->makeSound();
-	Animal *test2 = test;
-	test2->makeSound();
-	delete test;
-	delete test2;
+	Cat test;
+	test.makeSound();
+	Cat test2 = test;
+	test2.makeSound();
 }
