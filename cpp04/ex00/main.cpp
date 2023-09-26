@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:02:03 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/15 13:41:12 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/26 15:34:37 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 int	main()
 {
-	//const Animal a("SA3ID");
-	// a.getType();
 	std::cout << "-------------------------" << '\n';
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
