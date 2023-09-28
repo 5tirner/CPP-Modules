@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:48:51 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/26 17:39:55 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/09/28 13:31:53 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class   AMateria
         AMateria(void);
         AMateria(const std::string &param);
         AMateria(const AMateria &other);
-        AMateria&operator=(const AMateria &otehr);
+        AMateria&operator=(const AMateria &other);
         virtual ~AMateria(void);
         std::string const   getType() const;
         virtual AMateria    *clone() = 0;
