@@ -19,4 +19,10 @@ $(NAME) : $(OBJS)
 
 clean :
 
-	$(RM)
+	$(RM) $(OBJS)
+
+fclean : clean
+
+	$(RM) $(NAME)
+
+re : fclean all
