@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/03 01:01:56 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/03 04:46:23 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,15 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
     this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
 {
     std::cout << "Bureaucrat Copy One Called" << '\n';
-    *this = other;
 }
 
 Bureaucrat&Bureaucrat::operator=(const Bureaucrat &other)
 {
-    std::cout << "Bureaucrat Assignement One Called" << '\n';
-    (std::string)this->name = other.name;
+    std::cout << "NB: The Assignment Is Useless Because The Name Is Const\n"
+    << "Bureaucrat Assignement One Called" << '\n';
     this->grade = other.grade;
     return (*this);
 }
@@ -68,4 +67,12 @@ void    Bureaucrat::minusGrade(void)
     std::cout << this->name 
     << ": Down From The Grade " << this->grade - 1 
     << " Into The Grade " << this->grade << " ⬇️" <<'\n';
+}
+
+/*Override <<*/
+
+std::ostream	&operator<<(std::ostream &o, const Bureaucrat &obj)
+{
+    o << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    return (o);
 }
