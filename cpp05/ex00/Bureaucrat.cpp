@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/03 00:45:25 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/03 01:01:56 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Bureaucrat::Bureaucrat(void) : name("Not Set Yet")
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-    std::cout << "Bureaucrat Paramitrize on called" << '\n';
+    std::cout << "Bureaucrat Paramitrize One Called" << '\n';
     this->grade = grade;
 }
 
@@ -59,7 +59,7 @@ void    Bureaucrat::plusGrade(void)
     this->grade--;
     std::cout << this->name 
     << ": Rise Up From The Grade " << this->grade + 1 
-    << " To The Grade " << this->grade << "⬆️" <<'\n';
+    << " To The Grade " << this->grade << " ⬆️" <<'\n';
 }
 
 void    Bureaucrat::minusGrade(void)
@@ -67,5 +67,5 @@ void    Bureaucrat::minusGrade(void)
     this->grade++;
     std::cout << this->name 
     << ": Down From The Grade " << this->grade - 1 
-    << " Into The Grade " << this->grade << "⬇️" <<'\n';
+    << " Into The Grade " << this->grade << " ⬇️" <<'\n';
 }

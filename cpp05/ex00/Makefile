@@ -1,11 +1,11 @@
-SRCS		= main.c\
+SRCS		= main.cpp\
 			Bureaucrat.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
 CXX			= c++
 
-CXXFLAGS	= -wall -wextra -werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 NAME		= Bureaucrat
 
