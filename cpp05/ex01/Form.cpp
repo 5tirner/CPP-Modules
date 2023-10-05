@@ -6,25 +6,24 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:15:04 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/05 03:24:54 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/05 21:39:29 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-#include <ostream>
 
-Form::Form(void) : name("Not Set Yet"), isSigned(false), gradeRequired(150)
+Form::Form(void) : name("Not Set Yet"), isSigned(false), gradeToSign(75), gradeToExecute(20)
 {
     std::cout << "Form Constructor Called" << '\n';
 }
 
-Form::Form(std::string name, int gradeRequired) : name(name), gradeRequired(gradeRequired)
+Form::Form(std::string name, int gradeToSign, int gradeToExecute) : name(name), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
     std::cout << "From Paramitrize One Called" << '\n';
     this->isSigned = false;
 }
 
-Form::Form(const Form &other) : name(other.name), gradeRequired(other.gradeRequired)
+Form::Form(const Form &other) : name(other.name), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
 {
     std::cout << "Form Copy One Called" << '\n';
     this->isSigned = false;
@@ -57,13 +56,20 @@ bool    Form::ShowStatus(void) const
     return (this->isSigned);
 }
 
-int     Form::ShowGrade(void) const
+int     Form::ShowGradeToSign(void) const
 {
-    return (this->gradeRequired);
+    return (this->gradeToSign);
 }
+
+int     Form::ShowGradeToExecute(void) const
+{
+    return (this->gradeToExecute);
+}
+
+/*Operator <<*/
 
 std::ostream    &operator<<(std::ostream &o, const Form &f)
 {
-    o << f.showName() << " - " << f.ShowStatus() << " - " << f.ShowGrade();
+    o << f.showName() << " - " << f.ShowStatus() << " - " << f.ShowGradeToSign() << f.ShowGradeToSign();
     return (o);
 }
