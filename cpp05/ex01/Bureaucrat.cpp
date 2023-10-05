@@ -6,11 +6,12 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/03 19:04:39 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/04 23:13:15 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include <exception>
 #include <string>
 
 Bureaucrat::Bureaucrat(void) : name("Not Set Yet")
@@ -19,10 +20,14 @@ Bureaucrat::Bureaucrat(void) : name("Not Set Yet")
     this->grade = 150;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 {
     std::cout << "Bureaucrat Paramitrize One Called" << '\n';
-    this->grade = grade;
+    if (_grade > 150)
+        throw Bureaucrat::GradeTooHighException();
+    if (_grade < 1)
+        throw  Bureaucrat::GradeTooLowException();
+    this->grade = _grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
@@ -55,6 +60,8 @@ int Bureaucrat::getGrade(void) const
 
 void    Bureaucrat::plusGrade(void)
 {
+    if (this->grade - 1 < 1)
+        throw Bureaucrat::GradeTooHighException();
     this->grade--;
     std::cout << this->name 
     << ": Rise Up From The Grade " << this->grade + 1 
@@ -63,6 +70,8 @@ void    Bureaucrat::plusGrade(void)
 
 void    Bureaucrat::minusGrade(void)
 {
+    if (this->grade + 1 > 150)
+        throw Bureaucrat::GradeTooLowException();
     this->grade++;
     std::cout << this->name 
     << ": Down From The Grade " << this->grade - 1 
