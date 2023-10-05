@@ -6,11 +6,12 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:22 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/04 23:27:47 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/05 03:09:50 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <exception>
 #include <iostream>
 
