@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:04:03 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/05 22:41:30 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/06 04:19:51 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FORM_HPP
 
 # include <iostream>
-# include "Bureaucrat.hpp"
 
+class	Bureaucrat;
 class	Form
 {
 	private:
@@ -33,6 +33,15 @@ class	Form
 		bool		ShowStatus(void) const;
 		int			ShowGradeToSign(void) const;
 		int			ShowGradeToExecute(void) const;
+		class		GradeTooHighException : public std::exception
+		{
+			const char* what() const throw();
+		};
+		class		GradeTooLowException : public std::exception
+		{
+			const char* what() const throw();
+		};
+		void	beSigned(Bureaucrat &brc);
 };
 
 std::ostream	&operator<<(std::ostream &o, const Form &f);	

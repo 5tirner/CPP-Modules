@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:22 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/05 22:41:26 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/06 03:44:11 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -354,6 +354,13 @@ int main(void)
     // {
     //     std::cout << e.what() << '\n';
     // }
-    Form a;
-    Form b = a;
+    try
+    {
+        Form a("Sl", 1, 5);
+        std::cout << a << '\n';
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what();
+    }
 }

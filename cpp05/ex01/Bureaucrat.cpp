@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/04 23:13:15 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/06 04:23:25 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ Bureaucrat::~Bureaucrat(void)
     std::cout << "Bureaucrat Distructor Called" << '\n';
 }
 
+/*Getters*/
+
 std::string Bureaucrat::getName(void) const
 {
     return (this->name);
@@ -57,6 +59,8 @@ int Bureaucrat::getGrade(void) const
 {
     return (this->grade);
 }
+
+/*Increment and Discremant*/
 
 void    Bureaucrat::plusGrade(void)
 {
@@ -76,6 +80,31 @@ void    Bureaucrat::minusGrade(void)
     std::cout << this->name 
     << ": Down From The Grade " << this->grade - 1 
     << " Into The Grade " << this->grade << " ⬇️" <<'\n';
+}
+
+/*Exceptions*/
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Error: Grade Is Too High");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Error: Grade Is Too Low");
+}
+
+/*Sign Form*/
+
+void    Bureaucrat::signForm(Form &form)
+{
+    if (form.ShowStatus() == true)
+        std::cout << this->name << " signed " << form.showName() << '\n';
+    else
+    {
+        std::cout << this->name << " couldn’t sign " << form.showName()
+        << " because The Grade Is Too Low" << '\n';
+    }
 }
 
 /*Override <<*/
