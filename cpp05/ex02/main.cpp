@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:22 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/08 11:48:31 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/06 23:59:05 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 int main(void)
 {
-    Bureaucrat a("Bur1", 10);
-    Bureaucrat b("Bur2", 10);
+    Bureaucrat a("Bur1", 2);
+    Bureaucrat b("Bur2", 1);
     try
     {
         a.plusGrade();
@@ -29,19 +29,4 @@ int main(void)
         std::cout << e.what() << '\n';
     }
     std::cout << a << '\n' << b << '\n';
-    std::cout << "-----------------------------\n";
-    Form f1("Form1", 2, 2);
-    Form f2("Form2", 11, 11);
-    std::cout << f1 << '\n' << f2 << '\n';
-    std::cout << "------------------------------\n";
-    try
-    {
-        f1.beSigned(a);
-        f2.beSigned(b);
-    }
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << '\n';
-    }
-    std::cout << f1 << '\n' << f2 << '\n';
 }
