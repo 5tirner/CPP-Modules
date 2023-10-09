@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:15:04 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/09 16:06:35 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:30:43 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Form::Form(const Form &other) :
     gradeToExecute(other.gradeToExecute)
 {
     std::cout << "Form Copy One Called" << '\n';
-    this->isSigned = false;
+    this->isSigned = other.isSigned;
 }
 
 Form&Form::operator=(const Form &other)
@@ -49,7 +49,7 @@ Form&Form::operator=(const Form &other)
     << "Form Assignament One Called" << '\n';
     if (this == &other)
         return (*this);
-    this->isSigned = false;
+    this->isSigned = other.isSigned;
     return (*this);
 }
 
