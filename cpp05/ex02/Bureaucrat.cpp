@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/06 04:23:25 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/09 10:05:58 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 /*Sign Form*/
 
-void    Bureaucrat::signForm(Form &form)
+void    Bureaucrat::signForm(AForm &form)
 {
     if (form.ShowStatus() == true)
         std::cout << this->name << " signed " << form.showName() << '\n';

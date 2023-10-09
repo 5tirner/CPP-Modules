@@ -1,98 +1,104 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 01:15:04 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/06 04:20:02 by zasabri          ###   ########.fr       */
+/*   Created: 2023/10/09 10:05:01 by zasabri           #+#    #+#             */
+/*   Updated: 2023/10/09 10:09:29 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(void) : name("Not Set Yet"), isSigned(false), gradeToSign(150), gradeToExecute(150)
+AForm::AForm(void) : name("Not Set Yet"), isSigned(false), gradeToSign(150), gradeToExecute(150)
 {
-    std::cout << "Form Constructor Called" << '\n';
+    std::cout << "AForm Constructor Called" << '\n';
 }
 
-Form::Form(std::string name, int gradeToSign, int gradeToExecute) : name(name), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : 
+    name(name),
+    gradeToSign(gradeToSign),
+    gradeToExecute(gradeToExecute)
 {
     std::cout << "From Paramitrize One Called" << '\n';
     if (this->gradeToSign < 1 || this->gradeToExecute < 1)
-        throw Form::GradeTooHighException();
+        throw AForm::GradeTooHighException();
     if (this->gradeToExecute > 150 || this->gradeToSign > 150)
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     this->isSigned = false;
 }
 
-Form::Form(const Form &other) : name(other.name), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
+AForm::AForm(const AForm &other) :
+    name(other.name),
+    gradeToSign(other.gradeToSign),
+    gradeToExecute(other.gradeToExecute)
 {
-    std::cout << "Form Copy One Called" << '\n';
+    std::cout << "AForm Copy One Called" << '\n';
     this->isSigned = false;
 }
 
-Form&Form::operator=(const Form &other)
+AForm&AForm::operator=(const AForm &other)
 {
     std::cout << "We Have Two Attributes Const So This Move Is Useless, AnyWay:\n"
-    << "Form Assignament One Called" << '\n';
+    << "AForm Assignament One Called" << '\n';
     if (this == &other)
         return (*this);
     this->isSigned = false;
     return (*this);
 }
 
-Form::~Form(void)
+AForm::~AForm(void)
 {
-    std::cout << "Form Distructor Called" << '\n';
+    std::cout << "AForm Distructor Called" << '\n';
 }
 /*Exceptions*/
 
-const char  *Form::GradeTooHighException::what() const throw()
+const char  *AForm::GradeTooHighException::what() const throw()
 {
     return ("Error: Grade Is Too High");
 }
 
-const char  *Form::GradeTooLowException::what() const throw()
+const char  *AForm::GradeTooLowException::what() const throw()
 {
     return ("Error: Grade Is Too Low");
 }
 
 /*Getters*/
 
-std::string    Form::showName(void) const
+std::string    AForm::showName(void) const
 {
     return (this->name);
 }
 
-bool    Form::ShowStatus(void) const
+bool    AForm::ShowStatus(void) const
 {
     return (this->isSigned);
 }
 
-int     Form::ShowGradeToSign(void) const
+int     AForm::ShowGradeToSign(void) const
 {
     return (this->gradeToSign);
 }
 
-int     Form::ShowGradeToExecute(void) const
+int     AForm::ShowGradeToExecute(void) const
 {
     return (this->gradeToExecute);
 }
 
-void    Form::beSigned(Bureaucrat &brc)
+void    AForm::beSigned(Bureaucrat &brc)
 {
     if (this->gradeToSign > brc.getGrade())
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     this->isSigned = true;
 }
 
 
 /*Operator <<*/
 
-std::ostream    &operator<<(std::ostream &o, const Form &f)
+std::ostream    &operator<<(std::ostream &o, const AForm &f)
 {
     o << f.showName() << " - " << f.ShowStatus() << " - " << f.ShowGradeToSign() << " - " << f.ShowGradeToSign();
     return (o);

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:15:04 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/08 11:48:46 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/09 10:10:12 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ Form::Form(void) : name("Not Set Yet"), isSigned(false), gradeToSign(150), grade
     std::cout << "Form Constructor Called" << '\n';
 }
 
-Form::Form(std::string name, int gradeToSign, int gradeToExecute) : name(name), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+Form::Form(std::string name, int gradeToSign, int gradeToExecute) :
+    name(name),
+    gradeToSign(gradeToSign),
+    gradeToExecute(gradeToExecute)
 {
     std::cout << "From Paramitrize One Called" << '\n';
     if (this->gradeToSign < 1 || this->gradeToExecute < 1)
@@ -31,7 +34,10 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute) : name(name), 
     this->isSigned = false;
 }
 
-Form::Form(const Form &other) : name(other.name), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
+Form::Form(const Form &other) :
+    name(other.name),
+    gradeToSign(other.gradeToSign),
+    gradeToExecute(other.gradeToExecute)
 {
     std::cout << "Form Copy One Called" << '\n';
     this->isSigned = false;
