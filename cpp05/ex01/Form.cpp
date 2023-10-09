@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:15:04 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/09 10:10:12 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:06:35 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int     Form::ShowGradeToExecute(void) const
 
 void    Form::beSigned(Bureaucrat &brc)
 {
-    if (this->gradeToSign > brc.getGrade())
+    if (this->gradeToSign < brc.getGrade())
         throw Form::GradeTooLowException();
     std::cout << this->name << " Is Signed By " << brc.getName() << " 🖊️\n";
     this->isSigned = true;

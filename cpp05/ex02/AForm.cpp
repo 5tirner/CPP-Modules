@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 10:05:01 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/09 10:09:29 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:10:04 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int     AForm::ShowGradeToExecute(void) const
 
 void    AForm::beSigned(Bureaucrat &brc)
 {
-    if (this->gradeToSign > brc.getGrade())
+    if (this->gradeToSign < brc.getGrade())
         throw AForm::GradeTooLowException();
     this->isSigned = true;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/09 10:05:58 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:11:10 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 void    Bureaucrat::signForm(AForm &form)
 {
-    if (form.ShowStatus() == true)
-        std::cout << this->name << " signed " << form.showName() << '\n';
+    if (form.ShowStatus() == true && this->grade <= form.ShowGradeToSign())
+        std::cout << this->name << " Signed " << form.showName() << '\n';
     else
     {
         std::cout << this->name << " couldn’t sign " << form.showName()
