@@ -11,3 +11,13 @@
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
+PresidentialPardonForm::PresidentialPardonForm(void)
+{
+    std::cout << "PresidentialPardonForm Constructor Called" << '\n';
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string name, int gradeToSign, int gradeToExecute) : AForm()
+{
+
+}
