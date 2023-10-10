@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 14:06:05 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/08 14:11:08 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/10 13:06:05 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,15 @@
 # define PRESIDENTIALPARDONFORM
 
 # include <iostream>
+# include "AForm.hpp"
+
+class   PresidentialPardonForm : public AForm
+{
+    public:
+        PresidentialPardonForm(void);
+        PresidentialPardonForm(const PresidentialPardonForm &other);
+        PresidentialPardonForm&operator=(const PresidentialPardonForm &other);
+        ~PresidentialPardonForm(void);
+};
 
 #endif

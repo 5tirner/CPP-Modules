@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "limits.h"
+#include <limits.h>
 // void print(int a)
 // {
 //     a += 32;
@@ -26,10 +26,10 @@ void    getA(int a)
 }
 int main()
 {
-    t_an *a;
-    a = malloc(4);
-    a->n = 90;
-    void (*ptr)(int);
-    ptr = getA;
-    (*ptr)(a->n);
+    char *s = malloc(0);
+    if (!s)
+        return (1);
+    s[0] = 'c';
+    s[1] = 0;
+   printf("%p\n", &s);
 }
