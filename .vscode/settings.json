@@ -84,5 +84,6 @@
     "less.lint.zeroUnits": "error",
     "emmet.syntaxProfiles": {
 
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 10:04:15 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/09 10:04:17 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/10 23:33:49 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class	AForm
 		AForm(std::string name, int gradeToSign, int gradeToExecute);
 		AForm(const AForm &other);
 		AForm&operator=(const AForm &other);
-		~AForm(void);
+		virtual ~AForm(void);
 		std::string	showName(void) const;
 		bool		ShowStatus(void) const;
 		int			ShowGradeToSign(void) const;
@@ -41,7 +41,8 @@ class	AForm
 		{
 			const char* what() const throw();
 		};
-		virtual void	beSigned(Bureaucrat &brc) = 0;
+		void	beSigned(Bureaucrat &brc);
+		virtual void	execute(Bureaucrat const &executor) = 0;
 };
 
 std::ostream	&operator<<(std::ostream &o, const AForm &f);	

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 14:06:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/10 13:10:02 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/10 23:34:56 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(const ShrubberyCreationForm &other);
         ShrubberyCreationForm&operator=(const ShrubberyCreationForm &other);
         ~ShrubberyCreationForm(void);
+        void    execute(Bureaucrat const &executor);
 };
 
 #endif
