@@ -1,6 +1,7 @@
 SRCS		= main.cpp\
 			Bureaucrat.cpp\
 			AForm.cpp\
+			ShrubberyCreationForm.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
