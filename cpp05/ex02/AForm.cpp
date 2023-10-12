@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 10:05:01 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/09 16:10:04 by zasabri          ###   ########.fr       */
+/*   Created: 2023/10/12 18:59:55 by zasabri           #+#    #+#             */
+/*   Updated: 2023/10/12 19:02:20 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,17 @@ AForm::AForm(void) : name("Not Set Yet"), isSigned(false), gradeToSign(150), gra
     std::cout << "AForm Constructor Called" << '\n';
 }
 
-AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : 
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) :
     name(name),
     gradeToSign(gradeToSign),
     gradeToExecute(gradeToExecute)
 {
     std::cout << "From Paramitrize One Called" << '\n';
     if (this->gradeToSign < 1 || this->gradeToExecute < 1)
+    {
+        std::cout << "Here\n";
         throw AForm::GradeTooHighException();
+    }
     if (this->gradeToExecute > 150 || this->gradeToSign > 150)
         throw AForm::GradeTooLowException();
     this->isSigned = false;
@@ -37,7 +40,7 @@ AForm::AForm(const AForm &other) :
     gradeToExecute(other.gradeToExecute)
 {
     std::cout << "AForm Copy One Called" << '\n';
-    this->isSigned = false;
+    this->isSigned = other.isSigned;
 }
 
 AForm&AForm::operator=(const AForm &other)
@@ -46,7 +49,7 @@ AForm&AForm::operator=(const AForm &other)
     << "AForm Assignament One Called" << '\n';
     if (this == &other)
         return (*this);
-    this->isSigned = false;
+    this->isSigned = other.isSigned;
     return (*this);
 }
 
@@ -54,6 +57,7 @@ AForm::~AForm(void)
 {
     std::cout << "AForm Distructor Called" << '\n';
 }
+
 /*Exceptions*/
 
 const char  *AForm::GradeTooHighException::what() const throw()
@@ -88,10 +92,13 @@ int     AForm::ShowGradeToExecute(void) const
     return (this->gradeToExecute);
 }
 
+/*Be signed*/
+
 void    AForm::beSigned(Bureaucrat &brc)
 {
     if (this->gradeToSign < brc.getGrade())
         throw AForm::GradeTooLowException();
+    std::cout << this->name << " Is Signed By " << brc.getName() << " 🖊️\n";
     this->isSigned = true;
 }
 

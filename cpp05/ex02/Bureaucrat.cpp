@@ -6,13 +6,11 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/09 16:11:10 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/12 18:58:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include <exception>
-#include <string>
 
 Bureaucrat::Bureaucrat(void) : name("Not Set Yet")
 {
@@ -94,16 +92,16 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 	return ("Error: Grade Is Too Low");
 }
 
-/*Sign Form*/
+/*Sign AForm*/
 
 void    Bureaucrat::signForm(AForm &form)
 {
-    if (form.ShowStatus() == true && this->grade <= form.ShowGradeToSign())
+    if (form.ShowStatus() == true && form.ShowGradeToSign() >= this->grade)
         std::cout << this->name << " Signed " << form.showName() << '\n';
     else
     {
-        std::cout << this->name << " couldn’t sign " << form.showName()
-        << " because The Grade Is Too Low" << '\n';
+        std::cout << this->name << " Could Not Sign " << form.showName()
+        << " Because The Grade Is Too Low" << '\n';
     }
 }
 
