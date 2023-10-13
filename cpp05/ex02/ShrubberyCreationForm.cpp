@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 01:20:06 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 03:26:03 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm()
 ShrubberyCreationForm::ShrubberyCreationForm(std::string shName, int gsign, int gexec) : AForm(shName, gsign, gexec)
 {
     std::cout << "ShrubberyCreationForm Paramz One Called" << '\n';
+    if (gsign == 145 && gexec == 137)
+    {
+        std::fstream file;
+        file.open(this->showName() + "_shrubbery", std::ios::out);
+        file << "       ###\n"
+        << "      #o###\n"
+        << "    #####o###\n"
+        << "   #o#\\#|#/###\n"
+        << "    ###\\|/#o#\n"
+        << "     # }|{  #\n"
+        << "       }|{\n";
+        file.close();
+    }
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other)

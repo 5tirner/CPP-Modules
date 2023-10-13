@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:59:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 01:04:54 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 03:15:26 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define AFORM_HPP
 
 # include <iostream>
+# include <fstream>
 
 class	Bureaucrat;
 class	AForm
@@ -46,6 +47,6 @@ class	AForm
 		virtual void	execute(Bureaucrat const &executor) = 0;
 };
 
-std::ostream	&operator<<(std::ostream &o, const AForm &f);	
+std::ostream	&operator<<(std::ostream &o, const AForm &f);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:22 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 00:41:39 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 03:23:48 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
 {
     try
     {
-        ShrubberyCreationForm a("Hero", 1, 11);
+        ShrubberyCreationForm a("Hero", 145, 137);
         ShrubberyCreationForm b = a;
         std::cout << a << "\n" << b << '\n';
         std::cout << "-------------\n";
