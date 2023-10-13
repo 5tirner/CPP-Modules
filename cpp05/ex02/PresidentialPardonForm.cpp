@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 00:36:53 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 20:42:30 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 21:13:47 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ PresidentialPardonForm::PresidentialPardonForm(void) :
     AForm("PresidentialPardonForm", 25, 5)
 {
     std::cout << "PresidentialPardonForm Constructor Called" << '\n';
+    this->target = "Not Set";
 }
 
-// PresidentialPardonForm::PresidentialPardonForm(std::string shName, int gsign, int gexec) : 
-//     AForm(shName, gsign, gexec)
-// {
-//     std::cout << "PresidentialPardonForm Paramz One Called" << '\n';
-//     if (gsign == 25 && gexec == 5)
-//         std::cout << this->showName() << " has been pardoned by Zaphod Beeblebrox" << '\n';
-// }
+PresidentialPardonForm::PresidentialPardonForm(std::string _target) :
+    AForm("PresidentialPardonForm", 25, 5)
+{
+    std::cout << "PresidentialPardonForm Paramz One Called" << '\n';
+    this->target = _target;
+}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : 
     AForm(other)
@@ -50,7 +50,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 void    PresidentialPardonForm::execute(Bureaucrat const &executor)
 {
     if (executor.getGrade() < this->ShowGradeToExecute() && this->ShowStatus() == true)
-        std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox" << '\n';
+        std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << '\n';
     else
         throw AForm::GradeTooHighException();
 }

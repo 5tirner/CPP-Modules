@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 20:41:28 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 21:14:12 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) :
     AForm("ShrubberyCreationForm", 145, 137)
 {
     std::cout << "ShrubberyCreationForm Constructor Called" << '\n';
+    this->target = "Not Set";
 }
 
-// ShrubberyCreationForm::ShrubberyCreationForm(std::string shName, int gsign, int gexec) : AForm(shName, gsign, gexec)
-// {
-//     std::cout << "ShrubberyCreationForm Paramz One Called" << '\n';
-//     if (gsign == 145 && gexec == 137)
-//     {
-//         std::fstream file;
-//         file.open(this->showName() + "_shrubbery", std::ios::out);
-//         file << "       ###\n"
-//         << "      #o###\n"
-//         << "    #####o###\n"
-//         << "   #o#\\#|#/###\n"
-//         << "    ###\\|/#o#\n"
-//         << "     # }|{  #\n"
-//         << "       }|{\n";
-//         file.close();
-//     }
-// }
+ShrubberyCreationForm::ShrubberyCreationForm(std::string _target) :
+    AForm("ShrubberyCreationForm", 145, 137)
+{
+    std::cout << "ShrubberyCreationForm Paramz One Called" << '\n';
+    this->target = _target;
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) :
     AForm(other)
@@ -63,7 +53,7 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor)
     if (executor.getGrade() <= this->ShowGradeToExecute() && this->ShowStatus() == true)
     {
         std::fstream file;
-        file.open(executor.getName() + "_shrubbery", std::ios::out);
+        file.open(this->target + "_shrubbery", std::ios::out);
         file << "       ###\n"
         << "      #o###\n"
         << "    #####o###\n"

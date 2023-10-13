@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 23:51:42 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 20:42:47 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 21:13:59 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,15 @@ RobotomyRequestForm::RobotomyRequestForm(void) :
     AForm("RobotomyRequestForm", 72, 45)
 {
     std::cout << "RobotomyRequestForm Constructor Called" << '\n';
+    this->target = "Not Set";
 }
 
-// RobotomyRequestForm::RobotomyRequestForm(std::string shName, int gsign, int gexec) : AForm(shName, gsign, gexec)
-// {
-//     std::cout << "RobotomyRequestForm Paramz One Called" << '\n';
-//     if (gsign == 72 && gexec == 45)
-//     {
-//         std::cout << "\023Break News: " << this->showName()
-//         << "has been robotomized successfully 50% of the time" << '\n';
-//     }
-//     else
-//         std::cout << "Danger: the robotomy failed.";
-// }
+RobotomyRequestForm::RobotomyRequestForm(std::string _target) :
+    AForm("RobotomyRequestForm", 72, 45)
+{
+    std::cout << "RobotomyRequestForm Paramz One Called" << '\n';
+    this->target = _target;
+}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other)
 {
@@ -54,7 +50,7 @@ void    RobotomyRequestForm::execute(Bureaucrat const &executor)
 {
     if (executor.getGrade() <= this->ShowGradeToExecute() && this->ShowStatus() == true)
     {
-        std::cout << "Break News: " << executor.getName()
+        std::cout << "Break News: " << this->target
         << "has been robotomized successfully 50% of the time" << '\n';
     }
     else
