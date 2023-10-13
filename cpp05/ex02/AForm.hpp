@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:59:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/12 19:00:37 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 00:45:55 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	AForm
 		AForm(std::string name, int gradeToSign, int gradeToExecute);
 		AForm(const AForm &other);
 		AForm&operator=(const AForm &other);
-		~AForm(void);
+		virtual ~AForm(void);
 		std::string	showName(void) const;
 		bool		ShowStatus(void) const;
 		int			ShowGradeToSign(void) const;
@@ -43,6 +43,7 @@ class	AForm
 			const char* what() const throw();
 		};
 		void	beSigned(Bureaucrat &brc);
+		virtual void	execute(Bureaucrat const &executor) = 0;
 };
 
 std::ostream	&operator<<(std::ostream &o, const AForm &f);	

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/12 19:24:41 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 01:01:38 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 
 ShrubberyCreationForm&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
-    AForm::operator=(other);
+    //AForm::operator=(other);
+    other.showName();
     std::cout << "ShrubberyCreationForm Assignemet here" << '\n';
     return (*this);
 }
@@ -40,3 +41,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 }
 
 /*ShrubberyCreationForm Exec Func*/
+
+void    ShrubberyCreationForm::execute(Bureaucrat const &executor)
+{
+    (void)executor;
+}
