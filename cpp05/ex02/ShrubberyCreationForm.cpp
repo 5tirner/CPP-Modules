@@ -6,11 +6,13 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 01:01:38 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 01:20:06 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
+# include "Bureaucrat.hpp"
+
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm()
 {
@@ -44,5 +46,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 
 void    ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
-    (void)executor;
+    if (executor.getGrade() <= this->ShowGradeToExecute()
+        && this->ShowStatus() == true)
+    {
+        
+    }
 }
