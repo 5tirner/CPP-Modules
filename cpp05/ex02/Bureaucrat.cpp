@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 23:46:58 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/14 00:48:04 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,16 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 void    Bureaucrat::signForm(AForm &form)
 {
     if (form.ShowStatus() == true && form.ShowGradeToSign() >= this->grade)
-        std::cout << this->name << " Signed " << form.showName() << '\n';
+        std::cout << this->name << " Signed " << form.showName() << " ✅" << '\n';
     else if(form.ShowGradeToSign() < this->grade)
     {
         std::cout << this->name << " Could Not Sign " << form.showName()
-        << " Because The Grade Is Too Low" << '\n';
+        << " Because The Grade Is Too Low ❌" << '\n';
     }
     else
     {
         std::cout << this->name << " Could Not Sign " << form.showName()
-        << " Because The Form Is Not Signed" << '\n';    
+        << " Because The Form Is Not Signed ❌" << '\n';    
     }
 }
 
@@ -119,3 +119,13 @@ std::ostream	&operator<<(std::ostream &o, const Bureaucrat &obj)
 }
 
 /*Execute Form Func*/
+
+void    Bureaucrat::executeForm(AForm const &form)
+{
+    if (form.ShowGradeToExecute() >= this->grade && form.ShowStatus() == true)
+        std::cout << this->name << " Executed " << form.showName() << "✅" <<'\n';
+    else if (form.ShowStatus() == false)
+        std::cout << form.showName() << ": Not Signed Yet ❌" << '\n';
+    else
+        std::cout << this->name << " Bureaucrat Grade Too Low ❌" << '\n';
+}

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 21:35:06 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/14 00:50:35 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor)
     {
         std::fstream file;
         file.open(this->target + "_shrubbery", std::ios::out);
+        if (!file)
+        {
+            std::cout << "File Cannot Opened ❌" << '\n';
+            return ;
+        }
         file << "       ###\n"
         << "      #o###\n"
         << "    #####o###\n"
@@ -62,6 +67,7 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor)
         << "     # }|{  #\n"
         << "       }|{\n";
         file.close();
+        std::cout << "The File Is Opened ✅, You Well Find Tree In " << target + "shrubbery" << '\n';
     }
     else if (this->ShowStatus() == false)
         throw AForm::NotSignedYet();

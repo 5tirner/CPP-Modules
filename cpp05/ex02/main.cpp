@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:22 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 23:23:31 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/14 00:41:25 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int main(void)
     try
     {
         std::cout << "CREATION:" << '\n';
-        Bureaucrat a("Bur1", 24);
-        Bureaucrat b("Bur2", 24);
+        Bureaucrat a("Bur1", 1);
+        Bureaucrat b("Bur2", 1);
         std::cout << a << '\n' << b << '\n';
         std::cout << "----------------------------\n";
         PresidentialPardonForm p("President");
@@ -56,7 +56,15 @@ int main(void)
         p.execute(a);
         p.execute(b);
         std::cout << "-------------------------------\n";
-        
+        std::cout << "POSSIBILITY TO EXECUTING:" << '\n';
+        a.executeForm(s);
+        b.executeForm(s);
+        a.executeForm(r);
+        b.executeForm(r);
+        a.executeForm(p);
+        b.executeForm(p);
+        std::cout << "--------------------------------\n";
+        std::cout << "DISTRUCTORS:" << '\n';
     }
     catch(std::exception &e)
     {

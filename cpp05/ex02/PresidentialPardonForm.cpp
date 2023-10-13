@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 00:36:53 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 21:34:49 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/14 00:43:48 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 void    PresidentialPardonForm::execute(Bureaucrat const &executor)
 {
     if (executor.getGrade() < this->ShowGradeToExecute() && this->ShowStatus() == true)
-        std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << '\n';
+        std::cout << this->target << " has been pardoned by Zaphod Beeblebrox ✅" << '\n';
     else if (this->ShowStatus() == false)
         throw AForm::NotSignedYet();
     else

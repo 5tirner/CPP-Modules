@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 23:46:25 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/14 00:47:26 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,16 +99,16 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 void    Bureaucrat::signForm(Form &form)
 {
     if (form.ShowStatus() == true && form.ShowGradeToSign() >= this->grade)
-        std::cout << this->name << " Signed " << form.showName() << '\n';
+        std::cout << this->name << " Signed " << form.showName() << " ✅" << '\n';
     else if(form.ShowGradeToSign() < this->grade)
     {
         std::cout << this->name << " Could Not Sign " << form.showName()
-        << " Because The Grade Is Too Low" << '\n';
+        << " Because The Grade Is Too Low ❌" << '\n';
     }
     else
     {
         std::cout << this->name << " Could Not Sign " << form.showName()
-        << " Because The Form Is Not Signed" << '\n';    
+        << " Because The Form Is Not Signed ❌" << '\n';    
     }
 }
 
