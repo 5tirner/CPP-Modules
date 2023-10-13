@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:28 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/12 18:59:12 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 20:17:41 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class	Bureaucrat
 			const char* what() const throw();
 		};
 		void	signForm(AForm &form);
+		//void	executeForm(Form const &form);
 };
 
 std::ostream	&operator<<(std::ostream &o, const Bureaucrat &obj);

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:22 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 03:23:48 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 20:19:32 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,4 @@
 
 int main(void)
 {
-    try
-    {
-        ShrubberyCreationForm a("Hero", 145, 137);
-        ShrubberyCreationForm b = a;
-        std::cout << a << "\n" << b << '\n';
-        std::cout << "-------------\n";
-        RobotomyRequestForm c("Hora", 13, 14);
-        RobotomyRequestForm d = c;
-        std::cout << c << '\n' << d << '\n';
-        std::cout << "-------------\n";
-        PresidentialPardonForm e("Normal", 0, 1);
-    }
-    catch(std::exception &e)
-    {
-        std::cout << e.what();
-    }
 }

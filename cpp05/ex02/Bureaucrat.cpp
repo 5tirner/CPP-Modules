@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/12 18:58:27 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 20:18:01 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,3 +112,5 @@ std::ostream	&operator<<(std::ostream &o, const Bureaucrat &obj)
     o << obj.getName() << ", bureaucrat grade " << obj.getGrade();
     return (o);
 }
+
+/*Execute Form Func*/
