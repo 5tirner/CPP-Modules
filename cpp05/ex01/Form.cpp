@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:15:04 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/10 16:37:22 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 00:42:26 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute) :
 {
     std::cout << "From Paramitrize One Called" << '\n';
     if (this->gradeToSign < 1 || this->gradeToExecute < 1)
-    {
-        std::cout << "Here\n";
         throw Form::GradeTooHighException();
-    }
     if (this->gradeToExecute > 150 || this->gradeToSign > 150)
         throw Form::GradeTooLowException();
     this->isSigned = false;
