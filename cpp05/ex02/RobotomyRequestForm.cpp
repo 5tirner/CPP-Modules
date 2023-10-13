@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 23:51:42 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 20:16:53 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 20:42:47 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,6 @@ RobotomyRequestForm::RobotomyRequestForm(void) :
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other)
 {
     std::cout << "RobotomyRequestForm Copy One Called" << '\n';
-    if (this->ShowGradeToExecute() == 45 && this->ShowGradeToSign() == 72)
-    {
-        std::cout << "Break News: " << this->showName()
-        << "has been robotomized successfully 50% of the time" << '\n';
-    }
-    else
-        std::cout << "Danger: the robotomy failed" << '\n';
 }
 
 RobotomyRequestForm&RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
@@ -59,9 +52,9 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 
 void    RobotomyRequestForm::execute(Bureaucrat const &executor)
 {
-    if (executor.getGrade() < this->ShowGradeToExecute() && this->ShowStatus() == true)
+    if (executor.getGrade() <= this->ShowGradeToExecute() && this->ShowStatus() == true)
     {
-        std::cout << "Break News: " << this->showName()
+        std::cout << "Break News: " << executor.getName()
         << "has been robotomized successfully 50% of the time" << '\n';
     }
     else

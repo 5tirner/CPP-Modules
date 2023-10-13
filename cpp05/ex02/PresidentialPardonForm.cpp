@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 00:36:53 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 20:18:16 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 20:42:30 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &oth
     AForm(other)
 {
     std::cout << "PresidentialPardonForm Copy One Called" << '\n';
-    if (this->ShowGradeToExecute() == 5 && this->ShowGradeToSign() == 25)
-        std::cout << this->showName() << " has been pardoned by Zaphod Beeblebrox" << '\n';
 }
 
 PresidentialPardonForm&PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
@@ -52,7 +50,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 void    PresidentialPardonForm::execute(Bureaucrat const &executor)
 {
     if (executor.getGrade() < this->ShowGradeToExecute() && this->ShowStatus() == true)
-        std::cout << this->showName() << " has been pardoned by Zaphod Beeblebrox" << '\n';
+        std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox" << '\n';
     else
         throw AForm::GradeTooHighException();
 }

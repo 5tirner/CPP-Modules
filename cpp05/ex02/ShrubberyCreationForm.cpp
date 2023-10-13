@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 20:20:59 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 20:41:28 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 
 void    ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
-    if (executor.getGrade() < this->ShowGradeToExecute() && this->ShowStatus() == true)
+    if (executor.getGrade() <= this->ShowGradeToExecute() && this->ShowStatus() == true)
     {
         std::fstream file;
-        file.open(this->showName() + "_shrubbery", std::ios::out);
+        file.open(executor.getName() + "_shrubbery", std::ios::out);
         file << "       ###\n"
         << "      #o###\n"
         << "    #####o###\n"
