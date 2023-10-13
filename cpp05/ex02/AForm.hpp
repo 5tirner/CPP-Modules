@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:59:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 03:15:26 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 21:33:17 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ class	AForm
 		class		GradeTooLowException : public std::exception
 		{
 			const char* what() const throw();
+		};
+		class	NotSignedYet : public std::exception
+		{
+			const char*	what() const throw();
 		};
 		void	beSigned(Bureaucrat &brc);
 		virtual void	execute(Bureaucrat const &executor) = 0;

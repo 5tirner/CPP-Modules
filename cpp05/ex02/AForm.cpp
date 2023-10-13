@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:59:55 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 19:43:48 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 22:55:07 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,11 @@ const char  *AForm::GradeTooLowException::what() const throw()
     return ("Error: Grade Is Too Low");
 }
 
+const char  *AForm::NotSignedYet::what() const throw()
+{
+    return ("Error: Form Not Signed");
+}
+
 /*Getters*/
 
 std::string    AForm::showName(void) const
@@ -104,6 +109,9 @@ void    AForm::beSigned(Bureaucrat &brc)
 
 std::ostream    &operator<<(std::ostream &o, const AForm &f)
 {
-    o << f.showName() << " - " << f.ShowStatus() << " - " << f.ShowGradeToSign() << " - " << f.ShowGradeToSign();
+    o << "Name: " << f.showName() << " - "
+    << "Status: " << f.ShowStatus() << " - " 
+    << "Sign Grade: " << f.ShowGradeToSign() << " - "
+    << "Execute Grade: "<< f.ShowGradeToSign();
     return (o);
 }

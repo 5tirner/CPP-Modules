@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 23:51:42 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 21:13:59 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 21:35:00 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,8 @@ void    RobotomyRequestForm::execute(Bureaucrat const &executor)
         std::cout << "Break News: " << this->target
         << "has been robotomized successfully 50% of the time" << '\n';
     }
+    else if (this->ShowStatus() == false)
+        throw AForm::NotSignedYet();
     else
-    {
-        std::cout << "Danger: the robotomy failed" << '\n';
-        throw AForm::GradeTooHighException();
-    }
+        throw AForm::GradeTooLowException();
 }

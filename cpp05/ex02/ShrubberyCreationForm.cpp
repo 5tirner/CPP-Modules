@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 21:14:12 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/13 21:35:06 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor)
         << "       }|{\n";
         file.close();
     }
+    else if (this->ShowStatus() == false)
+        throw AForm::NotSignedYet();
     else
-        throw AForm::GradeTooHighException();
+        throw AForm::GradeTooLowException();
 }
