@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:59:33 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/14 09:30:58 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/14 20:30:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,15 @@ AForm    *Intern::makeForm(std::string formName, std::string target)
     {
         case 0:
             std::cout << "Intern Creates A ShrubberyCreationForm" << '\n'; 
-            r = new ShrubberyCreationForm;
+            r = new ShrubberyCreationForm(target);
             break;
         case 1:
             std::cout << "Intern Creates A RobotomyRequestForm" << '\n';
-            r = new RobotomyRequestForm;
+            r = new RobotomyRequestForm(target);
             break;
         case 2:
             std::cout << "Intern Creates A PresidentialPardonForm" << '\n';
-            r = new PresidentialPardonForm;
+            r = new PresidentialPardonForm(target);
             break;
         default:
             std::cout << "Form Doesn't Found" << '\n';
