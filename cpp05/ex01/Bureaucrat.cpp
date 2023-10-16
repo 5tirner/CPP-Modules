@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/14 00:47:26 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 10:09:14 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 {
     std::cout << "Bureaucrat Paramitrize One Called" << '\n';
     if (_grade > 150)
-        throw Bureaucrat::GradeTooHighException();
-    if (_grade < 1)
         throw  Bureaucrat::GradeTooLowException();
+    if (_grade < 1)
+        throw Bureaucrat::GradeTooHighException();
     this->grade = _grade;
 }
 
@@ -98,17 +98,16 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 void    Bureaucrat::signForm(Form &form)
 {
-    if (form.ShowStatus() == true && form.ShowGradeToSign() >= this->grade)
+    try
+    {
+        form.beSigned(*this);
         std::cout << this->name << " Signed " << form.showName() << " ✅" << '\n';
-    else if(form.ShowGradeToSign() < this->grade)
+    }
+    catch(std::exception &e)
     {
         std::cout << this->name << " Could Not Sign " << form.showName()
         << " Because The Grade Is Too Low ❌" << '\n';
-    }
-    else
-    {
-        std::cout << this->name << " Could Not Sign " << form.showName()
-        << " Because The Form Is Not Signed ❌" << '\n';    
+        std::cout << e.what() << '\n';
     }
 }
 

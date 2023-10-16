@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:22 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/09 16:25:28 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 10:10:17 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,15 @@
 
 int main(void)
 {
-    std::cout << "Test Each Function :" << '\n';
+    try
+    {
+        Bureaucrat a("Nae", 152);
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << '\n';
+    }
+    std::cout << "-----------------------\nTest Each Function :" << '\n';
     try
     {
         Bureaucrat a("a", 2);

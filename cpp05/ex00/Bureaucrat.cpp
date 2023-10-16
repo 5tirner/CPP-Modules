@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/06 04:24:37 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 09:47:37 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 {
     std::cout << "Bureaucrat Paramitrize One Called" << '\n';
     if (_grade > 150)
-        throw Bureaucrat::GradeTooHighException();
-    if (_grade < 1)
         throw  Bureaucrat::GradeTooLowException();
+    if (_grade < 1)
+        throw Bureaucrat::GradeTooHighException();
     this->grade = _grade;
 }
 

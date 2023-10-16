@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:59:36 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 21:33:17 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 10:12:29 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ class	AForm
 		{
 			const char*	what() const throw();
 		};
-		void	beSigned(Bureaucrat &brc);
-		virtual void	execute(Bureaucrat const &executor) = 0;
+		void			beSigned(Bureaucrat &brc);
+		virtual void	execute(Bureaucrat const &executor) const = 0;
 };
 
 std::ostream	&operator<<(std::ostream &o, const AForm &f);

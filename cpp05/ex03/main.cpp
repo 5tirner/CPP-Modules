@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:22 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/16 09:34:53 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 09:42:47 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,11 @@ int main(void)
         rrf->beSigned(a);
         a.signForm(*rrf);
         a.executeForm(*rrf);
+        delete rrf;
     }
     catch(std::exception &e)
     {
         std::cout << e.what() << '\n';
     }
+    
 }

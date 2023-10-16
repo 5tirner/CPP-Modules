@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:15:04 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 00:42:26 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 10:08:31 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int     Form::ShowGradeToExecute(void) const
 
 /*Be signed*/
 
-void    Form::beSigned(Bureaucrat &brc)
+void    Form::beSigned(Bureaucrat const &brc)
 {
     if (this->gradeToSign < brc.getGrade())
         throw Form::GradeTooLowException();

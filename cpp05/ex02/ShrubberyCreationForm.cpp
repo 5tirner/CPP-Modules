@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/14 00:50:35 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 10:13:57 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 
 /*ShrubberyCreationForm Exec Func*/
 
-void    ShrubberyCreationForm::execute(Bureaucrat const &executor)
+void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     if (executor.getGrade() <= this->ShowGradeToExecute() && this->ShowStatus() == true)
     {

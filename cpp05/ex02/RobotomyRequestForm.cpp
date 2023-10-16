@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 23:51:42 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/14 00:43:57 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 10:13:47 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 
 /*RobotomyRequestForm Exec Func*/
 
-void    RobotomyRequestForm::execute(Bureaucrat const &executor)
+void    RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
     if (executor.getGrade() <= this->ShowGradeToExecute() && this->ShowStatus() == true)
     {
