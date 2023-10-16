@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:59:55 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 22:55:07 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/15 16:17:55 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ std::ostream    &operator<<(std::ostream &o, const AForm &f)
 {
     o << "Name: " << f.showName() << " - "
     << "Status: " << f.ShowStatus() << " - " 
-    << "Sign Grade: " << f.ShowGradeToSign() << " - "
-    << "Execute Grade: "<< f.ShowGradeToSign();
+    << "Execute Grade: " << f.ShowGradeToExecute() << " - "
+    << "Sign Grade: "<< f.ShowGradeToSign();
     return (o);
 }

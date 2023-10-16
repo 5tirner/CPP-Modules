@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:33:22 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/14 20:33:33 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/15 16:41:30 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,29 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
+void f()
+{
+    try
+    {
+        Intern someRandomIntern;
+        std::cout << "----------------------\n";
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        std::cout << *rrf << '\n';
+        std::cout << "----------------------\n";
+        AForm *rrf2 = someRandomIntern.makeForm("     Shrubbery Creation", "Target");
+        std::cout << *rrf2 << '\n';
+        std::cout << "----------------------\n";
+        Bureaucrat a("name", 151);
+        rrf->beSigned(a);
+        delete rrf;
+        delete rrf2;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << '\n';
+    }
+}
 int main(void)
 {
     // try
@@ -71,8 +94,6 @@ int main(void)
     // {
     //     std::cout << e.what() << '\n';
     // }
-    Intern someRandomIntern;
-    AForm* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    std::cout << *rrf << '\n';
+    f();
+    system("leaks InternAdd");
 }

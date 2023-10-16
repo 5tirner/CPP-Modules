@@ -10,9 +10,9 @@ OBJS		= $(SRCS:.cpp=.o)
 
 CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
-NAME		= BurecrateExecute
+NAME		= InternAdd
 
 RM			= rm -rf
 
