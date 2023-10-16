@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:37:26 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/16 10:12:08 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 11:17:55 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,16 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 void    Bureaucrat::signForm(AForm &form)
 {
-    if (form.ShowStatus() == true && form.ShowGradeToSign() >= this->grade)
+    try
+    {
+        form.beSigned(*this);
         std::cout << this->name << " Signed " << form.showName() << " ✅" << '\n';
-    else if(form.ShowGradeToSign() < this->grade)
+    }
+    catch(std::exception &e)
     {
         std::cout << this->name << " Could Not Sign " << form.showName()
         << " Because The Grade Is Too Low ❌" << '\n';
-    }
-    else
-    {
-        std::cout << this->name << " Could Not Sign " << form.showName()
-        << " Because The Form Is Not Signed ❌" << '\n';    
+        std::cout << e.what() << '\n';
     }
 }
 
@@ -122,10 +121,14 @@ std::ostream	&operator<<(std::ostream &o, const Bureaucrat &obj)
 
 void    Bureaucrat::executeForm(AForm const &form)
 {
-    if (form.ShowGradeToExecute() >= this->grade && form.ShowStatus() == true)
+    try
+    {
+        form.execute(*this);
         std::cout << this->name << " Executed " << form.showName() << "✅" <<'\n';
-    else if (form.ShowStatus() == false)
-        std::cout << form.showName() << ": Not Signed Yet ❌" << '\n';
-    else
-        std::cout << this->name << " Bureaucrat Grade Too Low ❌" << '\n';
+    }
+    catch(std::exception &e)
+    {
+        std::cout << this->name << ": Can't Execute" << form.showName() << " ❌ ";
+        std::cout << e.what() << '\n';
+    }
 }

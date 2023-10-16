@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 23:51:40 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 20:44:46 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 11:12:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class    RobotomyRequestForm : public AForm
         RobotomyRequestForm(const  RobotomyRequestForm &other);
         RobotomyRequestForm&operator=(const  RobotomyRequestForm &other);
         ~RobotomyRequestForm(void);
-        void	execute(Bureaucrat const &executor);
+        void	execute(Bureaucrat const &executor) const;
 };
 
 #endif

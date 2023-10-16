@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 00:36:43 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/13 21:04:41 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/16 11:12:11 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class    PresidentialPardonForm : public AForm
         PresidentialPardonForm(const  PresidentialPardonForm &other);
         PresidentialPardonForm&operator=(const  PresidentialPardonForm &other);
         ~PresidentialPardonForm(void);
-        void	execute(Bureaucrat const &executor);
+        void	execute(Bureaucrat const &executor) const;
 };
 
 #endif
