@@ -1,4 +1,5 @@
 SRCS		= main.cpp\
+			Serialization.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
