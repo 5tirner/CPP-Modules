@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:30:35 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/17 18:53:48 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/17 22:21:56 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int ac, char **av)
     int i = 1;
     while (av[i])
     {
-        std::cout << "Result Of " << i << " Argement" << '\n';
+        std::cout << "Result Of The Argement Number: " << i << '\n';
         ScalarConverter::convert(av[i]);
         i++;
     }

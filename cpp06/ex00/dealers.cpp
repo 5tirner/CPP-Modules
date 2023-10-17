@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 20:03:24 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/17 18:16:53 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/17 22:20:37 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ void    dealWithFloat(std::string &s)
         std::cout << "impossible";
     else
     {
-        if (std::stoi(nPart) <= 32 || std::stoi(nPart) == 127)
+        char c = static_cast<char>(std::stoi(nPart));
+        if (c <= 32 || c >= 127)
             std::cout << "Non displayable";
         else
-            std::cout << '\'' << (char)std::stoi(nPart) << '\''; 
+            std::cout << c;
     }
     std::cout << '\n';
     std::cout << "Int:    " << nPart << '\n';
@@ -41,10 +42,11 @@ void    dealWithDouble(std::string &s)
         std::cout << "impossible";
     else
     {
-        if (std::stoi(nPart) <= 32 || std::stoi(nPart) == 127)
+        char c = static_cast<char>(std::stoi(nPart));
+        if (c <= 32 || c >= 127)
             std::cout << "Non displayable";
         else
-            std::cout << '\'' << (char)std::stoi(nPart) << '\''; 
+            std::cout << c;
     }
     std::cout << '\n';
     std::cout << "Int:    " << nPart << '\n';
@@ -59,10 +61,11 @@ void    dealWithInteger(std::string &s)
         std::cout << "impossible";
     else
     {
-        if (std::stoi(s) <= 32 || std::stoi(s) == 127)
+        char c = static_cast<char>(std::stoi(s));
+        if (c <= 32 || c >= 127)
             std::cout << "Non displayable";
         else
-            std::cout << '\'' << (char)std::stoi(s) << '\''; 
+            std::cout << c;
     }
     std::cout << '\n';
     std::cout << "Int:    " << s << '\n';
