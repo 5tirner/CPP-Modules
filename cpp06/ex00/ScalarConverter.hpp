@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:15:44 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/17 18:16:11 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/17 23:02:24 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class   ScalarConverter
 {
     private:
-    public:
         ScalarConverter(void);
         ScalarConverter(const ScalarConverter &other);
         ScalarConverter&operator=(const ScalarConverter &other);
         ~ScalarConverter(void);
+    public:
         static void convert(std::string s);
 };
 
