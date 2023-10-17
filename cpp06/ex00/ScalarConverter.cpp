@@ -6,21 +6,23 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:17:39 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/17 18:50:50 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/17 23:08:58 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(void)
+ScalarConverter::ScalarConverter(void) {}
+ScalarConverter::ScalarConverter(const ScalarConverter &other)
 {
-    std::cout << "ScalarConverter Constructer Called" << '\n';
+    std::cout << &other << '\n';
 }
-
-ScalarConverter::~ScalarConverter(void)
+ScalarConverter&ScalarConverter::operator=(const ScalarConverter &other)
 {
-    std::cout << "ScalarConverter Distructor Called " << '\n';
+    std::cout << &other << '\n';
+    return (*this);
 }
+ScalarConverter::~ScalarConverter(void) {}
 
 void    ScalarConverter::convert(std::string s)
 {
