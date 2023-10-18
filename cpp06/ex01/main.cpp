@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:44:11 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/18 07:33:17 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/18 18:55:40 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,6 @@ int main()
     Data    *data2;
     data2 = Serializer::deserialize(save);
     std::cout << "data2    : " << data2 << '\n';
+
+    delete data2;
 }
