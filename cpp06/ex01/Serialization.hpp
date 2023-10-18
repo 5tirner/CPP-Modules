@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:45:56 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/17 23:14:06 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/18 07:23:42 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 
 typedef struct  S_Data
 {
-    char        *s1;
-    std::string *s2;
+    std::string s2;
     int         d;
     float       f;
 }   Data;
