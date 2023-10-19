@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 20:13:53 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/19 04:24:07 by zasabri          ###   ########.fr       */
+/*   Created: 2023/10/19 01:10:11 by zasabri           #+#    #+#             */
+/*   Updated: 2023/10/19 03:56:52 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int main()
+# include <iostream>
+class   Base
 {
-    Base *p = generate();
-    identify(p);
-}
+    public:
+        virtual ~Base(void);
+};
+
+class A : public Base {};
+class B : public Base {};
+class C : public Base {};
+Base    *generate(void);
+void    identify(Base *p);
+
+#endif

@@ -1,4 +1,7 @@
 SRCS		= main.cpp\
+			Base.cpp\
+			generate.cpp\
+			identify1.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
