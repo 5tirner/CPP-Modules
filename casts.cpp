@@ -12,19 +12,18 @@ class   child : public parent
         int b;
 };
 
+class child2
+{
+    public:
+        int c;
+};
+
+
+
 int main()
 {
-    parent  *ptrToParent;
-    child   *ptrToChild;
-    ptrToParent = ptrToChild; // allowed
-    //ptrToChild = ptrToParent NOT
-    std::cout << "P: " << ptrToParent << '\n' << "C: " << ptrToChild << '\n';
-    child c1;
-    parent p1;
-    ptrToParent = &c1; //allowed
-    //ptrToChild = &p1 NOT
-    std::cout << "P: " << ptrToParent << '\n' << "c1: " << &c1 << '\n';
-    std::cout << "-------------------------------------\n";
-    ptrToChild = static_cast<child*>(ptrToParent);
-    ptrToParent = static_cast<child*>(ptrToChild);
+    char   *chi;
+    child   *a;
+    a->b =500;
+    std::cout  << a->b << '\n';
 }

@@ -24,12 +24,11 @@ void    getA(int a)
 {
     printf("%d\n", a);
 }
+
 int main()
 {
     char *s = malloc(0);
-    if (!s)
-        return (1);
-    s[0] = 'c';
-    s[1] = 0;
-   printf("%p\n", &s);
+    func(s);
+    int i = 0;
+
 }
