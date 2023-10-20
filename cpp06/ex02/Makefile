@@ -2,6 +2,7 @@ SRCS		= main.cpp\
 			Base.cpp\
 			generate.cpp\
 			identify1.cpp\
+			identify2.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
 
@@ -9,7 +10,7 @@ RM			= rm -rf
 
 CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 NAME		= IdentifyRealType
 
