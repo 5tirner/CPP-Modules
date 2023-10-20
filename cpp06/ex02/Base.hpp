@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 01:10:11 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/19 03:56:52 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/20 06:10:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ class B : public Base {};
 class C : public Base {};
 Base    *generate(void);
 void    identify(Base *p);
+void    identify(Base &p);
 
 #endif

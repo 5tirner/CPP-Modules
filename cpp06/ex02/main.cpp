@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:13:53 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/19 04:24:07 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/20 06:12:15 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,7 @@ int main()
 {
     Base *p = generate();
     identify(p);
+    Base &ref = *p;
+    identify(ref);
+    delete p;
 }
