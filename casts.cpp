@@ -4,26 +4,21 @@ class   parent
 {
     public:
         int a;
+        virtual void func(){}
 };
 
 class   child : public parent
 {
     public:
         int b;
+        void func(){}
 };
-
-class child2
-{
-    public:
-        int c;
-};
-
 
 
 int main()
 {
-    char   *chi;
-    child   *a;
-    a->b =500;
-    std::cout  << a->b << '\n';
+    child *c = new child;
+    parent *p = dynamic_cast<child*>(c);
+    void *v = dynamic_cast<void*>(p);
+    child *cc = dynamic_cast<child*>(p);
 }
