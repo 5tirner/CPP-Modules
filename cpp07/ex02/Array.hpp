@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 04:01:24 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/23 14:12:47 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/23 17:00:59 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,27 @@ class Array
 {
     private:
         T            *elements;
-        unsigned int elements_size;
+        unsigned int elementsSize;
     public:
         Array(void)
         {
             std::cout << "Array Constructor Called" << '\n';
             elements = NULL;
+            elementsSize = 0;
         }
         Array(unsigned int n)
         {
+            std::cout << n << '\n';
             std::cout << "Array Paramitrize One Called" << '\n';
             try
             {
-                elements = new T[n];
+                this->elements = new T[n];
             }
             catch(std::bad_alloc &ba)
             {
                 std::cout << ba.what() << '\n';
             }
-            this->elements_size = n;
+            this->elementsSize = n;
         }
         Array(const Array &other)
         {
@@ -51,17 +53,16 @@ class Array
             {
                 if (!this->elements)
                 {
-                    this->elements = new T;
+                    this->elements = new T[other.elementsSize];
                     *(this->elements) = *(other.elements);
-                    this->elements_size = other.elements_size;
                 }
                 else
                 {
                     delete this->elements;
-                    this->elements = new T;
+                    this->elements = new T[other.elementsSize];
                     *(this->elements) = *(other.elements);
-                    this->elements_size = other.elements_size;
                 }
+                this->elementsSize = other.elements_size;
             }
             return (*this);
         }
@@ -72,6 +73,12 @@ class Array
             {
                 delete this->elements;
             }
+        }
+        int &operator[](long index)
+        {
+            if (index < 0 || index >= this->elementsSize)
+                throw ("Access To Bad Memory");
+            return (this->elements[index]);
         }
 };
 

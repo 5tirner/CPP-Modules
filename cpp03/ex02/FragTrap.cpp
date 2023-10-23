@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 18:48:30 by zasabri           #+#    #+#             */
-/*   Updated: 2023/09/05 14:55:31 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:45:57 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ClapTrap.hpp"
-#include <bits/fs_fwd.h>
 
 FragTrap::FragTrap(void)
 {
