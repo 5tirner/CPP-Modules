@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 04:01:24 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/23 17:00:59 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/25 01:04:23 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,69 +15,80 @@
 
 # include <iostream>
 
+// typedef struct  addressCollector
+// {
+//     uintptr_t   address;
+//     struct addressCollector *next;
+// }   t_ac;
+
+// void    addFront(t_ac **list, uintptr_t val);
+
+class   BadMemory : public std::exception
+{
+    const char    *what(void) const throw();
+};
+
 template<class T>
 class Array
 {
     private:
         T            *elements;
         unsigned int elementsSize;
+        //t_ac         *addressSaver;               
     public:
         Array(void)
         {
             std::cout << "Array Constructor Called" << '\n';
             elements = NULL;
             elementsSize = 0;
+            //addressSaver = NULL;
         }
+        
         Array(unsigned int n)
         {
-            std::cout << n << '\n';
             std::cout << "Array Paramitrize One Called" << '\n';
-            try
-            {
-                this->elements = new T[n];
-            }
-            catch(std::bad_alloc &ba)
-            {
-                std::cout << ba.what() << '\n';
-            }
+            this->elements = new T[n];
             this->elementsSize = n;
+            //addFront(&this->addressSaver, reinterpret_cast<uintptr_t>(this->elements));
         }
+        
         Array(const Array &other)
         {
+            std::cout << "Array Copy One Called" << '\n';
             *this = other;
         }
+        
         Array&operator=(const Array &other)
         {
             std::cout << "Array Assignment Called" << '\n';
-            if (other.elements)
-            {
-                if (!this->elements)
-                {
-                    this->elements = new T[other.elementsSize];
-                    *(this->elements) = *(other.elements);
-                }
-                else
-                {
-                    delete this->elements;
-                    this->elements = new T[other.elementsSize];
-                    *(this->elements) = *(other.elements);
-                }
-                this->elementsSize = other.elements_size;
-            }
+            this->elements = new T[other.elementsSize];
+            //addFront(&this->addressSaver, reinterpret_cast<uintptr_t>(this->elements));
+            for (unsigned int i = 0; i < other.elementsSize; i++)
+                this->elements[i] = other.elements[i];
+            this->elementsSize = other.elementsSize;
             return (*this);
         }
+
         ~Array(void)
         {
             std::cout << "Array Destructor" << '\n';
             if (this->elements)
-            {
                 delete this->elements;
-            }
+            // if (this->addressSaver)
+            // {
+            //     while (this->addressSaver)
+            //     {
+            //         //delete this->addressSaver;
+            //         std::cout << addressSaver->address << '\n';
+            //         addressSaver = addressSaver->next;
+            //     }
+            // }
         }
+        /*--------------------------------------------------------*/
         int &operator[](long index)
         {
             if (index < 0 || index >= this->elementsSize)
-                throw ("Access To Bad Memory");
+                throw BadMemory();
             return (this->elements[index]);
         }
 };
