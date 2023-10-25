@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 04:01:24 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/25 01:04:23 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/25 03:40:30 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,52 @@ class Array
         Array(unsigned int n)
         {
             std::cout << "Array Paramitrize One Called" << '\n';
-            this->elements = new T[n];
-            this->elementsSize = n;
+            try
+            {
+                this->elements = new T[n]();
+                this->elementsSize = n;
+            }
+            catch (std::bad_alloc &e)
+            {
+                std::cerr << e.what() << '\n';
+            }
             //addFront(&this->addressSaver, reinterpret_cast<uintptr_t>(this->elements));
         }
         
         Array(const Array &other)
         {
             std::cout << "Array Copy One Called" << '\n';
-            *this = other;
+            try
+            {
+                this->elements = new T[other.elementsSize]();
+                //addFront(&this->addressSaver, reinterpret_cast<uintptr_t>(this->elements));
+                for (unsigned int i = 0; i < other.elementsSize; i++)
+                    this->elements[i] = other.elements[i];
+                this->elementsSize = other.elementsSize;
+            }
+            catch (std::bad_alloc &e)
+            {
+                std::cout << e.what() << '\n';
+            }
         }
         
         Array&operator=(const Array &other)
         {
             std::cout << "Array Assignment Called" << '\n';
-            this->elements = new T[other.elementsSize];
-            //addFront(&this->addressSaver, reinterpret_cast<uintptr_t>(this->elements));
-            for (unsigned int i = 0; i < other.elementsSize; i++)
-                this->elements[i] = other.elements[i];
-            this->elementsSize = other.elementsSize;
+            if (this->elements)
+                delete this->elements;
+            try
+            {
+                this->elements = new T[other.elementsSize]();
+                //addFront(&this->addressSaver, reinterpret_cast<uintptr_t>(this->elements));
+                for (unsigned int i = 0; i < other.elementsSize; i++)
+                    this->elements[i] = other.elements[i];
+                this->elementsSize = other.elementsSize;
+            }
+            catch(std::bad_alloc &e)
+            {
+                std::cerr << e.what() << '\n';
+            }
             return (*this);
         }
 
@@ -76,20 +103,26 @@ class Array
                 delete this->elements;
             // if (this->addressSaver)
             // {
-            //     while (this->addressSaver)
-            //     {
-            //         //delete this->addressSaver;
-            //         std::cout << addressSaver->address << '\n';
-            //         addressSaver = addressSaver->next;
-            //     }
+            //    while (this->addressSaver)
+            //    {
+            //        delete this->addressSaver;
+            //        //std::cout << addressSaver->address << '\n';
+            //        addressSaver = addressSaver->next;
+            //    }
             // }
         }
         /*--------------------------------------------------------*/
-        int &operator[](long index)
+        T &operator[](long index) const
         {
             if (index < 0 || index >= this->elementsSize)
                 throw BadMemory();
             return (this->elements[index]);
+        }
+        unsigned int size(void) const
+        {
+            if (!this->elements)
+                return (0);
+            return (this->elementsSize);
         }
 };
 
