@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 04:01:24 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/25 03:40:30 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/26 10:01:36 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,20 @@ class Array
             // }
         }
         /*--------------------------------------------------------*/
-        T &operator[](long index) const
+        T &operator[](long index)
         {
             if (index < 0 || index >= this->elementsSize)
                 throw BadMemory();
             return (this->elements[index]);
         }
+        
+        const T &operator[](long index) const
+        {
+            if (index < 0 || index >= this->elementsSize)
+                throw BadMemory();
+            return (this->elements[index]);
+        }
+        
         unsigned int size(void) const
         {
             if (!this->elements)
