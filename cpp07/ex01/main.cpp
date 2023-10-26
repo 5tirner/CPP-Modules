@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 02:05:16 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/22 03:23:14 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/26 10:11:03 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int main()
     std::string *s = new std::string[4];
     s[0] = "AAA", s[1] = "BBB", s[2] = "CCC", s[3] = "DDDDD";
     iter(s, 4, func);
+    delete[] arr;
     return (0);
 }
