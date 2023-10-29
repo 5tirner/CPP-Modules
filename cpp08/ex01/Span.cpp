@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:22:40 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/29 03:46:55 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/29 04:59:37 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Span::Span(void)
 {
     std::cout << "Span Constructor Called" << '\n';
-    this->vecSize = 0;
 }
 
 Span::Span(unsigned int n)
@@ -24,7 +23,6 @@ Span::Span(unsigned int n)
     try
     {
         this->vec.reserve(n);
-        this->vecSize = n;
     }
     catch(std::length_error &e)
     {
@@ -37,8 +35,9 @@ Span::Span(const Span &other)
     std::cout << "Span Assignement One Called" << '\n';
     try
     {
-        this->vec.reserve(other.vecSize);
-        this->vecSize = other.vecSize;
+        this->vec.reserve(other.vec.capacity());
+        for (unsigned long i = 0; i < other.vec.size(); i++)
+            this->vec.push_back(other[i]);
     }
     catch(std::length_error &e)
     {
@@ -53,8 +52,9 @@ Span    &Span::operator=(const Span &other)
         this->vec.clear();
     try
     {
-        this->vec.reserve(other.vecSize);
-        this->vecSize = other.vecSize;
+        this->vec.reserve(other.vec.capacity());
+        for (unsigned long i = 0; i < other.vec.size(); i++)
+            this->vec.push_back(other[i]);
     }
     catch(std::length_error &e)
     {
@@ -73,12 +73,12 @@ Span::~Span(void)
 
 void    Span::addNumber(int number)
 {
-    if (this->vec.size() == this->vecSize)
-        throw ("The Span Is Full");
+    if (this->vec.size() == this->vec.capacity())
+        throw ("Full Capacity ⚠️");
     if (std::find(vec.begin(), vec.end(), number) != vec.end())
     {
         std::cout << number << " Is Already Found" << '\n';
-        throw ("Element Already In");
+        throw ("Element Already In ⚠️");
     }
     this->vec.push_back(number);
 }
@@ -87,15 +87,15 @@ void    Span::addNumber(int number)
 
 int &Span::operator[](long index)
 {
-    if (index < 0 || index >= this->vecSize)
-        throw ("Out Of Range");
+    if (index < 0 || index >= (long)this->vec.capacity())
+        throw ("Out Of Range ⚠️");
     return (this->vec[index]);
 }
 
 const int&Span::operator[](long index) const
 {
-    if (index < 0 || index >= this->vecSize)
-        throw ("Out Of Range");
+    if (index < 0 || index >= (long)this->vec.capacity())
+        throw ("Out Of Range ⚠️");
     return (this->vec[index]);
 }
 
@@ -104,7 +104,7 @@ const int&Span::operator[](long index) const
 int Span::shortestSpan(void) const
 {
     if (this->vec.size() <= 1)
-        throw ("No Enogh Element, This Method Is Useless");
+        throw ("No Enogh Element, This Method Is Useless ⚠️");
     std::vector<int>saver = this->vec;
     std::sort(saver.begin(), saver.end());
     int first = saver[0], second = saver[1];
@@ -128,7 +128,7 @@ int Span::shortestSpan(void) const
 int Span::longestSpan(void) const
 {
     if (this->vec.size() <= 1)
-        throw ("No Enogh Element, This Method Is Useless");
+        throw ("No Enogh Element, This Method Is Useless ⚠️");
     std::vector<int>saver = this->vec;
     std::sort(saver.begin(), saver.end());
     int first = saver[0], second = saver[saver.size() - 1];
@@ -140,3 +140,16 @@ int Span::longestSpan(void) const
 }
 
 /*---------------------------------------------------------*/
+
+template<typename T>void Span::addToMuchElements(T *elements, unsigned int elementsSize)
+{
+    if (!elements || !(*elements))
+        throw ("No Thing To Add It");
+    for (unsigned int i = 0; i < elementsSize; i++)
+    {
+        if (this->vec.size() == this->vec.capacity())
+            throw ("Full Capacity ⚠️");
+        this->vec.push_back(elements[i]);
+    }
+}
+

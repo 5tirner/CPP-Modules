@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:48:51 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/29 03:54:54 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/29 05:02:01 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ int main()
     {
         std::cerr << err << '\n';
     }
+    std::cout << "6: By Using Assignement Copy Test On sp\n";
+    sp = test;
     return (0);
 }
