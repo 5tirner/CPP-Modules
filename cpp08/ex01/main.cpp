@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:48:51 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/27 18:04:13 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/29 03:44:53 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,17 @@ int main()
         std::cout << "Element" << i << ": " << sp[i] << '\n';
     }
     std::cout << "Print Done.\n";
+    std::cout << "Try To find Spans\n";
+    try
+    {
+        std::cout << "Shortest Span: ";
+        std::cout << sp.shortestSpan() << std::endl;
+        std::cout << "Longest Span: ";
+        std::cout << sp.longestSpan() << std::endl;
+    }
+    catch(const char *err)
+    {
+        std::cerr << err << '\n';
+    }
     return (0);
 }

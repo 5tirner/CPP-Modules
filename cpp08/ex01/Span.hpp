@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:49:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/27 17:43:05 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/29 03:32:06 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ class   Span
         void    addNumber(int number);
         /*Operator []*/
         int &operator[](long inedx);
+        const int&operator[](long index) const;
+        int shortestSpan(void) const;
+        int longestSpan(void) const;
 };
 
 #endif
