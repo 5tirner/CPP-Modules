@@ -6,15 +6,15 @@ RM			= rm -rf
 
 CXX			= c++
 
-#CXXFLAGS	= -fsanitize=address -g3
+CXXFLAGS	= -Wall -Wextra	-Werror -fsanitize=address -g3
 
-NAME		= Span
+NAME		= MutantStack
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 
