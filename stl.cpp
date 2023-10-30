@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <stack>
 
 int main()
 {
@@ -21,8 +22,10 @@ int main()
     // r.push_back(5);
     // r.push_back(5);
     // std::cout << r.size() << '\n' << r.capacity() << '\n';
-    std::list<int> a;
-    a.push_back(1);
-    std::list<int>::iterator it = a.begin();
-    std::cout << *it << '\n';
+    // std::list<int> a;
+    // a.push_back(1);
+    // std::list<int>::iterator it = a.begin();
+    // std::cout << *it << '\n';
+    std::stack<int> ms;
+    std::cout << ms.empty() << true << '\n';
 }

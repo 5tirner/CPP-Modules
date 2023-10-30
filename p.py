@@ -1,2 +1,2 @@
-a = "Hello, world!"
-print(a[:5])
+a = "Python is cool"
+print(a[4])
