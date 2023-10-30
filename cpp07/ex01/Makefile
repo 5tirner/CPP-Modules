@@ -6,7 +6,7 @@ RM			= rm -rf
 
 CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+#CXXFLAGS	= -fsanitize=address
 
 NAME		= Iter
 
@@ -14,7 +14,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 

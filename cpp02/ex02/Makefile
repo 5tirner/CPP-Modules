@@ -7,7 +7,7 @@ NAME		= NowWeAreTalking
 
 CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+#CXXFLAGS	= -fsanitize=address
 
 CPPFLAGS	= -fsanitize=address -g3
 

@@ -14,13 +14,13 @@ RM			= rm -rf
 
 CXX			= clang++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+#CXXFLAGS	= -fsanitize=address
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 

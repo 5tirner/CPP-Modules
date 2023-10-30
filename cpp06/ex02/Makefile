@@ -10,7 +10,7 @@ RM			= rm -rf
 
 CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+#CXXFLAGS	= -fsanitize=address
 
 NAME		= IdentifyRealType
 
@@ -18,7 +18,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 

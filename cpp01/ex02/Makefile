@@ -4,7 +4,7 @@ OBJ			= $(SRC:.cpp=.o)
 
 CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+#CXXFLAGS	= -fsanitize=address
 
 NAME		= HiThisIsBrain
 

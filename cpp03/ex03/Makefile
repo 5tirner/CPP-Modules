@@ -10,7 +10,7 @@ NAME		= DiamondInheritance
 
 CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+#CXXFLAGS	= -fsanitize=address -Wshadow -Wno-shadow
 
 RM			= rm -rf
 
@@ -18,7 +18,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 

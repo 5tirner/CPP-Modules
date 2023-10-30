@@ -10,7 +10,7 @@ OBJS		= $(SRCS:.cpp=.o)
 
 CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
+#CXXFLAGS	= -fsanitize=address #-fsanitize=address -g3
 
 NAME		= InternAdd
 
@@ -20,7 +20,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 
