@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Serialization.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:45:56 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/18 07:23:42 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:19:35 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZATION_HPP
 # define SERIALIZATION_HPP
 
-#include <iostream>
+# include <iostream>
+# include <stdint.h>
 
 typedef struct  S_Data
 {

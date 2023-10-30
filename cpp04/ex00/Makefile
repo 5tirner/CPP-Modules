@@ -13,13 +13,13 @@ RM			= rm -rf
 
 CXX			= clang++
 
-#CXXFLAGS	= -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 

@@ -6,7 +6,7 @@ RM			= rm -rf
 
 CXX			= c++
 
-#CXXFLAGS	= -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 NAME		= EasyFind
 
@@ -14,7 +14,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 

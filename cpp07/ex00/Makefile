@@ -4,7 +4,7 @@ OBJS		= $(SRCS:.cpp=.o)
 
 CXX			= c++
 
-#CXXFLAGS	= -fsanitize=address
+CXXFLAGS	= -Wall -Wextra	-Werror -fsanitize=address -g3
 
 RM			= rm -rf
 
@@ -14,7 +14,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 

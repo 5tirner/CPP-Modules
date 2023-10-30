@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serialization.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:45:53 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/18 07:17:00 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:20:07 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ Serializer::~Serializer(void) {}
 
 uintptr_t   Serializer::serialize(Data *ptr)
 {
-    std::uintptr_t   save;
+    uintptr_t   save;
 
-    save = reinterpret_cast<std::uintptr_t>(ptr);
+    save = reinterpret_cast<uintptr_t>(ptr);
     return (save);
 }
 

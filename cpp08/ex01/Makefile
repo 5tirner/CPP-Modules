@@ -7,7 +7,7 @@ RM			= rm -rf
 
 CXX			= c++
 
-#CXXFLAGS	= -fsanitize=address -g3
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 NAME		= Span
 
@@ -15,7 +15,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 
-	$(CXX) $(#CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 

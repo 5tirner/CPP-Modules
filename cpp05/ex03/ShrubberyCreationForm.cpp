@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:08 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/16 11:12:34 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:12:00 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     if (executor.getGrade() <= this->ShowGradeToExecute() && this->ShowStatus() == true)
     {
         std::fstream file;
-        file.open(this->target + "_shrubbery", std::ios::out);
+        std::string all = this->target + "_shrubbery";
+        const char *fl = all.c_str();
+        file.open(fl, std::ios::out);
         if (!file)
         {
             std::cout << "File Cannot Opened ❌" << '\n';

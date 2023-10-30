@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:15:44 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/17 23:02:24 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:13:17 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
+# include <string>
 
 class   ScalarConverter
 {

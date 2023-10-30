@@ -3,11 +3,11 @@ SRC				= main.cpp\
 				openAndCheck.cpp\
 				fillNewFile.cpp\
 
-OBJS			= $(SRC:.cpp=.o)
+OBJS		= $(SRC:.cpp=.o)
 
 CXX			= c++
 
-#CXXFLAGS	= -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 NAME		= streamEdior
 
@@ -15,7 +15,7 @@ all : $(NAME)
 
 $(NAME):$(OBJS)
 
-	$(CXX) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 	rm -rf $(OBJS)

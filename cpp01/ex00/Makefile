@@ -7,7 +7,7 @@ OBJ			= $(SRC:.cpp=.o)
 
 CXX			= c++
 
-#CXXFLAGS	= -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 NAME		= BraiiiiiiinnnzzzZ
 
@@ -15,7 +15,7 @@ all : $(NAME)
 
 $(NAME):$(OBJ)
 
-	$(CXX) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	rm -rf $(OBJ)

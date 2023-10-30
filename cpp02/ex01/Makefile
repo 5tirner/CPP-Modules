@@ -5,7 +5,7 @@ OBJS		= $(SRCS:.cpp=.o)
 
 CXX			= c++
 
-#CXXFLAGS	= -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 CPPFLAGS	= -fsanitize=address -g3
 
@@ -14,6 +14,7 @@ NAME		= FixedClassUsed
 RM			= rm -rf
 
 all : $(NAME)
+
 $(NAME) : $(OBJS)
 	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 

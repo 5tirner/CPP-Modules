@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 04:42:25 by zasabri           #+#    #+#             */
-/*   Updated: 2023/08/28 19:26:50 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/30 11:54:45 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,19 @@ void	Harl::complain(std::string level)
 	{
 		case 0:
 			(ykonKhir.*ptrToMemberFunc[0])();
+			(ykonKhir.*ptrToMemberFunc[1])();
+			(ykonKhir.*ptrToMemberFunc[2])();
+			(ykonKhir.*ptrToMemberFunc[3])();
+			break;
 		case 1:
 			(ykonKhir.*ptrToMemberFunc[1])();
+			(ykonKhir.*ptrToMemberFunc[2])();
+			(ykonKhir.*ptrToMemberFunc[3])();
+			break;
 		case 2:
 			(ykonKhir.*ptrToMemberFunc[2])();
+			(ykonKhir.*ptrToMemberFunc[3])();
+			break;
 		case 3:
 			(ykonKhir.*ptrToMemberFunc[3])();
 			break;

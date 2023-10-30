@@ -9,7 +9,7 @@ RM			= rm -rf
 
 CXX			= c++
 
-#CXXFLAGS	= -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 CPPFLAGS	= -fsanitize=address -g3
 

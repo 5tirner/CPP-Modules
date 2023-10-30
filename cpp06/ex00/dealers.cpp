@@ -6,22 +6,24 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 20:03:24 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/30 11:15:33 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:16:43 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <cstdlib>
 
 void    dealWithFloat(std::string &s)
 {
     std::string nPart = naturalPart(s);
+    const char *natural = nPart.c_str();
     std::string fPart = fractioPart(s);
     std::cout << "Char:   ";
     if (nPart.length() > 3)
         std::cout << "impossible";
     else
     {
-        char c = static_cast<char>(std::stoi(nPart));
+        char c = static_cast<char>(atoi(natural));
         if (c <= 32 || c >= 127)
             std::cout << "Non displayable";
         else
@@ -36,13 +38,14 @@ void    dealWithFloat(std::string &s)
 void    dealWithDouble(std::string &s)
 {
     std::string nPart = naturalPart(s);
+    const char *natural = nPart.c_str();
     std::string fPart = fractioPart(s);
     std::cout << "Char:   ";
     if (nPart.length() > 3)
         std::cout << "impossible";
     else
     {
-        char c = static_cast<char>(std::stoi(nPart));
+        char c = static_cast<char>(atoi(natural));
         if (c <= 32 || c >= 127)
             std::cout << "Non displayable";
         else
@@ -61,7 +64,7 @@ void    dealWithInteger(std::string &s)
         std::cout << "impossible";
     else
     {
-        char c = static_cast<char>(std::stoi(s));
+        char c = static_cast<char>(atoi(s.c_str()));
         if (c <= 32 || c >= 127)
             std::cout << "Non displayable";
         else
