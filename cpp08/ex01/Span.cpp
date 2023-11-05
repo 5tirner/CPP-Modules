@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:22:40 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/29 04:59:37 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/05 20:06:16 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Span::Span(void)
 
 Span::Span(unsigned int n)
 {
-    std::cout << "Span Copy One Called" << '\n';
+    std::cout << "Span Paramitrize One Called" << '\n';
     try
     {
         this->vec.reserve(n);
@@ -32,7 +32,7 @@ Span::Span(unsigned int n)
 
 Span::Span(const Span &other)
 {
-    std::cout << "Span Assignement One Called" << '\n';
+    std::cout << "Span Copy One Called" << '\n';
     try
     {
         this->vec.reserve(other.vec.capacity());
@@ -140,16 +140,4 @@ int Span::longestSpan(void) const
 }
 
 /*---------------------------------------------------------*/
-
-template<typename T>void Span::addToMuchElements(T *elements, unsigned int elementsSize)
-{
-    if (!elements || !(*elements))
-        throw ("No Thing To Add It");
-    for (unsigned int i = 0; i < elementsSize; i++)
-    {
-        if (this->vec.size() == this->vec.capacity())
-            throw ("Full Capacity ⚠️");
-        this->vec.push_back(elements[i]);
-    }
-}
 

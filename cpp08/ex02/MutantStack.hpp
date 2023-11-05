@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:08:59 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/03 17:29:56 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/05 20:32:30 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ class   MutantStack : public std::stack<data>
         }
 
         iterator    end()
+        {
+            return (this->c.end());
+        }
+
+        iterator    begin() const
+        {
+            return (this->c.begin());
+        }
+
+        iterator    end() const
         {
             return (this->c.end());
         }
