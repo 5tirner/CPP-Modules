@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:08:59 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/30 17:37:33 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/03 17:29:56 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,27 @@
 # include <vector>
 # include <algorithm>
 
-template<typename data, typename anderlyingContainer>
+template<typename data>
 class   MutantStack : public std::stack<data>
 {
     public:
+        typedef typename std::deque<data>::iterator iterator;
         MutantStack(void){};
-        MutantStack(const MutantStack &other)
-        {
-            if (*this != other)
-                *this = other;
-        }
         MutantStack&operator=(const MutantStack &other)
         {
             if (*this != other)
                 return (*this);
             *this = other;
             return (*this);
+        }
+        iterator    begin()
+        {
+            return (this->c.begin());
+        }
+
+        iterator    end()
+        {
+            return (this->c.end());
         }
         ~MutantStack(void){};
 };
