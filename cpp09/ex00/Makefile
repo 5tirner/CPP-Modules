@@ -1,4 +1,4 @@
-SRCS		= main.c\
+SRCS		= main.cpp\
 			BitcoinExchange.cpp\
 
 OBJS		= $(SRCS:.cpp=.o)
@@ -9,7 +9,7 @@ CXXFLAGS	= -Wall -Wextra -Werror -fsanitize=address -g3
 
 RM			= rm -rf
 
-NAME		= BitcoinExchange
+NAME		= btc
 
 all : $(NAME)
 
