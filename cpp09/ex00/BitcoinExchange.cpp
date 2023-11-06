@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:26:16 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/06 21:47:47 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/06 23:44:15 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@
 #include <iostream>
 #include <iterator>
 #include <string>
-
-/*To Fill My Map*/
-
-void    BitcoinExchange::fillFormat(std::string date, int value)
-{
-    this->fillFormat(date, value);
-}
 
 /*Pars The Input*/
 
@@ -81,7 +74,8 @@ int BitcoinExchange::makeTheThingsHappened(void)
         firstPart += this->buffer[i];
         i++;
     }
-    while (this->buffer[i] && !std::isdigit(this->buffer[i]) && this->buffer[i] != '-' && this->buffer[i] != '+')
+    while (this->buffer[i] && !std::isdigit(this->buffer[i])
+            && this->buffer[i] != '-' && this->buffer[i] != '+')
     {
         seperator += this->buffer[i];
         i++;
@@ -100,14 +94,6 @@ int BitcoinExchange::makeTheThingsHappened(void)
         return (1);
     if (lastPart.length() > 4 && lastPart[0] != '-' && lastPart[0] != '+') return (2);
     if (lastPart[0] == '-') return (3);
-    this->fillFormat(firstPart, std::atoi(lastPart.c_str()));
-    // std::map<std::string, int>::iterator it = this->format.begin();
-    // std::map<std::string, int>::iterator it2 = this->format.end();
-    // while (it != it2)
-    // {
-    //     std::cout << it->first << " ===> " << it->second << std::endl;
-    //     it++;
-    // }
     return (0);
 }
 
@@ -118,9 +104,16 @@ BitcoinExchange::BitcoinExchange(void) {}
 
 BitcoinExchange::BitcoinExchange(std::string fileName)
 {
+    //Start
     std::cout << "Start Working On Input..." << '\n' << std::endl;
+    //Try Open data.csv And Store It In A map Container
     this->dataCsv.open("data.csv", std::ios::in);
     if (!this->dataCsv) throw ("I Can't Found [data.csv], Try Again...");
+    while (std::getline(this->dataCsv, this->buffer))
+    {
+        this->format[this->buffer.substr(0, 10)] = this->buffer.substr(11);
+    }
+    //Try To Open Input File And Pars It's Elements
     this->inputFile.open(fileName.c_str(), std::ios::in);
     if (!this->inputFile) throw ("Error: could not open file ❌");
     while (std::getline(this->inputFile, this->buffer))
@@ -143,8 +136,8 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
         else                   std::cout << "Good Input" << std::endl;
         std::cout << "-------------" << '\n';
     }
-    std::map<std::string, int>::iterator it = this->format.begin();
-    std::map<std::string, int>::iterator it2 = this->format.end();
+    std::map<std::string, std::string>::iterator it = this->format.begin();
+    std::map<std::string, std::string>::iterator it2 = this->format.end();
     while (it != it2)
     {
         std::cout << it->first << " ---> " << it->second << std::endl;

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:25:04 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/06 21:41:24 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/06 23:41:41 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 class   BitcoinExchange
 {
     private:
-        std::map<std::string, int> format;
+        std::map<std::string, std::string> format;
         std::string     buffer;
         std::fstream    inputFile;
         std::fstream    dataCsv;
@@ -32,8 +32,7 @@ class   BitcoinExchange
         BitcoinExchange(const BitcoinExchange &other);
         BitcoinExchange&operator=(const BitcoinExchange &other);
         ~BitcoinExchange(void);
-        void    fillFormat(std::string date, int value);
-        int     makeTheThingsHappened(void);
+        int makeTheThingsHappened(void);
 };
 
 /*Pars*/
