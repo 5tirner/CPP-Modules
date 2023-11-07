@@ -6,16 +6,18 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:26:16 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/06 23:44:15 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/07 19:45:10 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <cctype>
+#include <cstring>
 #include <fstream>
 #include <ios>
 #include <iostream>
 #include <iterator>
+#include <stdexcept>
 #include <string>
 
 /*Pars The Input*/
@@ -41,6 +43,35 @@ int checkValue(std::string value)
     return (0);
 }
 
+int checkBigNUmbers(std::string value)
+{
+    if (std::strchr(value.c_str(), '.'))
+    {
+        try
+        {
+            if (std::stod(value) > 1000.0)
+                return (1);
+        }
+        catch(std::out_of_range &err)
+        {
+            return (1);
+        }
+    }
+    else
+    {
+        try
+        {
+            if (std::stoi(value) > 1000)
+                return (1);
+        }
+        catch (std::out_of_range &err)
+        {
+            return (1);
+        }
+    }
+    return (0);
+}
+
 // Date
 int checkDate(std::string date)
 {
@@ -54,17 +85,34 @@ int checkDate(std::string date)
         if (date[i] == '-') sep++;
         else
         {
-            if (sep == 0)      year += date[i];
+            if      (sep == 0) year += date[i];
             else if (sep == 1) month += date[i];
-            else                day += date[1];
+            else               day += date[i];
         }
         i++;
     }
+    int y, m, d;
+    try
+    {
+        y = std::stoi(year);
+        m = std::stoi(month);
+        d = std::stoi(day);
+    }
+    catch(std::out_of_range &err)
+    {
+        return (1);
+    }
+    std::cout << date <<  " ----> "<< y << ' ' << m << ' ' << d << '\n';
+    if (y < 2009 || y > 2022 || m < 1 || m > 12 || d < 0 || d > 31)
+        return (1);
+    if (y == 2009 && m == 1 && d < 2)
+        return (1);
+    if (y == 2022 && m == 3 && d > 29)
+        return (1);
     return (0);
 }
 
 //Satrt Check And Pars
-
 int BitcoinExchange::makeTheThingsHappened(void)
 {
     int             i = 0;
@@ -85,15 +133,11 @@ int BitcoinExchange::makeTheThingsHappened(void)
         lastPart += this->buffer[i];
         i++;
     }
-    //std::cout << "Part1: [" << firstPart << ']'<< '\n';
-    //std::cout << "Seperator: [" << seperator << ']' << '\n';
-    //std::cout << "Part2: [" << lastPart << ']' << '\n';
     if (!firstPart.size() || !seperator.size()
         || !lastPart.size() || seperator != " | " || firstPart.length() != 10
-        || checkDate(firstPart) || checkValue(lastPart)) 
-        return (1);
-    if (lastPart.length() > 4 && lastPart[0] != '-' && lastPart[0] != '+') return (2);
-    if (lastPart[0] == '-') return (3);
+        || checkDate(firstPart) || checkValue(lastPart)) return (1);
+    else if (checkBigNUmbers(lastPart)) return (2);
+    else if (lastPart[0] == '-')               return (3);
     return (0);
 }
 
@@ -130,18 +174,11 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
     {
         if (!buffer[0]) continue;
         checker = makeTheThingsHappened();
-        if (checker == 1)      std::cout << "Error: bad input => " << buffer << std::endl;
+        if      (checker == 1) std::cout << "Error: bad input => " << buffer << std::endl;
         else if (checker == 2) std::cout << "Error: too large a number." << std::endl;
         else if (checker == 3) std::cout << "Error: not a positive number." << std::endl;
         else                   std::cout << "Good Input" << std::endl;
-        std::cout << "-------------" << '\n';
-    }
-    std::map<std::string, std::string>::iterator it = this->format.begin();
-    std::map<std::string, std::string>::iterator it2 = this->format.end();
-    while (it != it2)
-    {
-        std::cout << it->first << " ---> " << it->second << std::endl;
-        it++;
+        std::cout << "==================================================" << std::endl;
     }
     this->dataCsv.close(); this->inputFile.close();
 }

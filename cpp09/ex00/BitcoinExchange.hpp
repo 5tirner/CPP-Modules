@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:25:04 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/06 23:41:41 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/07 19:08:02 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ class   BitcoinExchange
 /*Pars*/
 int checkDate(std::string date);
 int checkValue(std::string value);
+int checkBigNUmbers(std::string value);
 
 #endif
