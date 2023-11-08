@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:26:16 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/08 04:41:09 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/08 20:11:08 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,17 @@ int checkBigNUmbers(std::string value)
     {
         try
         {
-            if (std::stod(value) > 1000.0)
-                return (1);
+            if (std::stod(value) > 1000.0) return (1);
         }
-        catch(std::out_of_range &err)
-        {
-            return (1);
-        }
+        catch(std::out_of_range &err) {return (1);}
     }
     else
     {
         try
         {
-            if (std::stoi(value) > 1000)
-                return (1);
+            if (std::stoi(value) > 1000) return (1);
         }
-        catch (std::out_of_range &err)
-        {
-            return (1);
-        }
+        catch (std::out_of_range &err) {return (1);}
     }
     return (0);
 }
@@ -71,9 +63,7 @@ int checkBigNUmbers(std::string value)
 // Date
 int checkDate(std::string date)
 {
-    std::string year;
-    std::string month;
-    std::string day;
+    std::string year, month, day;
     int sep = 0, i = 0;
     while (date[i])
     {
@@ -90,27 +80,16 @@ int checkDate(std::string date)
     int y, m, d;
     try
     {
-        y = std::stoi(year);
-        m = std::stoi(month);
-        d = std::stoi(day);
+        y = std::stoi(year), m = std::stoi(month), d = std::stoi(day);
     }
-    catch(std::out_of_range &err)
-    {
-        return (1);
-    }
-    std::cout << date <<  " ----> "<< y << ' ' << m << ' ' << d << '\n';
-    if (y < 2009 || y > 2022 || m < 1 || m > 12 || d < 0 || d > 31)
-        return (1);
-    if (y == 2009 && m == 1 && d < 2)
-        return (1);
-    if (y == 2022 && m == 3 && d > 29)
-        return (1);
-    if (m == 2 && y % 4 == 0 && d > 28)
-        return (1);
+    catch(std::out_of_range &err) {return (1);}
+    if (y < 2009 || y > 2022 || m < 1 || m > 12 || d < 0 || d > 31) return (1);
+    if (y == 2009 && m == 1 && d < 2)                               return (1);
+    if (y == 2022 && m == 3 && d > 29)                              return (1);
+    if (m == 2 && y % 4 == 0 && d > 28)                             return (1);
     if (m == 4 || m == 6 || m == 9 || m == 11)
     {
-        if (d > 30)
-            return (1);
+        if (d > 30) return (1);
     }
     return (0);
 }
@@ -121,6 +100,7 @@ void    outPutResult(std::string date,
         std::string value, std::map<std::string, std::string> format)
 {
     std::map<std::string, std::string>::iterator toFind = format.find(date);
+    std::cout << date << " => " << value << " = ";
     if (toFind == format.end())
     {
         format[date] = value;
@@ -182,20 +162,11 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
     std::cout << "Start Working On Input..." << '\n' << std::endl;
     //Try Open data.csv And Store It In A map Container
     this->dataCsv.open("data.csv", std::ios::in);
-    if (!this->dataCsv) throw ("I Can't Found [data.csv], Try Again...");
+    if (!this->dataCsv) throw ("I Can't Found [data.csv], Try Again... ❌");
     while (std::getline(this->dataCsv, this->buffer))
     {
         this->format[this->buffer.substr(0, 10)] = this->buffer.substr(11);
     }
-    /*--------------------------------------------------------------------------*/
-    // std::map<std::string, std::string>::iterator start = this->format.begin();
-    // std::map<std::string, std::string>::iterator end = this->format.end();
-    // while (start != end)
-    // {
-    //     std::cout << start->first << ',' << start->second << '\n';
-    //     start++;
-    // }
-    /*--------------------------------------------------------------------------*/
     //Try To Open Input File And Pars It's Elements
     this->inputFile.open(fileName.c_str(), std::ios::in);
     if (!this->inputFile) throw ("Error: could not open file ❌");
@@ -213,12 +184,12 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
     {
         if (!buffer[0]) continue;
         checker = makeTheThingsHappened();
-        if      (checker == 1) std::cout << "Error: bad input => " << buffer << std::endl;
-        else if (checker == 2) std::cout << "Error: too large a number." << std::endl;
-        else if (checker == 3) std::cout << "Error: not a positive number." << std::endl;
-        std::cout << "==================================================" << std::endl;
+        if      (checker == 1) std::cout << "Error: bad input => " << buffer << " ❌" <<std::endl;
+        else if (checker == 2) std::cout << "Error: too large a number ❌" << std::endl;
+        else if (checker == 3) std::cout << "Error: not a positive number ❌" << std::endl;
     }
-    this->dataCsv.close(); this->inputFile.close();
+    this->dataCsv.close();
+    this->inputFile.close();
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
