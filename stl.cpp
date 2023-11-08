@@ -2,7 +2,7 @@
 #include <vector>
 #include <list>
 #include <stack>
-
+#include <algorithm>
 int main()
 {
     // int p[] = {44454,6456543,5,43,435,2};
@@ -27,5 +27,9 @@ int main()
     // std::list<int>::iterator it = a.begin();
     // std::cout << *it << '\n';
     std::stack<int> ms;
-    std::cout << ms.empty() << true << '\n';
+    std::vector<int> a;
+    a.push_back(11);
+    std::vector<int>::iterator it = std::find(a.begin(), a.end(), 11);
+    if (it != a.end())
+        std::cout << *it << '\n';
 }

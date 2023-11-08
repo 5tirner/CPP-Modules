@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 00:18:31 by zasabri           #+#    #+#             */
-/*   Updated: 2023/10/22 03:17:38 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/08 18:44:10 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ template<typename PARAM>void func(PARAM element)
     std::cout << &element << " From This Address This Element Call The  Function" << '\n';
 }
 
-template<typename ITER>void iter(ITER *arrAddress, int arrLen, void(*func)(ITER element))
+template<typename ITER>void iter(ITER *arrAddress, int arrLen, void(*func)(ITER const &element))
 {
     if (arrAddress)
     {

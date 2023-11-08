@@ -27,11 +27,12 @@ class check
 
 int main()
 {
-    int (*ptr)(int, int);
-    ptr = &func;
-    std::cout << &ptr << std::endl;
-    std::cout << (*ptr)(9, 1) << std::endl;
-    fk g;
-    void    (fk::*gethello)(std::string name) = {&fk::printHello};
-    (g.*gethello)("Zakaria");
+    // int (*ptr)(int, int);
+    // ptr = &func;
+    // std::cout << &ptr << std::endl;
+    // std::cout << (*ptr)(9, 1) << std::endl;
+    // fk g;
+    // void    (fk::*gethello)(std::string name) = {&fk::printHello};
+    // (g.*gethello)("Zakaria");
+    std::cout << 7.2f << '\n';
 }

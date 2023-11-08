@@ -6,12 +6,15 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:26:16 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/08 04:15:38 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/08 04:41:09 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <algorithm>
+#include <cstring>
+#include <map>
+#include <string>
 
 /*Pars The Input*/
 
@@ -117,11 +120,24 @@ int checkDate(std::string date)
 void    outPutResult(std::string date,
         std::string value, std::map<std::string, std::string> format)
 {
-    std::cout << "Wait For Calcul The Result" << '\n';
-    if (format.find(date) == format.end())
-        std::cout << value << " Can't Proccess It Now" << '\n';
+    std::map<std::string, std::string>::iterator toFind = format.find(date);
+    if (toFind == format.end())
+    {
+        format[date] = value;
+        std::map<std::string, std::string>::iterator getBack = format.find(date);
+        getBack--;
+        if (std::strchr(value.c_str(), '.') || std::strchr(getBack->second.c_str(), '.'))
+            std::cout << std::stod(getBack->second) * std::stod(value) << '\n';
+        else
+            std::cout << std::stoi(getBack->second) * std::stoi(value) << '\n';
+    }
     else
-        std::cout << "All Is Good" << '\n';
+    {
+        if (std::strchr(value.c_str(), '.') || std::strchr(toFind->second.c_str(), '.'))
+            std::cout << std::stod(toFind->second) * std::stod(value) << '\n';
+        else
+            std::cout << std::stoi(toFind->second) * std::stoi(value) << '\n';
+    }
 }
 
 //Parsing And Check The Validity Of Date And Value And Get Result
