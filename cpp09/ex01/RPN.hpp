@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 16:25:11 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/08 20:36:35 by zasabri          ###   ########.fr       */
+/*   Created: 2023/11/08 20:17:01 by zasabri           #+#    #+#             */
+/*   Updated: 2023/11/08 21:37:09 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#ifndef RPN_HPP
+# define RPN_HPP
 
-int main(int ac, char **av)
+# include <iostream>
+# include <vector>
+
+class   RPN
 {
-    if (ac != 2)
-        std::cerr << "Error: could not open file ❌" << std::endl;
-    else
-    {
-        try
-        {
-            BitcoinExchange obj(av[1]);
-        }
-        catch (const char *err)
-        {
-            std::cout << err << std::endl;
-        }
-    }
-    return (0);
-}
+    private:
+        std::vector<char> rpnVec;
+    public:
+        RPN(void);
+        RPN(std::string operation);
+        RPN(const RPN &other);
+        RPN&operator=(const RPN &other);
+        ~RPN(void);
+};
+
+#endif

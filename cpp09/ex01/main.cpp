@@ -5,27 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 16:25:11 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/08 20:36:35 by zasabri          ###   ########.fr       */
+/*   Created: 2023/11/08 20:17:50 by zasabri           #+#    #+#             */
+/*   Updated: 2023/11/08 22:20:53 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
 int main(int ac, char **av)
 {
     if (ac != 2)
-        std::cerr << "Error: could not open file ❌" << std::endl;
+        std::cerr << "Invalid Number Of Argements " << '\n';
     else
     {
         try
         {
-            BitcoinExchange obj(av[1]);
+            RPN obj(av[1]);
         }
         catch (const char *err)
         {
-            std::cout << err << std::endl;
+            std::cerr << err << '\n';
         }
     }
-    return (0);
 }
