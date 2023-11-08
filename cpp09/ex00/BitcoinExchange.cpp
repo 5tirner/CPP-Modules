@@ -6,19 +6,12 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:26:16 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/07 19:45:10 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/08 04:15:38 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <cctype>
-#include <cstring>
-#include <fstream>
-#include <ios>
-#include <iostream>
-#include <iterator>
-#include <stdexcept>
-#include <string>
+#include <algorithm>
 
 /*Pars The Input*/
 
@@ -109,10 +102,30 @@ int checkDate(std::string date)
         return (1);
     if (y == 2022 && m == 3 && d > 29)
         return (1);
+    if (m == 2 && y % 4 == 0 && d > 28)
+        return (1);
+    if (m == 4 || m == 6 || m == 9 || m == 11)
+    {
+        if (d > 30)
+            return (1);
+    }
     return (0);
 }
 
-//Satrt Check And Pars
+//OutPut Maker
+
+void    outPutResult(std::string date,
+        std::string value, std::map<std::string, std::string> format)
+{
+    std::cout << "Wait For Calcul The Result" << '\n';
+    if (format.find(date) == format.end())
+        std::cout << value << " Can't Proccess It Now" << '\n';
+    else
+        std::cout << "All Is Good" << '\n';
+}
+
+//Parsing And Check The Validity Of Date And Value And Get Result
+
 int BitcoinExchange::makeTheThingsHappened(void)
 {
     int             i = 0;
@@ -138,6 +151,7 @@ int BitcoinExchange::makeTheThingsHappened(void)
         || checkDate(firstPart) || checkValue(lastPart)) return (1);
     else if (checkBigNUmbers(lastPart)) return (2);
     else if (lastPart[0] == '-')               return (3);
+    outPutResult(firstPart, lastPart, this->format);
     return (0);
 }
 
@@ -157,6 +171,15 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
     {
         this->format[this->buffer.substr(0, 10)] = this->buffer.substr(11);
     }
+    /*--------------------------------------------------------------------------*/
+    // std::map<std::string, std::string>::iterator start = this->format.begin();
+    // std::map<std::string, std::string>::iterator end = this->format.end();
+    // while (start != end)
+    // {
+    //     std::cout << start->first << ',' << start->second << '\n';
+    //     start++;
+    // }
+    /*--------------------------------------------------------------------------*/
     //Try To Open Input File And Pars It's Elements
     this->inputFile.open(fileName.c_str(), std::ios::in);
     if (!this->inputFile) throw ("Error: could not open file ❌");
@@ -177,7 +200,6 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
         if      (checker == 1) std::cout << "Error: bad input => " << buffer << std::endl;
         else if (checker == 2) std::cout << "Error: too large a number." << std::endl;
         else if (checker == 3) std::cout << "Error: not a positive number." << std::endl;
-        else                   std::cout << "Good Input" << std::endl;
         std::cout << "==================================================" << std::endl;
     }
     this->dataCsv.close(); this->inputFile.close();
