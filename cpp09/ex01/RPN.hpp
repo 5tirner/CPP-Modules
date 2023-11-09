@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:17:01 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/09 10:37:24 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/09 10:38:28 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ std::string collectOperators(std::string &operation, unsigned int *i);
 int         checkSyntax(std::string &all, unsigned long i);
 void        fillMyVector(std::string &Numbers, std::string &Operators, std::vector<char> &myVec);
 void        fillMyVector2(std::string &Numbers, std::string &Operators, std::vector<char> &myVec);
+
 #endif
