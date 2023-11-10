@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:26:16 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/08 20:11:08 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/11 00:51:55 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,7 @@ int checkDate(std::string date)
     if (y == 2009 && m == 1 && d < 2)                               return (1);
     if (y == 2022 && m == 3 && d > 29)                              return (1);
     if (m == 2 && y % 4 == 0 && d > 28)                             return (1);
-    if (m == 4 || m == 6 || m == 9 || m == 11)
-    {
-        if (d > 30) return (1);
-    }
+    if (m == 4 || m == 6 || m == 9 || m == 11)        {if (d > 30) return (1);}
     return (0);
 }
 
