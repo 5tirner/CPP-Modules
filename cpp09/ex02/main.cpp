@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:21 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/09 11:05:22 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/11 03:09:15 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main(int ac, char **av)
         std::cerr << "Invalid Number Of Argements" << '\n';
     else
     {
-        std::deque<int> container1;
+        std::list<int> container1;
         try
         {
             int i = 1;

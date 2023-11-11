@@ -6,12 +6,12 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/09 11:09:43 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/11 03:27:02 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <deque>
+#include <utility>
 
 /*Orthodox Canonical Form*/
 
@@ -20,11 +20,28 @@ PmergeMe::PmergeMe(void)
     std::cout << "PmergeMe Constructor Called" << '\n';
 }
 
-PmergeMe::PmergeMe(std::deque<int> container1)
+PmergeMe::PmergeMe(std::list<int> container1)
 {
-    std::cout << "| ";
-    for (unsigned int i = 0; i < container1.size(); i++)
-        std::cout << container1[i] << " | ";
+    std::list<int>::iterator it = container1.begin();
+    while (it != container1.end())
+    {
+        toFill.push_back(*it);
+        if (toFill.size() == 2)
+        {
+            if (this->toFill[0] > this->toFill[1]) std::swap(this->toFill[0], this->toFill[1]);
+            this->container2.push_back(this->toFill); this->toFill.clear();
+        }
+        it++;
+    }
+    for (unsigned int i = 0; i < this->container2.size(); i++)
+    {
+        std::cout << "[ ";
+        for (unsigned int j = 0; j < this->container2[i].size(); j++)
+        {
+            std::cout << this->container2[i][j] << ' ';
+        }
+        std::cout << "]\n";
+    }
     std::cout << '\n';
 }
 
