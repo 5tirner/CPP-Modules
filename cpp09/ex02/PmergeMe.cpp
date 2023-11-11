@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/11 03:27:02 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/11 03:29:04 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,7 @@ PmergeMe::PmergeMe(std::list<int> container1)
         }
         it++;
     }
-    for (unsigned int i = 0; i < this->container2.size(); i++)
-    {
-        std::cout << "[ ";
-        for (unsigned int j = 0; j < this->container2[i].size(); j++)
-        {
-            std::cout << this->container2[i][j] << ' ';
-        }
-        std::cout << "]\n";
-    }
+    if (toFill.size()) this->container2.push_back(toFill);
     std::cout << '\n';
 }
 

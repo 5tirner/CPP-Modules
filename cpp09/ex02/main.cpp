@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:21 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/11 03:09:15 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/11 03:31:03 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void    checkArg(std::string av)
 {
     int i = 0;
+    if(!av[0]) throw ("Error");
     while (av[i])
     {
         if (!std::isdigit(av[i]) && av[i] != '+') throw ("Error");
