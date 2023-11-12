@@ -6,7 +6,7 @@
 #include <stack>
 #include <algorithm>
 
-void fillarr(std::deque<int> arr)
+void fillarr(std::deque<int> &arr)
 {
     int j = 0, i = 0;
     while(j < arr.size())
@@ -14,6 +14,13 @@ void fillarr(std::deque<int> arr)
         arr[j] = i;
         i--;
         j++;
+    }
+    i = 0;
+    std::cout << "\nIn The Function\n";
+    while (i < arr.size())
+    {
+        std::cout << arr[i] << ' ';
+        i++;
     }
 }
 int main()
@@ -48,7 +55,12 @@ int main()
     std::deque<int> arr;
     for (unsigned int i = 0; i < 10; i++)
         arr.push_back(i);
-    fillarr(arr);
+    std::cout << "Before\n";
     for (unsigned int i = 0; i < arr.size(); i++)
-        std::cout << arr[i] << '\n';
+        std::cout << arr[i] << ' ';
+    fillarr(arr);
+    std::cout << "\nAfter\n";
+    for (unsigned int i = 0; i < arr.size(); i++)
+        std::cout << arr[i] << ' ';
+    std::cout << '\n';
 }
