@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/12 20:57:03 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:32:56 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,11 @@ PmergeMe::PmergeMe(std::vector<int> container1, int elements)
 {
     unsigned long i = 0;
     clock_t start = clock();
+    std::cout << "Before: ";
+    for (unsigned int i = 0; i < 5 && i < container1.size(); i++)
+        std::cout << container1[i] << ' ';
+    if (container1.size() > 5) std::cout << "[...]";
+    std::cout << '\n';
     while (i < container1.size())
     {
         toFill.push_back(container1[i]);
@@ -131,12 +136,17 @@ PmergeMe::PmergeMe(std::vector<int> container1, int elements)
     }
     mergeSort(this->arr1, 0, this->arr1.size() - 1);
     mergeSort(this->arr2, 0, this->arr2.size() - 1);
+    inserting(container1, this->arr1, this->arr2);
+    std::cout << "After:  ";
+    for (unsigned int i = 0; i < 5 && i < container1.size(); i++)
+        std::cout << container1[i] << ' ';
+    if (container1.size() > 5) std::cout << "[...]";
+    std::cout << '\n';
     clock_t end = clock();
     double time = (end - start) / (double)CLOCKS_PER_SEC;
     std::cout << "Time to process a range of" << elements
               << " elements with std::[..] : "
               << std::fixed << time << " us"<< '\n';
-    inserting(container1, this->arr1, this->arr2);
     this->arr1.clear(), this->arr2.clear(), toFill.clear();
 }
 
