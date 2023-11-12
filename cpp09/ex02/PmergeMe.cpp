@@ -6,12 +6,11 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/11 03:29:04 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/12 11:33:49 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <utility>
 
 /*Orthodox Canonical Form*/
 
@@ -20,21 +19,42 @@ PmergeMe::PmergeMe(void)
     std::cout << "PmergeMe Constructor Called" << '\n';
 }
 
-PmergeMe::PmergeMe(std::list<int> container1)
+PmergeMe::PmergeMe(std::vector<int> container1, int elements)
 {
-    std::list<int>::iterator it = container1.begin();
-    while (it != container1.end())
+    (void)elements;
+    unsigned long i = 0;
+    //time_t  start, end;
+    //time(&start);
+    while (i < container1.size())
     {
-        toFill.push_back(*it);
+        toFill.push_back(container1[i]);
         if (toFill.size() == 2)
         {
             if (this->toFill[0] > this->toFill[1]) std::swap(this->toFill[0], this->toFill[1]);
-            this->container2.push_back(this->toFill); this->toFill.clear();
+            this->container2.push_back(this->toFill);
+            this->toFill.clear();
         }
-        it++;
+        i++;
     }
     if (toFill.size()) this->container2.push_back(toFill);
-    std::cout << '\n';
+    toFill.clear();
+    for (unsigned int i = 0; i < this->container2.size(); i++)
+    {
+        this->arr1.push_back(this->container2[i][0]);
+        if (this->container2[i].size() == 2) this->arr2.push_back(this->container2[i][1]);
+    }
+    // std::cout << "Arr1:" << '\n';
+    // for (unsigned int i = 0; i < this->arr1.size(); i++)
+    //     std::cout << this->arr1[i] << '\n';
+    // std::cout << "Arr2:" << '\n';
+    // for (unsigned int i = 0; i < this->arr2.size(); i++)
+    //     std::cout << this->arr2[i] << '\n';
+    // time(&end);
+    // double  time = (double)(end - start) / 1000000;
+    // std::cout.precision(5);
+    // std::cout << "Time to process a range of " << elements
+    //           << " elements with std::[..] : " << std::fixed << time
+    //           << " us" << '\n';
 }
 
 PmergeMe::PmergeMe(const PmergeMe &other)

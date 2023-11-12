@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:17:38 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/10 10:47:16 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/12 11:35:28 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,9 +151,9 @@ RPN::RPN(std::string operation)
                 this->rpnStack.push(operation[i] - 48);
             else
             {
-                if (this->rpnStack.size() < 2) throw ("Error1");
+                if (this->rpnStack.size() < 2) throw ("Error");
                 op = operators(operation[i]);
-                if (op == 'f') throw ("Error2");
+                if (op == 'f') throw ("Error");
                 collecter = this->rpnStack.top();
                 this->rpnStack.pop();
                 std::cout << collecter << "  " << op << "  " << this->rpnStack.top() << '\n';
@@ -170,7 +170,7 @@ RPN::RPN(std::string operation)
             i++;
         }
     }
-    if (this->rpnStack.size() != 1) throw ("Error3");
+    if (this->rpnStack.size() != 1) throw ("Error");
     std::cout << this->rpnStack.top() << '\n'; this->rpnStack.pop();
 }
 

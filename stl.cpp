@@ -1,8 +1,21 @@
+#include <deque>
 #include <iostream>
+#include <type_traits>
 #include <vector>
 #include <list>
 #include <stack>
 #include <algorithm>
+
+void fillarr(std::deque<int> arr)
+{
+    int j = 0, i = 0;
+    while(j < arr.size())
+    {
+        arr[j] = i;
+        i--;
+        j++;
+    }
+}
 int main()
 {
     // int p[] = {44454,6456543,5,43,435,2};
@@ -26,10 +39,16 @@ int main()
     // a.push_back(1);
     // std::list<int>::iterator it = a.begin();
     // std::cout << *it << '\n';
-    std::stack<int> ms;
-    std::vector<int> a;
-    a.push_back(11);
-    std::vector<int>::iterator it = std::find(a.begin(), a.end(), 11);
-    if (it != a.end())
-        std::cout << *it << '\n';
+    // std::stack<int> ms;
+    // std::vector<int> a;
+    // a.push_back(11);
+    // std::vector<int>::iterator it = std::find(a.begin(), a.end(), 11);
+    // if (it != a.end())
+    //     std::cout << *it << '\n';
+    std::deque<int> arr;
+    for (unsigned int i = 0; i < 10; i++)
+        arr.push_back(i);
+    fillarr(arr);
+    for (unsigned int i = 0; i < arr.size(); i++)
+        std::cout << arr[i] << '\n';
 }

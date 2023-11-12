@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:21 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/11 03:31:03 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/12 11:28:33 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int main(int ac, char **av)
         std::cerr << "Invalid Number Of Argements" << '\n';
     else
     {
-        std::list<int> container1;
+        std::vector<int> container1;
+        container1.reserve(ac);
         try
         {
             int i = 1;
@@ -58,7 +59,7 @@ int main(int ac, char **av)
             std::cerr << err << '\n';
             return (1);
         }
-        PmergeMe obj(container1);
+        PmergeMe obj(container1, ac - 1);
     }
     return (0);
 }
