@@ -6,11 +6,100 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/12 11:33:49 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/12 20:57:03 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <cmath>
+#include <ctime>
+#include <sys/select.h>
+
+/*inserting and final sort*/
+
+void inserting(std::vector<int> &container1, std::deque<int> &arr1, std::deque<int> &arr2)
+{
+    unsigned long i = 0, i1 = 0, i2 = 0;
+    while (i1 < arr1.size() && i2 < arr2.size())
+    {
+        if (arr1[i1] < arr2[i2])
+        {
+            container1[i] = arr1[i1];
+            i1++;
+        }
+        else
+        {
+            container1[i] = arr2[i2];
+            i2++;
+        }
+        i++;
+    }
+    while (i1 < arr1.size())
+    {
+        container1[i] = arr1[i1];
+        i1++;
+        i++;
+    }
+    while (i2 < arr2.size())
+    {
+        container1[i] = arr2[i2];
+        i2++;
+        i++;
+    }
+}
+
+/*divide-and-conquer-and-sorting*/
+
+void    devideAndConquer(std::deque<int> &arr, unsigned long start,
+        unsigned long middle, unsigned long end)
+{
+    unsigned long part1 = middle - start + 1, part2 = end - middle, i = -1;
+    int subarr1[part1], subarr2[part2];
+    while (++i < part1)
+        subarr1[i] = arr[start + i];
+    i = -1;
+    while (++i < part2)
+        subarr2[i] = arr[middle + 1 + i];
+    unsigned long i1 = 0, i2 = 0, merger = start;
+    while (i1 < part1 && i2 < part2)
+    {
+        if (subarr1[i1] < subarr2[i2])
+        {
+            arr[merger] = subarr1[i1];
+            i1++;
+        }
+        else
+        {
+            arr[merger] = subarr2[i2];
+            i2++;
+        }
+        merger++;
+    }
+    while (i1 < part1)
+    {
+        arr[merger] = subarr1[i1];
+        i1++;
+        merger++;
+    }
+    while (i2 < part2)
+    {
+        arr[merger] = subarr2[i2];
+        i2++;
+        merger++;
+    }
+}
+
+/*Merge*/
+
+void    mergeSort(std::deque<int> &arr, unsigned long start, unsigned long end)
+{
+    if (start >= end)
+        return ;
+    unsigned long middle = start + (end - start) / 2;
+    mergeSort(arr, start, middle);
+    mergeSort(arr, middle + 1, end);
+    devideAndConquer(arr, start, middle, end);
+}
 
 /*Orthodox Canonical Form*/
 
@@ -21,10 +110,8 @@ PmergeMe::PmergeMe(void)
 
 PmergeMe::PmergeMe(std::vector<int> container1, int elements)
 {
-    (void)elements;
     unsigned long i = 0;
-    //time_t  start, end;
-    //time(&start);
+    clock_t start = clock();
     while (i < container1.size())
     {
         toFill.push_back(container1[i]);
@@ -37,24 +124,20 @@ PmergeMe::PmergeMe(std::vector<int> container1, int elements)
         i++;
     }
     if (toFill.size()) this->container2.push_back(toFill);
-    toFill.clear();
     for (unsigned int i = 0; i < this->container2.size(); i++)
     {
         this->arr1.push_back(this->container2[i][0]);
         if (this->container2[i].size() == 2) this->arr2.push_back(this->container2[i][1]);
     }
-    // std::cout << "Arr1:" << '\n';
-    // for (unsigned int i = 0; i < this->arr1.size(); i++)
-    //     std::cout << this->arr1[i] << '\n';
-    // std::cout << "Arr2:" << '\n';
-    // for (unsigned int i = 0; i < this->arr2.size(); i++)
-    //     std::cout << this->arr2[i] << '\n';
-    // time(&end);
-    // double  time = (double)(end - start) / 1000000;
-    // std::cout.precision(5);
-    // std::cout << "Time to process a range of " << elements
-    //           << " elements with std::[..] : " << std::fixed << time
-    //           << " us" << '\n';
+    mergeSort(this->arr1, 0, this->arr1.size() - 1);
+    mergeSort(this->arr2, 0, this->arr2.size() - 1);
+    clock_t end = clock();
+    double time = (end - start) / (double)CLOCKS_PER_SEC;
+    std::cout << "Time to process a range of" << elements
+              << " elements with std::[..] : "
+              << std::fixed << time << " us"<< '\n';
+    inserting(container1, this->arr1, this->arr2);
+    this->arr1.clear(), this->arr2.clear(), toFill.clear();
 }
 
 PmergeMe::PmergeMe(const PmergeMe &other)

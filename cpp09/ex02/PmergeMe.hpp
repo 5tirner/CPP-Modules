@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:11:00 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/12 11:27:44 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/12 18:26:47 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <cctype>
 # include <vector>
 # include <ctime>
+# include <sys/time.h>
 
 class   PmergeMe
 {
@@ -35,7 +36,8 @@ class   PmergeMe
 };
 
 void    checkArg(std::string av);
-void    mergeSort(std::deque<int> arr, unsigned long start, unsigned long end);
-void    merge(std::deque<int> arr, unsigned long start, unsigned long middle, unsigned long end);
+void    mergeSort(std::deque<int> &arr, unsigned long start, unsigned long end);
+void    devideAndConquer(std::deque<int> &arr, unsigned long start,
+        unsigned long middle, unsigned long end);
 
 #endif
