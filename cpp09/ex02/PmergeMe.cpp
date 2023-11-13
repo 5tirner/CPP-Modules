@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/12 21:32:56 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/13 13:29:08 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,26 +117,29 @@ PmergeMe::PmergeMe(std::vector<int> container1, int elements)
         std::cout << container1[i] << ' ';
     if (container1.size() > 5) std::cout << "[...]";
     std::cout << '\n';
-    while (i < container1.size())
+    if (container1.size() > 1)
     {
-        toFill.push_back(container1[i]);
-        if (toFill.size() == 2)
+        while (i < container1.size())
         {
-            if (this->toFill[0] > this->toFill[1]) std::swap(this->toFill[0], this->toFill[1]);
-            this->container2.push_back(this->toFill);
-            this->toFill.clear();
+            toFill.push_back(container1[i]);
+            if (toFill.size() == 2)
+            {
+                if (this->toFill[0] > this->toFill[1]) std::swap(this->toFill[0], this->toFill[1]);
+                this->container2.push_back(this->toFill);
+                this->toFill.clear();
+            }
+            i++;
         }
-        i++;
+        if (toFill.size()) this->container2.push_back(toFill);
+        for (unsigned int i = 0; i < this->container2.size(); i++)
+        {
+            this->arr1.push_back(this->container2[i][0]);
+            if (this->container2[i].size() == 2) this->arr2.push_back(this->container2[i][1]);
+        }
+        mergeSort(this->arr1, 0, this->arr1.size() - 1);
+        mergeSort(this->arr2, 0, this->arr2.size() - 1);
+        inserting(container1, this->arr1, this->arr2);
     }
-    if (toFill.size()) this->container2.push_back(toFill);
-    for (unsigned int i = 0; i < this->container2.size(); i++)
-    {
-        this->arr1.push_back(this->container2[i][0]);
-        if (this->container2[i].size() == 2) this->arr2.push_back(this->container2[i][1]);
-    }
-    mergeSort(this->arr1, 0, this->arr1.size() - 1);
-    mergeSort(this->arr2, 0, this->arr2.size() - 1);
-    inserting(container1, this->arr1, this->arr2);
     std::cout << "After:  ";
     for (unsigned int i = 0; i < 5 && i < container1.size(); i++)
         std::cout << container1[i] << ' ';
