@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/13 15:47:52 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/13 16:18:12 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 /*inserting and final sort*/
 
-void inserting(std::vector<int> &container1, std::vector<int> &arr1, std::vector<int> &arr2)
+template <typename T>
+void inserting(T &container1, T &arr1, T &arr2)
 {
     unsigned long i = 0, i1 = 0, i2 = 0;
     while (i1 < arr1.size() && i2 < arr2.size())
@@ -46,8 +47,8 @@ void inserting(std::vector<int> &container1, std::vector<int> &arr1, std::vector
 }
 
 /*divide-and-conquer-and-sorting*/
-
-void    devideAndConquer(std::vector<int> &arr, unsigned long start,
+template <typename T>
+void    devideAndConquer(T &arr, unsigned long start,
         unsigned long middle, unsigned long end)
 {
     unsigned long part1 = middle - start + 1, part2 = end - middle, i = -1;
@@ -88,7 +89,8 @@ void    devideAndConquer(std::vector<int> &arr, unsigned long start,
 
 /*Merge*/
 
-void    mergeSort(std::vector<int> &arr, unsigned long start, unsigned long end)
+template <typename T>
+void    mergeSort(T &arr, unsigned long start, unsigned long end)
 {
     if (start >= end)
         return ;
@@ -134,7 +136,7 @@ PmergeMe::PmergeMe(std::vector<int> container1, int elements)
         }
         if (toFill.size())
             this->vec.push_back(toFill);
-        for (unsigned int i = 0; i < vec.size(); i++)
+        for (unsigned int i = 0; i < this->vec.size(); i++)
         {
             arr1.push_back(this->vec[i][0]);
             if (this->vec[i].size() == 2)
@@ -160,56 +162,56 @@ PmergeMe::PmergeMe(std::vector<int> container1, int elements)
 
 /*Paramitrize 2*/
 
-// PmergeMe::PmergeMe(std::deque<int> container1, int elements)
-// {
-//     unsigned long i = 0;
-//     clock_t start = clock();
-//     std::cout << "Before: ";
-//     for (unsigned int i = 0; i < 5 && i < container1.size(); i++)
-//         std::cout << container1[i] << ' ';
-//     if (container1.size() > 5)
-//         std::cout << "[...]";
-//     std::cout << '\n';
-//     if (container1.size() > 1)
-//     {
-//         std::deque<int> toFill, arr1, arr2;
-//         while (i < container1.size())
-//         {
-//             toFill.push_back(container1[i]);
-//             if (toFill.size() == 2)
-//             {
-//                 if (toFill[0] > toFill[1])
-//                     std::swap(toFill[0], toFill[1]);
-//                 this->deque.push_back(toFill);
-//                 toFill.clear();
-//             }
-//             i++;
-//         }
-//         if (toFill.size())
-//             this->deque.push_back(toFill);
-//         for (unsigned int i = 0; i < vec.size(); i++)
-//         {
-//             arr1.push_back(this->vec[i][0]);
-//             if (this->vec[i].size() == 2)
-//                 arr2.push_back(this->vec[i][1]);
-//         }
-//         mergeSort(arr1, 0, arr1.size() - 1);
-//         mergeSort(arr2, 0, arr2.size() - 1);
-//         inserting(container1, arr1, arr2);
-//     }
-//     std::cout << "After:  ";
-//     for (unsigned int i = 0; i < 5 && i < container1.size(); i++)
-//         std::cout << container1[i] << ' ';
-//     if (container1.size() > 5)
-//         std::cout << "[...]";
-//     std::cout << '\n';
-//     clock_t end = clock();
-//     double time = (end - start) / (double)CLOCKS_PER_SEC;
-//     std::cout.precision(5);
-//     std::cout << "Time to process a range of" << elements
-//               << " elements with std::[..] : "
-//               << std::fixed << time << " us"<< '\n';
-// }
+PmergeMe::PmergeMe(std::deque<int> container2, int elements)
+{
+    unsigned long i = 0;
+    clock_t start = clock();
+    std::cout << "Before: ";
+    for (unsigned int i = 0; i < 5 && i < container2.size(); i++)
+        std::cout << container2[i] << ' ';
+    if (container2.size() > 5)
+        std::cout << "[...]";
+    std::cout << '\n';
+    if (container2.size() > 1)
+    {
+        std::deque<int> toFill, arr1, arr2;
+        while (i < container2.size())
+        {
+            toFill.push_back(container2[i]);
+            if (toFill.size() == 2)
+            {
+                if (toFill[0] > toFill[1])
+                    std::swap(toFill[0], toFill[1]);
+                this->deque.push_back(toFill);
+                toFill.clear();
+            }
+            i++;
+        }
+        if (toFill.size())
+            this->deque.push_back(toFill);
+        for (unsigned int i = 0; i < this->deque.size(); i++)
+        {
+            arr1.push_back(this->deque[i][0]);
+            if (this->deque[i].size() == 2)
+                arr2.push_back(this->deque[i][1]);
+        }
+        mergeSort(arr1, 0, arr1.size() - 1);
+        mergeSort(arr2, 0, arr2.size() - 1);
+        inserting(container2, arr1, arr2);
+    }
+    std::cout << "After:  ";
+    for (unsigned int i = 0; i < 5 && i < container2.size(); i++)
+        std::cout << container2[i] << ' ';
+    if (container2.size() > 5)
+        std::cout << "[...]";
+    std::cout << '\n';
+    clock_t end = clock();
+    double time = (end - start) / (double)CLOCKS_PER_SEC;
+    std::cout.precision(5);
+    std::cout << "Time to process a range of" << elements
+              << " elements with std::[..] : "
+              << std::fixed << time << " us"<< '\n';
+}
 
 PmergeMe::PmergeMe(const PmergeMe &other)
 {

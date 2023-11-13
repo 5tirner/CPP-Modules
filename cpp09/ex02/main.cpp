@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:21 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/13 15:48:18 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/13 16:10:31 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ int main(int ac, char **av)
             while (av[i])
             {
                 checkArg(av[i]);
-                container1.push_back(std::stoi(av[i]));
+                int digit = std::stoi(av[i]);
+                container1.push_back(digit);
+                container2.push_back(digit);
                 i++;
             }
         }
@@ -62,7 +64,7 @@ int main(int ac, char **av)
             return (1);
         }
         PmergeMe obj1(container1, ac - 1);
-        //PmergeMe obj2(container2, ac -1);
+        PmergeMe obj2(container2, ac -1);
     }
     return (0);
 }

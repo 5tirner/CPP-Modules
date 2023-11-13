@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:11:00 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/13 15:48:04 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/13 16:03:13 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ class   PmergeMe
 };
 
 void    checkArg(std::string av);
-void    mergeSort(std::vector<int> &arr, unsigned long start, unsigned long end);
-void    devideAndConquer(std::vector<int> &arr, unsigned long start,
+template<typename T>
+void    mergeSort(T &arr, unsigned long start, unsigned long end);
+template<typename T>
+void    devideAndConquer(T &arr, unsigned long start,
         unsigned long middle, unsigned long end);
 
 #endif
