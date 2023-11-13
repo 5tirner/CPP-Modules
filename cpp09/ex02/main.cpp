@@ -6,11 +6,12 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:21 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/13 13:27:20 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/13 15:48:18 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <deque>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -43,6 +44,7 @@ int main(int ac, char **av)
     else
     {
         std::vector<int> container1;
+        std::deque<int> container2;
         container1.reserve(ac);
         try
         {
@@ -59,7 +61,8 @@ int main(int ac, char **av)
             std::cerr << err << '\n';
             return (1);
         }
-        PmergeMe obj(container1, ac - 1);
+        PmergeMe obj1(container1, ac - 1);
+        //PmergeMe obj2(container2, ac -1);
     }
     return (0);
 }

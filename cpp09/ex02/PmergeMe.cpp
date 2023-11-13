@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/13 15:34:42 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/13 15:47:52 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ PmergeMe::PmergeMe(void)
     std::cout << "PmergeMe Constructor Called" << '\n';
 }
 
+/*Paramitrize 1*/
+
 PmergeMe::PmergeMe(std::vector<int> container1, int elements)
 {
     unsigned long i = 0;
@@ -155,6 +157,59 @@ PmergeMe::PmergeMe(std::vector<int> container1, int elements)
               << " elements with std::[..] : "
               << std::fixed << time << " us"<< '\n';
 }
+
+/*Paramitrize 2*/
+
+// PmergeMe::PmergeMe(std::deque<int> container1, int elements)
+// {
+//     unsigned long i = 0;
+//     clock_t start = clock();
+//     std::cout << "Before: ";
+//     for (unsigned int i = 0; i < 5 && i < container1.size(); i++)
+//         std::cout << container1[i] << ' ';
+//     if (container1.size() > 5)
+//         std::cout << "[...]";
+//     std::cout << '\n';
+//     if (container1.size() > 1)
+//     {
+//         std::deque<int> toFill, arr1, arr2;
+//         while (i < container1.size())
+//         {
+//             toFill.push_back(container1[i]);
+//             if (toFill.size() == 2)
+//             {
+//                 if (toFill[0] > toFill[1])
+//                     std::swap(toFill[0], toFill[1]);
+//                 this->deque.push_back(toFill);
+//                 toFill.clear();
+//             }
+//             i++;
+//         }
+//         if (toFill.size())
+//             this->deque.push_back(toFill);
+//         for (unsigned int i = 0; i < vec.size(); i++)
+//         {
+//             arr1.push_back(this->vec[i][0]);
+//             if (this->vec[i].size() == 2)
+//                 arr2.push_back(this->vec[i][1]);
+//         }
+//         mergeSort(arr1, 0, arr1.size() - 1);
+//         mergeSort(arr2, 0, arr2.size() - 1);
+//         inserting(container1, arr1, arr2);
+//     }
+//     std::cout << "After:  ";
+//     for (unsigned int i = 0; i < 5 && i < container1.size(); i++)
+//         std::cout << container1[i] << ' ';
+//     if (container1.size() > 5)
+//         std::cout << "[...]";
+//     std::cout << '\n';
+//     clock_t end = clock();
+//     double time = (end - start) / (double)CLOCKS_PER_SEC;
+//     std::cout.precision(5);
+//     std::cout << "Time to process a range of" << elements
+//               << " elements with std::[..] : "
+//               << std::fixed << time << " us"<< '\n';
+// }
 
 PmergeMe::PmergeMe(const PmergeMe &other)
 {

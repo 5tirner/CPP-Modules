@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:11:00 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/13 15:36:05 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/13 15:48:04 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class   PmergeMe
     public:
         PmergeMe(void);
         PmergeMe(std::vector<int> container1, int elements);
+        PmergeMe(std::deque<int> container2, int elements);
         PmergeMe(const PmergeMe &other);
         PmergeMe&operator=(const PmergeMe &other);
         ~PmergeMe(void);
