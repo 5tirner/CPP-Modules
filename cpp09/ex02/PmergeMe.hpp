@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:11:00 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/12 18:26:47 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/13 15:36:05 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@
 class   PmergeMe
 {
     private:
-        std::deque<std::deque<int>> container2;
-        std::deque<int>             toFill;
-        std::deque<int>             arr1;
-        std::deque<int>             arr2;
+        std::vector<std::vector<int>> vec;
+        std::deque<std::deque<int>> deque;
     public:
         PmergeMe(void);
         PmergeMe(std::vector<int> container1, int elements);
@@ -36,8 +34,8 @@ class   PmergeMe
 };
 
 void    checkArg(std::string av);
-void    mergeSort(std::deque<int> &arr, unsigned long start, unsigned long end);
-void    devideAndConquer(std::deque<int> &arr, unsigned long start,
+void    mergeSort(std::vector<int> &arr, unsigned long start, unsigned long end);
+void    devideAndConquer(std::vector<int> &arr, unsigned long start,
         unsigned long middle, unsigned long end);
 
 #endif

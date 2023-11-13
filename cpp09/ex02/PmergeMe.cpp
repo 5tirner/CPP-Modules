@@ -6,18 +6,15 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:10 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/13 13:29:08 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/13 15:34:42 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <cmath>
-#include <ctime>
-#include <sys/select.h>
 
 /*inserting and final sort*/
 
-void inserting(std::vector<int> &container1, std::deque<int> &arr1, std::deque<int> &arr2)
+void inserting(std::vector<int> &container1, std::vector<int> &arr1, std::vector<int> &arr2)
 {
     unsigned long i = 0, i1 = 0, i2 = 0;
     while (i1 < arr1.size() && i2 < arr2.size())
@@ -50,7 +47,7 @@ void inserting(std::vector<int> &container1, std::deque<int> &arr1, std::deque<i
 
 /*divide-and-conquer-and-sorting*/
 
-void    devideAndConquer(std::deque<int> &arr, unsigned long start,
+void    devideAndConquer(std::vector<int> &arr, unsigned long start,
         unsigned long middle, unsigned long end)
 {
     unsigned long part1 = middle - start + 1, part2 = end - middle, i = -1;
@@ -91,7 +88,7 @@ void    devideAndConquer(std::deque<int> &arr, unsigned long start,
 
 /*Merge*/
 
-void    mergeSort(std::deque<int> &arr, unsigned long start, unsigned long end)
+void    mergeSort(std::vector<int> &arr, unsigned long start, unsigned long end)
 {
     if (start >= end)
         return ;
@@ -115,42 +112,48 @@ PmergeMe::PmergeMe(std::vector<int> container1, int elements)
     std::cout << "Before: ";
     for (unsigned int i = 0; i < 5 && i < container1.size(); i++)
         std::cout << container1[i] << ' ';
-    if (container1.size() > 5) std::cout << "[...]";
+    if (container1.size() > 5)
+        std::cout << "[...]";
     std::cout << '\n';
     if (container1.size() > 1)
     {
+        std::vector<int> toFill, arr1, arr2;
         while (i < container1.size())
         {
             toFill.push_back(container1[i]);
             if (toFill.size() == 2)
             {
-                if (this->toFill[0] > this->toFill[1]) std::swap(this->toFill[0], this->toFill[1]);
-                this->container2.push_back(this->toFill);
-                this->toFill.clear();
+                if (toFill[0] > toFill[1])
+                    std::swap(toFill[0], toFill[1]);
+                this->vec.push_back(toFill);
+                toFill.clear();
             }
             i++;
         }
-        if (toFill.size()) this->container2.push_back(toFill);
-        for (unsigned int i = 0; i < this->container2.size(); i++)
+        if (toFill.size())
+            this->vec.push_back(toFill);
+        for (unsigned int i = 0; i < vec.size(); i++)
         {
-            this->arr1.push_back(this->container2[i][0]);
-            if (this->container2[i].size() == 2) this->arr2.push_back(this->container2[i][1]);
+            arr1.push_back(this->vec[i][0]);
+            if (this->vec[i].size() == 2)
+                arr2.push_back(this->vec[i][1]);
         }
-        mergeSort(this->arr1, 0, this->arr1.size() - 1);
-        mergeSort(this->arr2, 0, this->arr2.size() - 1);
-        inserting(container1, this->arr1, this->arr2);
+        mergeSort(arr1, 0, arr1.size() - 1);
+        mergeSort(arr2, 0, arr2.size() - 1);
+        inserting(container1, arr1, arr2);
     }
     std::cout << "After:  ";
     for (unsigned int i = 0; i < 5 && i < container1.size(); i++)
         std::cout << container1[i] << ' ';
-    if (container1.size() > 5) std::cout << "[...]";
+    if (container1.size() > 5)
+        std::cout << "[...]";
     std::cout << '\n';
     clock_t end = clock();
     double time = (end - start) / (double)CLOCKS_PER_SEC;
+    std::cout.precision(5);
     std::cout << "Time to process a range of" << elements
               << " elements with std::[..] : "
               << std::fixed << time << " us"<< '\n';
-    this->arr1.clear(), this->arr2.clear(), toFill.clear();
 }
 
 PmergeMe::PmergeMe(const PmergeMe &other)
@@ -164,6 +167,4 @@ PmergeMe&PmergeMe::operator=(const PmergeMe &other)
     return (*this);
 }
 
-PmergeMe::~PmergeMe(void)
-{
-}
+PmergeMe::~PmergeMe(void) {}
