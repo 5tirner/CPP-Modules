@@ -6,11 +6,12 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:13:21 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/13 16:10:31 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/15 11:53:26 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <cstdlib>
 #include <deque>
 #include <iostream>
 #include <stdexcept>
@@ -25,15 +26,6 @@ void    checkArg(std::string av)
         if (!std::isdigit(av[i]) && av[i] != '+') throw ("Error");
         if (av[i] == '+' && i != 0)               throw ("Error");
         i++;
-    }
-    try
-    {
-        std::stoi(av);
-    }
-    catch (std::out_of_range &err)
-    {
-        err.what();
-        throw ("Error");
     }
 }
 
@@ -52,7 +44,7 @@ int main(int ac, char **av)
             while (av[i])
             {
                 checkArg(av[i]);
-                int digit = std::stoi(av[i]);
+                int digit = std::atoi(av[i]);
                 container1.push_back(digit);
                 container2.push_back(digit);
                 i++;
@@ -64,7 +56,7 @@ int main(int ac, char **av)
             return (1);
         }
         PmergeMe obj1(container1, ac - 1);
-        PmergeMe obj2(container2, ac -1);
+        PmergeMe obj2(container2, ac - 1);
     }
     return (0);
 }
