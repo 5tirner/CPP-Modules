@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:26:16 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/11 00:51:55 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/15 11:36:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,22 @@ int checkValue(std::string value)
 
 int checkBigNUmbers(std::string value)
 {
-    if (std::strchr(value.c_str(), '.'))
+    int i = 0;
+    while (value[i] && value[i] == '0')
+        i++;
+    char *s_val = &value[i];
+    if (std::strchr(s_val, '.'))
     {
-        try
-        {
-            if (std::stod(value) > 1000.0) return (1);
-        }
-        catch(std::out_of_range &err) {return (1);}
+        int j = 0;
+        while (s_val && s_val[j] != '.')
+            j++;
+        if (j > 4 || std::atof(s_val) > 1000.0)
+            return (1);
     }
     else
     {
-        try
-        {
-            if (std::stoi(value) > 1000) return (1);
-        }
-        catch (std::out_of_range &err) {return (1);}
+        if (std::strlen(s_val) > 4 || std::atoi(s_val) > 1000)
+            return (1);
     }
     return (0);
 }
@@ -78,11 +79,9 @@ int checkDate(std::string date)
         i++;
     }
     int y, m, d;
-    try
-    {
-        y = std::stoi(year), m = std::stoi(month), d = std::stoi(day);
-    }
-    catch(std::out_of_range &err) {return (1);}
+    y = std::atoi(year.c_str());
+    m = std::atoi(month.c_str());
+    d = std::atoi(day.c_str());
     if (y < 2009 || y > 2022 || m < 1 || m > 12 || d < 0 || d > 31) return (1);
     if (y == 2009 && m == 1 && d < 2)                               return (1);
     if (y == 2022 && m == 3 && d > 29)                              return (1);
@@ -104,16 +103,16 @@ void    outPutResult(std::string date,
         std::map<std::string, std::string>::iterator getBack = format.find(date);
         getBack--;
         if (std::strchr(value.c_str(), '.') || std::strchr(getBack->second.c_str(), '.'))
-            std::cout << std::stod(getBack->second) * std::stod(value) << '\n';
+            std::cout << std::atof(getBack->second.c_str()) * std::atof(value.c_str()) << '\n';
         else
-            std::cout << std::stoi(getBack->second) * std::stoi(value) << '\n';
+            std::cout << std::atoi(getBack->second.c_str()) * std::atoi(value.c_str()) << '\n';
     }
     else
     {
         if (std::strchr(value.c_str(), '.') || std::strchr(toFind->second.c_str(), '.'))
-            std::cout << std::stod(toFind->second) * std::stod(value) << '\n';
+            std::cout << std::atof(toFind->second.c_str()) * std::atof(value.c_str()) << '\n';
         else
-            std::cout << std::stoi(toFind->second) * std::stoi(value) << '\n';
+            std::cout << std::atoi(toFind->second.c_str()) * std::atoi(value.c_str()) << '\n';
     }
 }
 
