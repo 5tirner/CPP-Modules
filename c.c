@@ -12,16 +12,16 @@ void func(int a)
     printf("%d\n", a);
 }
 
-int *hio()
-{
-
-}
+#include <unistd.h>
+#include <string.h>
+#include <fcntl.h>
 int main()
 {
-    int f = 11;
-    int *ptr = &f;
-    static int v = 10;
-    int a = 10;
-    printf("%lu\n%p\n%p\n%d\n", sizeof(ptr), &ptr, ptr, *ptr);
-    //while (1);
+    int fd;
+    char s[5];
+    fd = open("AAAAA", O_CREAT | O_RDWR, 0777);
+    printf("%d\n",fd);
+    write(fd, "hello\n", 6);
+    close(fd);
+    write(fd, "t", 1);
 }

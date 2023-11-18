@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.1337>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:26:16 by zasabri           #+#    #+#             */
-/*   Updated: 2023/11/15 11:36:27 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/11/16 23:17:35 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int checkValue(std::string value)
 int checkBigNUmbers(std::string value)
 {
     int i = 0;
+    if (strchr("+-", value[0])) i++;
     while (value[i] && value[i] == '0')
         i++;
     char *s_val = &value[i];
@@ -85,8 +86,8 @@ int checkDate(std::string date)
     if (y < 2009 || y > 2022 || m < 1 || m > 12 || d < 0 || d > 31) return (1);
     if (y == 2009 && m == 1 && d < 2)                               return (1);
     if (y == 2022 && m == 3 && d > 29)                              return (1);
-    if (m == 2 && y % 4 == 0 && d > 28)                             return (1);
-    if (m == 4 || m == 6 || m == 9 || m == 11)        {if (d > 30) return (1);}
+    if (m == 2 && y % 4 && d > 28)                                  return (1);
+    if (m == 4 || m == 6 || m == 9 || m == 11)        {if (d > 30)  return (1);}
     return (0);
 }
 

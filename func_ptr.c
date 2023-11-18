@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-void print(int a)
+void print()
 {
-    a += 32;
-    printf("%c\n", a);
+    printf("hello\n");
 }
 
 int main()
 {
-    void (*try)(int);
+    void (*try)();
     try = &print;
 
-    (*try)('A');    
+    (*try)();    
 }
