@@ -53,7 +53,7 @@ void    dealWithDouble(std::string &s)
     }
     std::cout << '\n';
     std::cout << "Int:    " << nPart << '\n';
-    std::cout << "Float:  " << s << '\n';
+    std::cout << "Float:  " << s << 'f' << '\n';
     std::cout << "Double: " << nPart << fPart << '\n';
 }
 

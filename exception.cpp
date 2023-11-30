@@ -24,13 +24,15 @@ int positive()
 }
 int main()
 {
-    try
-    {
-        int a = positive();
-        std::cout << a << " Is Positive Number\n";
-    }
-    catch(...)
-    {
-        std::cout << "Number Is Not Positive\n";
-    }
+    // try
+    // {
+    //     int a = positive();
+    //     std::cout << a << " Is Positive Number\n";
+    // }
+    // catch(...)
+    // {
+    //     std::cout << "Number Is Not Positive\n";
+    // }
+    std::cout.precision(5);
+    std::cout << std::fixed << 0.000000000000000000000000000032 * 12 << '\n';
 }
