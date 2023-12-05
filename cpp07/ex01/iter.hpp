@@ -20,7 +20,7 @@ template<typename PARAM>void func(PARAM element)
     std::cout << &element << " From This Address This Element Call The  Function" << '\n';
 }
 
-template<typename ITER>void iter(ITER *arrAddress, int arrLen, void(*func)(ITER const &element))
+template<typename ITER, typename F>void iter(ITER *arrAddress, int arrLen, F func)
 {
     if (arrAddress)
     {

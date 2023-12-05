@@ -77,7 +77,9 @@ void func(char *s)
 }
 int main()
 {
-    char *s;
-    s = malloc(0);
-    func(s);
+    char *s = malloc(0);
+    s[0] = 'c';
+    // s = malloc(0);
+    // func(s);
+    free(s);
 }
